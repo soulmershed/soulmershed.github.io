@@ -1,12 +1,26 @@
 ---
-layout: default
-title: Home
+layout: page
+title: ""
+permalink: /
 ---
 
 # Soulaiman B. Mershed
 
-Author | Systems Thinker | Neuroplasticity & Society  
+Author of long-form work on cognition, systems, and structural dynamics.
+
+---
+
+## Current Work
+
+**Society and Social Media**  
+A structural examination of reinforcement systems, cognitive drift, and long-term societal incentives.
+
+Additional works forthcoming.
+
+---
+
+## Essays & Notes
+
+Selected essays and research notes are published in the Essays section.
 
 This website is currently in beta.
-
-Here I publish essays, research notes, and developments related to my forthcoming books.
