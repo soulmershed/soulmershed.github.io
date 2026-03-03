@@ -1,0 +1,51 @@
+---
+---
+
+@import "minima";
+
+/* Typography (optional) */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.page-content {
+  max-width: 780px;
+}
+
+/* Footnotes */
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.footnotes ol {
+  margin-left: 1.2rem;
+}
+
+.footnotes li {
+  margin-bottom: 0.7rem;
+}
+
+sup {
+  font-size: 0.7rem;
+  vertical-align: super;
+}
+
+sup a {
+  text-decoration: none;
+}
+
+/* Remove the “return” icon styling emphasis (still keeps the backlink) */
+a.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.35rem;
+  opacity: 0.5;
+}
+a.footnote-backref:hover {
+  opacity: 0.9;
+}
