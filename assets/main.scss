@@ -44,10 +44,19 @@ a:hover {
 
 /* hide text logo (space reserved for future logo) */
 
+/* show a small left title link (logo later) */
 .site-title {
-  display: none;
+  display: inline-block;
+  color: #7a7a7a !important;
+  letter-spacing: 0.22rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin: 0;
 }
 
+.site-title:hover {
+  color: #b0b0b0 !important;
+}
 /* navigation */
 
 .site-nav {
