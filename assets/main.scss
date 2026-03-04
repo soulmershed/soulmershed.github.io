@@ -2,35 +2,411 @@
 ---
 
 /* ============================================================
-   MAIN.SCSS (ENTRY POINT)
-   MODIFY:
-   - Add/remove imports as your site grows
-   - Keep this file SMALL: imports only
+   MAIN.SCSS
+   Single-file stylesheet for the entire website.
+
+   MODIFY GUIDE
+   ------------------------------------------------------------
+   SECTION 1  : Global typography and colors
+   SECTION 2  : Header (logo + navigation)
+   SECTION 3  : Homepage layout
+   SECTION 4  : Biography page
+   SECTION 5  : Essays & reading pages
+   SECTION 6  : Utility rules
+   ============================================================ */
+
+
+/* ============================================================
+   IMPORT FONTS + MINIMA THEME
+   (Do NOT remove)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
 
 @import "minima";
 
-/* =======================
-   IMPORT ORDER MATTERS
-   ======================= */
 
-/* MODIFY: site-wide settings (variables) */
-@import "00-settings";
+/* ============================================================
+   SECTION 1 — GLOBAL SITE STYLE
+   ============================================================ */
 
-/* MODIFY: global base styling */
-@import "01-base";
+/* MODIFY: main site colors and typography */
 
-/* MODIFY: header/nav/logo */
-@import "02-header";
+body{
+  background:#000;
+  color:#fff;
 
-/* MODIFY: page-specific sections */
-@import "03-home";
-@import "04-bio";
-@import "05-books";
-@import "06-essays";
-@import "07-links";
+  font-family:"EB Garamond", Garamond, serif;
 
-/* MODIFY: utilities + last overrides */
-@import "99-utilities";
+  font-size:16px;   /* MODIFY: body font size */
+  line-height:1.6;  /* MODIFY: body line height */
+}
+
+
+/* LINKS */
+
+a,
+a:visited{
+  color:#d0d0d0;
+  text-decoration:none;
+}
+
+a:hover,
+a:focus{
+  color:#ffffff;
+  text-decoration:none;
+}
+
+
+/* Remove default footer (optional) */
+
+.site-footer{
+  display:none;
+}
+
+
+/* ============================================================
+   SECTION 2 — HEADER (TOP BAR)
+   ============================================================ */
+
+.site-header{
+  border-bottom:1px solid #111;
+}
+
+
+/* HEADER WRAPPER */
+
+.site-header .wrapper{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  max-width:none;
+
+  /* MODIFY: header padding */
+  padding-left:40px;
+  padding-right:40px;
+
+}
+
+
+/* SITE TITLE (left side) */
+
+.site-title{
+
+  display:flex;
+  align-items:center;
+
+  /* MODIFY: space between logo and text */
+  gap:10px;
+
+  color:#7a7a7a !important;
+
+  /* MODIFY: title letter spacing */
+  letter-spacing:0.22rem;
+
+  /* MODIFY: title size */
+  font-size:0.8rem;
+
+  text-transform:uppercase;
+  margin:0;
+}
+
+.site-title:hover{
+  color:#b0b0b0 !important;
+}
+
+
+/* LOGO */
+
+.site-logo{
+
+  /* MODIFY: logo size */
+  height:24px;
+
+  width:auto;
+  display:block;
+}
+
+
+/* NAVIGATION (right side) */
+
+.site-nav{
+  margin-left:auto;
+}
+
+.site-nav .trigger{
+
+  display:flex;
+
+  /* MODIFY: space between tabs */
+  gap:16px;
+
+  justify-content:flex-end;
+}
+
+
+.site-nav .page-link{
+
+  color:#7a7a7a !important;
+
+  /* MODIFY: tab spacing */
+  letter-spacing:0.18rem;
+
+  /* MODIFY: tab size */
+  font-size:0.8rem;
+
+  text-transform:uppercase;
+}
+
+
+.site-nav .page-link:hover{
+  color:#ffffff !important;
+}
+
+
+/* ============================================================
+   SECTION 3 — HOMEPAGE
+   ============================================================ */
+
+/* Homepage should use:
+   front-matter -> body_class: home
+*/
+
+body.home .page-content{
+
+  height:calc(100vh - 70px);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* HOMEPAGE CENTER BLOCK */
+
+body.home .page-content .wrapper{
+
+  text-align:center;
+
+  /* MODIFY: homepage content width */
+  max-width:760px;
+
+  width:100%;
+}
+
+
+/* Arabic name */
+
+.arabic-name{
+
+  font-family:"Amiri", serif;
+
+  /* MODIFY: Arabic font size */
+  font-size:40px;
+
+  letter-spacing:0.10rem;
+
+  margin-bottom:16px;
+}
+
+
+/* English name */
+
+body.home h1{
+
+  /* MODIFY: main title size */
+  font-size:2rem;
+
+  /* MODIFY: spacing between letters */
+  letter-spacing:0.42em;
+
+  margin-bottom:12px;
+}
+
+
+.tagline{
+
+  color:#aaa;
+
+  /* MODIFY: tagline size */
+  font-size:1.5rem;
+
+}
+
+
+/* ============================================================
+   SECTION 4 — BIOGRAPHY PAGE
+   ============================================================ */
+
+/* biography page should use:
+   front-matter -> body_class: biography
+*/
+
+
+/* Remove Minima width restriction */
+
+body.biography .page-content .wrapper{
+
+  max-width:none;
+  width:100%;
+
+  padding-left:0;
+  padding-right:0;
+
+}
+
+
+/* BIO LAYOUT */
+
+.bio-layout{
+
+  display:grid;
+
+  /* MODIFY: photo width vs text width */
+  grid-template-columns:clamp(280px,38vw,520px) minmax(0,1fr);
+
+  /* MODIFY: space between photo and text */
+  gap:clamp(28px,5vw,70px);
+
+  align-items:center;
+
+  width:100%;
+
+  /* Prevent horizontal scrolling */
+  overflow-x:hidden;
+
+  /* MODIFY: vertical spacing */
+  padding:30px 0;
+}
+
+
+/* PHOTO */
+
+.bio-photo{
+  margin:0;
+}
+
+.bio-photo img{
+
+  width:100%;
+  height:auto;
+
+  display:block;
+
+  /* MODIFY: corner style */
+  border-radius:0;
+}
+
+
+/* TEXT COLUMN */
+
+.bio-content{
+
+  min-width:0;
+
+  /* MODIFY: readable width */
+  max-width:640px;
+
+  margin:0 auto;
+
+  /* MODIFY: padding so text never hits screen edge */
+  padding:0 24px;
+}
+
+
+/* NAME */
+
+.bio-content h1{
+
+  font-size:2.2rem;
+
+  /* MODIFY: spacing between letters */
+  letter-spacing:0.28em;
+
+  margin-bottom:18px;
+}
+
+
+/* ROLE */
+
+.bio-role{
+
+  color:#aaa;
+
+  letter-spacing:0.22em;
+
+  font-size:0.95rem;
+
+  margin-bottom:28px;
+}
+
+
+/* BIO TEXT */
+
+.bio-content p{
+
+  color:#ccc;
+
+  line-height:1.75;
+
+  margin-bottom:16px;
+}
+
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+  .bio-layout{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:20px 18px;
+  }
+
+  .bio-photo img{
+    max-width:360px;
+    margin:0 auto;
+  }
+
+  .bio-content{
+    text-align:center;
+    padding:0;
+  }
+
+}
+
+
+/* ============================================================
+   SECTION 5 — ESSAYS / READING
+   ============================================================ */
+
+.footnotes{
+
+  margin-top:3rem;
+  padding-top:1.5rem;
+
+  border-top:1px solid #222;
+
+  font-size:0.9rem;
+  line-height:1.6;
+
+  color:#d0d0d0;
+}
+
+.footnotes li{
+  margin-bottom:0.6rem;
+}
+
+
+/* ============================================================
+   SECTION 6 — UTILITIES
+   ============================================================ */
+
+/* Prevent images from overflowing */
+
+img{
+  max-width:100%;
+  height:auto;
+}
