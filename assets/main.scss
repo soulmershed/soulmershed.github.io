@@ -19,7 +19,7 @@ body {
   background: #000;
   color: #fff;
   font-family: "EB Garamond", Garamond, serif;
-  font-size: 20px;   /* MODIFY: body font size */
+  font-size: 16px;   /* MODIFY: body font size */
   line-height: 1.6;  /* MODIFY: body line height */
 }
 
@@ -81,7 +81,7 @@ a:focus {
 .site-nav .trigger {
   display: flex;
   justify-content: flex-end;
-  gap: 18px; /* MODIFY: spacing between tabs */
+  gap: 16px; /* MODIFY: spacing between tabs */
 }
 
 .site-nav .page-link {
@@ -158,7 +158,7 @@ a:focus {
 /* MODIFY: English name (you asked smaller) */
 /* English name */
 h1 {
-  font-size: 2.2rem;        /* main size */
+  font-size: 2.0rem;        /* main size */
   letter-spacing: 0.42em;   /* spacing for large screens */
   margin: 0 0 12px 0;
 }
