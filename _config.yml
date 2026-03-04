@@ -1,8 +1,5 @@
-title: "Soulaiman B. Mershed"
-description: "Essays on society, cognition, and structural systems."
-theme: minima
-
 header_pages:
-  - about.md
   - books.md
   - essays.md
+  - bio.md
+  - links.md
