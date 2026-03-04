@@ -1,16 +1,14 @@
 ---
 ---
 
-/* Import fonts */
-
+/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
 
 @import "minima";
 
-
-/* =================================
-   GLOBAL
-================================= */
+/* =========================
+   GLOBAL DARK THEME
+========================= */
 
 body {
   background: #000;
@@ -20,81 +18,71 @@ body {
   line-height: 1.7;
 }
 
-.page-content {
-  max-width: 760px;
-  margin: auto;
+/* Make wrappers transparent (Minima sometimes sets backgrounds) */
+.page-content,
+.wrapper,
+.site-header,
+.site-footer {
+  background: transparent;
 }
 
+/* Narrow, book-like reading column for posts/pages */
+.page-content .wrapper {
+  max-width: 760px;
+}
 
-/* =================================
-   HEADER
-================================= */
+/* Links */
+a {
+  color: #d9d9d9;
+}
+a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   HEADER: logo left, nav right
+   (Minima native, controlled by header_pages)
+========================= */
 
 .site-header {
-  background: #000;
   border-bottom: 1px solid #111;
 }
 
-/* Hide default Minima title/nav */
-
+/* Top-left “logo placeholder”: we use site-title for now.
+   Later you can replace text with an image via CSS background-image. */
 .site-title {
-  display: none;
-}
-
-.site-nav {
-  display: none;
-}
-
-
-/* =================================
-   CUSTOM HEADER
-================================= */
-
-.custom-header {
-  background: #000;
-}
-
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Logo placeholder */
-
-.site-logo {
-  text-decoration: none;
-  color: #777;
+  color: #8a8a8a !important;      /* gray */
   letter-spacing: 0.35rem;
   font-size: 0.9rem;
-}
-
-.site-logo:hover {
-  color: #aaa;
-}
-
-/* Navigation */
-
-.custom-nav .page-link {
-  color: #777;
-  text-decoration: none;
-  letter-spacing: 0.25rem;
-  font-size: 0.8rem;
   text-transform: uppercase;
-  margin-left: 1.4rem;
+}
+.site-title:hover {
+  color: #b0b0b0 !important;
 }
 
-.custom-nav .page-link:hover {
-  color: #aaa;
+/* Top-right nav */
+.site-nav .page-link {
+  color: #7a7a7a !important;      /* gray, not white */
+  letter-spacing: 0.22rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+.site-nav .page-link:hover {
+  color: #b0b0b0 !important;
 }
 
+/* Remove hamburger background on mobile */
+.site-nav .nav-trigger:checked ~ .trigger {
+  background: #000;
+  border: 1px solid #111;
+}
 
-/* =================================
-   HOMEPAGE HERO
-================================= */
+/* =========================
+   HOMEPAGE HERO (centered)
+========================= */
 
 .home-hero {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 90px); /* full height minus header */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,53 +91,51 @@ body {
 
 .home-hero-inner {
   max-width: 900px;
+  padding: 0 1.25rem;
 }
 
-/* Arabic name */
-
+/* Arabic above English */
 .hero-name-ar {
   font-family: "Amiri", serif;
   font-size: 2.2rem;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.14rem; /* restrained spacing for Arabic */
   margin-bottom: 1rem;
+  opacity: 0.95;
 }
-
-/* English name */
 
 .hero-name-en {
   font-family: "EB Garamond", Garamond, serif;
-  font-size: 4.3rem;
-  letter-spacing: 0.6rem;
-  margin-bottom: 1.3rem;
+  font-size: 4.2rem;
+  letter-spacing: 0.60rem;
+  margin-bottom: 1.2rem;
 }
 
-/* Tagline */
-
+/* Tagline: gray + spaced */
 .hero-tagline {
+  color: #777;
   font-size: 0.95rem;
   letter-spacing: 0.35rem;
   text-transform: uppercase;
-  color: #777;
 }
 
-
-/* =================================
-   FOOTNOTES
-================================= */
+/* =========================
+   FOOTNOTES (publisher-like)
+========================= */
 
 .footnotes {
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid #222;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   line-height: 1.6;
+  color: #d0d0d0;
 }
 
+/* Hanging indent */
 .footnotes ol {
   margin-left: 0;
   padding-left: 1.2rem;
 }
-
 .footnotes li {
   padding-left: 1.2rem;
   text-indent: -1.2rem;
@@ -157,49 +143,22 @@ body {
 }
 
 /* Superscripts */
-
 sup {
   font-size: 0.7rem;
   vertical-align: super;
 }
-
 sup a {
   text-decoration: none;
+  color: #9aa9ff;
 }
 
-/* Footnote back arrow */
-
+/* Back-reference arrow */
 a.footnote-backref,
 a.reversefootnote {
   text-decoration: none;
   opacity: 0.35;
 }
-
 a.footnote-backref:hover,
 a.reversefootnote:hover {
   opacity: 0.8;
-}
-
-
-/* =================================
-   LINKS
-================================= */
-
-a {
-  color: #ddd;
-}
-
-a:hover {
-  color: #fff;
-}
-
-
-/* =================================
-   FOOTER
-================================= */
-
-.site-footer {
-  background: #000;
-  border-top: 1px solid #111;
-  color: #777;
 }
