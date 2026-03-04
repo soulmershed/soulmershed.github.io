@@ -13,6 +13,4 @@ permalink: /
 Essays on cognition, systems, and structural dynamics.
 </p>
 
-<hr>
-
 </div>
