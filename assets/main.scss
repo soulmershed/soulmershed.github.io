@@ -433,31 +433,47 @@ Photo left – text right
 .site-title{
 
 display:flex;
+
+/* vertical alignment of logo + text */
 align-items:center;
 
 /* MODIFY: space between logo and text */
-gap:10px;
+gap:8px;
 
 }
 
-/* LOGO */
+
+/* =======================================
+   LOGO IMAGE
+======================================= */
 
 .site-logo{
 
-/* MODIFY: logo size */
-height:20px;
+/* MODIFY: logo height (recommended 22–28px) */
+height:24px;
 
+/* keeps proportions */
 width:auto;
+
+/* prevents layout shifting */
+display:block;
 
 }
 
-/* SITE NAME */
+
+/* =======================================
+   SITE NAME
+======================================= */
 
 .site-name{
 
+/* MODIFY: text size */
 font-size:14px;
 
 /* MODIFY: spacing between letters */
 letter-spacing:2px;
+
+/* aligns better with logo */
+line-height:1;
 
 }
