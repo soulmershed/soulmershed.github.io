@@ -425,3 +425,39 @@ Photo left – text right
   opacity:0.8;
 
 }
+
+/* =======================================
+   HEADER LOGO
+======================================= */
+
+.site-title{
+
+display:flex;
+align-items:center;
+
+/* MODIFY: space between logo and text */
+gap:10px;
+
+}
+
+/* LOGO */
+
+.site-logo{
+
+/* MODIFY: logo size */
+height:26px;
+
+width:auto;
+
+}
+
+/* SITE NAME */
+
+.site-name{
+
+font-size:14px;
+
+/* MODIFY: spacing between letters */
+letter-spacing:2px;
+
+}
