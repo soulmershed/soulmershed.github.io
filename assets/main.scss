@@ -238,122 +238,118 @@ a.reversefootnote:hover {
 }
 
 /* ============================================================
-   BIOGRAPHY PAGE (single source of truth)
-   Photo left – text right (wide)
+   BIOGRAPHY PAGE
+   Photo left — text centered in remaining space
    ============================================================ */
 
-/* OUTER WRAP */
 .bio-layout{
 
   display:grid;
 
-  /* MODIFY: photo column width + text column */
-  grid-template-columns: 520px 1fr;
+  /* MODIFY: photo width | text width | empty balance space */
+  grid-template-columns: 520px 640px 1fr;
 
-  /* MODIFY: space between photo and text */
-  gap: 90px;
+  /* MODIFY: space between columns */
+  gap: 80px;
 
   align-items:center;
 
-  /* MODIFY: make the whole biography wider */
-  max-width: 1200px;
+  /* full width so photo reaches the edge */
+  max-width: 1400px;
 
-  /* centers the block */
   margin: 0 auto;
 
-  /* MODIFY: breathing room above/below */
-  padding: 40px 20px;
+  padding: 40px 40px;
 
-  /* keeps it tall like a hero section */
   min-height: calc(100vh - 90px);
 }
 
 
-/* PHOTO */
+/* ============================================================
+   PHOTO
+   ============================================================ */
+
 .bio-photo img{
 
-  width: 100%;
+  width:100%;
+  max-width:520px;
 
-  /* MODIFY: maximum photo size (increase for bigger portrait) */
-  max-width: 520px;
+  height:auto;
+  display:block;
 
-  height: auto;
-  display: block;
-
-  /* MODIFY: corner style */
-  border-radius: 6px;
+  border-radius:6px;
 }
 
 
-/* TEXT BLOCK */
+/* ============================================================
+   TEXT COLUMN
+   ============================================================ */
+
 .bio-content{
 
-  /* MODIFY: widen text column for more comfortable reading */
-  max-width: 640px;
+  /* keeps text readable */
+  max-width:640px;
+
 }
 
 
 /* NAME */
+
 .bio-content h1{
 
-  /* MODIFY: name size */
-  font-size: 2.3rem;
+  font-size:2.3rem;
 
-  /* MODIFY: tracking */
-  letter-spacing: 0.32em;
+  letter-spacing:0.32em;
 
-  margin-bottom: 18px;
+  margin-bottom:20px;
 }
 
 
 /* TAGLINE */
+
 .bio-role{
 
-  color: #aaa;
+  color:#aaa;
 
-  /* MODIFY: tracking */
-  letter-spacing: 0.22em;
+  letter-spacing:0.22em;
 
-  /* MODIFY: tagline size */
-  font-size: 0.95rem;
+  font-size:0.95rem;
 
-  margin-bottom: 32px;
+  margin-bottom:32px;
 }
 
 
 /* PARAGRAPHS */
+
 .bio-content p{
 
-  color: #ccc;
+  color:#ccc;
 
-  /* MODIFY: readability */
-  line-height: 1.75;
+  line-height:1.75;
 
-  margin-bottom: 16px;
+  margin-bottom:16px;
 }
 
 
-/* RESPONSIVE */
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
 @media (max-width: 900px){
 
   .bio-layout{
 
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
 
-    /* MODIFY: smaller gap on mobile */
-    gap: 36px;
+    text-align:center;
 
-    text-align: center;
+    gap:40px;
+
   }
 
   .bio-photo img{
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .bio-content{
-    max-width: 680px;
-    margin: 0 auto;
+    max-width:360px;
+    margin:auto;
   }
 
 }
