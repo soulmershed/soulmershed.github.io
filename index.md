@@ -10,7 +10,9 @@ permalink: /
 
     <div class="hero-name-en">SOULAIMAN B. MERSHED</div>
 
-    <div class="hero-tagline">ESSAYS ON COGNITION, SYSTEMS, AND STRUCTURAL DYNAMICS</div>
+    <div class="hero-tagline">
+      ESSAYS ON COGNITION, SYSTEMS, AND STRUCTURAL DYNAMICS
+    </div>
 
   </div>
 </div>
