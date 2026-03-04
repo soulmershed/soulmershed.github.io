@@ -124,9 +124,20 @@ a:focus {
 }
 
 /* prevent scrolling (homepage look) */
-html, body {
-  height: 100%;
-  overflow: hidden;
+/* ============================================================
+   HOMEPAGE ONLY (Desktop): no scrolling
+   Requires: index.md front-matter -> body_class: home
+   ============================================================ */
+
+@media (min-width: 901px) {
+  body.home {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body.home .page-content {
+    height: calc(100vh - 70px);
+  }
 }
 
 /* ============================================================
