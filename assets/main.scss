@@ -2,306 +2,166 @@
 ---
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
-
 @import "minima";
 
 /* =========================
-   Global typography (site-wide)
-   English: Garamond
+   GLOBAL TYPOGRAPHY
 ========================= */
+
 body {
   background: #000;
   color: #fff;
   font-family: "EB Garamond", Garamond, serif;
-  font-size: 12px;
-  line-height: 1.0;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
-/* Keep the site clean on black */
-.page-content,
-.wrapper,
-.site-header,
-.site-footer {
-  background: transparent;
-}
-
-/* Comfortable reading width across pages and posts */
-.page-content .wrapper {
-  max-width: 760px;
-}
-
-/* Links */
 a {
   color: #d9d9d9;
 }
+
 a:hover {
   color: #ffffff;
 }
 
+
 /* =========================
-   Header: logo left + nav right (Minima native)
-   Controlled by _config.yml -> header_pages
+   HEADER LAYOUT
 ========================= */
+
 .site-header {
   border-bottom: 1px solid #111;
 }
 
-/* “Logo placeholder” (top-left). This is the site title link. */
-.site-title {
-  color: #7a7a7a !important;
-  letter-spacing: 0.35rem;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-.site-title:hover {
-  color: #b0b0b0 !important;
+.site-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: none;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
-/* Nav items (top-right) */
+/* hide text logo (space reserved for future logo) */
+
+.site-title {
+  display: none;
+}
+
+/* navigation */
+
+.site-nav {
+  margin-right: 20px;
+}
+
 .site-nav .page-link {
   color: #7a7a7a !important;
   letter-spacing: 0.22rem;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
 }
+
 .site-nav .page-link:hover {
   color: #b0b0b0 !important;
 }
 
-/* Mobile menu panel on black */
-.site-nav .nav-trigger:checked ~ .trigger {
-  background: #000;
-  border: 1px solid #111;
-}
 
 /* =========================
-   HOMEPAGE HERO (centered)
-   Only affects the homepage because only index.md uses .home-hero
+   HOMEPAGE CENTERING
 ========================= */
-.home-hero {
-  min-height: calc(100vh - 90px); /* header height allowance */
+
+.page-content {
+  height: calc(100vh - 70px);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
-.home-hero-inner {
-  max-width: 980px;
-  padding: 0 1.25rem;
+.page-content .wrapper {
+  text-align: center;
+  max-width: 620px;
 }
+
+
+/* =========================
+   HOMEPAGE TITLE BLOCK
+========================= */
 
 .arabic-name {
   font-family: "Amiri", serif;
-  font-size: 32px;   /* was ~28px */
+  font-size: 40px;
+  letter-spacing: 0.18rem;
   margin-bottom: 14px;
-  letter-spacing: 0.60rem;
 }
 
-/* English name: EB Garamond with strong spacing */
-.hero-name-en {
-  font-family: "EB Garamond", Garamond, serif;
-  font-size: 4.4rem;
-  letter-spacing: 0.62rem;
-  margin-bottom: 1.25rem;
+h1 {
+  letter-spacing: 0.64em;
 }
 
-/* Tagline: gray + spaced */
-.hero-tagline {
-  color: #777;
+.tagline {
+  color: #aaa;
   font-size: 0.95rem;
-  letter-spacing: 0.38rem;
-  text-transform: uppercase;
 }
+
 
 /* =========================
-   Footnotes (publisher-like)
+   FOOTNOTES
 ========================= */
+
 .footnotes {
   margin-top: 3rem;
   padding-top: 1.5rem;
   border-top: 1px solid #222;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #d0d0d0;
 }
 
-/* Hanging indent */
 .footnotes ol {
   margin-left: 0;
   padding-left: 1.2rem;
 }
+
 .footnotes li {
   padding-left: 1.2rem;
   text-indent: -1.2rem;
   margin-bottom: 0.6rem;
 }
 
-/* Superscripts */
 sup {
   font-size: 0.7rem;
   vertical-align: super;
 }
+
 sup a {
   text-decoration: none;
   color: #9aa9ff;
 }
 
-/* Footnote return arrow */
 a.footnote-backref,
 a.reversefootnote {
   text-decoration: none;
   opacity: 0.35;
 }
+
 a.footnote-backref:hover,
 a.reversefootnote:hover {
   opacity: 0.8;
 }
 
-/* Footer */
-.site-footer {
-  border-top: 1px solid #111;
-  color: #777;
-}
 
-/* Center homepage content */
-
-.page-content {
-  min-height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-}
-
-.page-content .wrapper {
-  width: 100%;
-  max-width: 720px;
-}
-
-/* Hide footer */
-
-.site-footer {
-  display: none;
-}
-
-/* Header layout */
-
-.site-header .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: none;
-  width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.site-title {
-  margin: 24;
-}
-
-.site-nav {
-  margin-left: auto;
-}
-
-/* Center homepage */
-
-.page-content {
-  height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-content .wrapper {
-  text-align: center;
-  max-width: 620px;
-}
-
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Remove name from top header (logo space) */
-
-.site-title {
-  display: none;
-}
-
-
-/* Header layout */
-
-.site-header .wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 60px;
-  padding-right: 60px;
-  max-width: none;
-}
-
-.site-nav {
-  margin-right: 24px;
-}
-
-/* Center homepage */
-
-.page-content {
-  height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.home-center {
-  text-align: center;
-  max-width: 620px;
-}
-
-
-/* Arabic name */
-
-.arabic-name {
-  font-family: "Amiri", serif;
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-
-/* English title */
-
-h1 {
-  letter-spacing: 0.64em;
-}
-
-
-/* Tagline */
-
-.tagline {
-  color: #aaa;
-}
-
-
-/* Homepage links */
-
-.home-links {
-  list-style: none;
-  padding: 0;
-}
-
-.home-links li {
-  margin: 8px 0;
-}
-
-
-/* Remove footer */
+/* =========================
+   REMOVE FOOTER
+========================= */
 
 .site-footer {
   display: none;
 }
 
 
-/* Prevent scrolling */
+/* =========================
+   PREVENT HOMEPAGE SCROLL
+========================= */
 
 html, body {
   height: 100%;
