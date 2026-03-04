@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "First Essay Title"
-date: 2026-03-03
+date: 3 March 2026
 ---
 
 The concept of exponential growth is often misunderstood.[^1]
