@@ -8,8 +8,3 @@ permalink: /
 Essays on cognition, systems, and structural dynamics.
 
 ---
-
-- [Essays](/essays/)
-- [Books](/books/)
-- [Bio](/bio/)
-- [Links](/links/)
