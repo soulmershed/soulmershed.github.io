@@ -239,35 +239,67 @@ a.reversefootnote:hover {
 
 /* ============================================================
    BIOGRAPHY PAGE
-   Photo left — text centered in remaining space
    ============================================================ */
+
+
+/* TITLE */
+
+.bio-title{
+
+  display:flex;
+  justify-content:center;
+
+  /* MODIFY: spacing above/below title */
+  margin-top:40px;
+  margin-bottom:40px;
+
+}
+
+.bio-title h1{
+
+  font-size:2rem;
+
+  letter-spacing:0.25em;
+
+}
+
+
+
+/* MAIN LAYOUT */
 
 .bio-layout{
 
   display:grid;
 
-  /* MODIFY: photo width | text width | empty balance space */
-  grid-template-columns: 520px 640px 1fr;
+  /* PHOTO | TEXT | BALANCE SPACE */
+  grid-template-columns: 520px 620px 1fr;
 
-  /* MODIFY: space between columns */
-  gap: 80px;
+  /* MODIFY: gap between photo and text */
+  gap:60px;
 
   align-items:center;
 
-  /* full width so photo reaches the edge */
-  max-width: 1400px;
+  width:100%;
 
-  margin: 0 auto;
+  /* REMOVE default page centering */
+  max-width:none;
 
-  padding: 40px 40px;
+  margin:0;
 
-  min-height: calc(100vh - 90px);
+  padding:0;
+
 }
 
 
-/* ============================================================
-   PHOTO
-   ============================================================ */
+
+/* PHOTO */
+
+.bio-photo{
+
+  /* pushes photo completely to the left */
+  margin-left:0;
+
+}
 
 .bio-photo img{
 
@@ -277,20 +309,22 @@ a.reversefootnote:hover {
   height:auto;
   display:block;
 
-  border-radius:6px;
 }
 
 
-/* ============================================================
-   TEXT COLUMN
-   ============================================================ */
+
+/* TEXT COLUMN */
 
 .bio-content{
 
-  /* keeps text readable */
-  max-width:640px;
+  /* pushes text slightly left */
+  margin-left:-40px;
+
+  /* MODIFY: reading width */
+  max-width:600px;
 
 }
+
 
 
 /* NAME */
@@ -299,10 +333,12 @@ a.reversefootnote:hover {
 
   font-size:2.3rem;
 
-  letter-spacing:0.32em;
+  letter-spacing:0.35em;
 
   margin-bottom:20px;
+
 }
+
 
 
 /* TAGLINE */
@@ -313,10 +349,12 @@ a.reversefootnote:hover {
 
   letter-spacing:0.22em;
 
-  font-size:0.95rem;
+  font-size:0.9rem;
 
-  margin-bottom:32px;
+  margin-bottom:30px;
+
 }
+
 
 
 /* PARAGRAPHS */
@@ -328,14 +366,14 @@ a.reversefootnote:hover {
   line-height:1.75;
 
   margin-bottom:16px;
+
 }
 
 
-/* ============================================================
-   MOBILE
-   ============================================================ */
 
-@media (max-width: 900px){
+/* MOBILE */
+
+@media (max-width:900px){
 
   .bio-layout{
 
@@ -343,13 +381,13 @@ a.reversefootnote:hover {
 
     text-align:center;
 
-    gap:40px;
+    padding:0 20px;
 
   }
 
   .bio-photo img{
-    max-width:360px;
     margin:auto;
+    max-width:360px;
   }
 
 }
