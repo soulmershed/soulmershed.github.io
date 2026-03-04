@@ -1,6 +1,7 @@
 ---
 layout: default
 permalink: /
+body_class: home
 ---
 
 <div class="home-center">
