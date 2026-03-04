@@ -1,91 +1,117 @@
 ---
 ---
 
+/* ============================================================
+   MAIN.SCSS — CLEAN, UN-DUPLICATED
+   Purpose: Minimal black author site using Minima (GitHub Pages)
+   How to modify:
+   - Search for "MODIFY:" markers
+   - Keep the top YAML front-matter (---) intact
+   ============================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
 @import "minima";
 
-/* =========================
-   GLOBAL TYPOGRAPHY
-========================= */
-
+/* ============================================================
+   MODIFY: GLOBAL (body text only — NOT header)
+   ============================================================ */
 body {
   background: #000;
   color: #fff;
   font-family: "EB Garamond", Garamond, serif;
-  font-size: 24px;   /* was 14px */
-  line-height: 1.6;  /* was 1.4 */
+  font-size: 18px;   /* MODIFY: body font size */
+  line-height: 1.6;  /* MODIFY: body line height */
 }
 
-a {
-  color: #d9d9d9;
+/* ============================================================
+   MODIFY: LINKS (hover brightens, NO underline)
+   ============================================================ */
+a,
+a:visited {
+  color: #d0d0d0;
+  text-decoration: none; /* IMPORTANT: removes underline */
 }
 
-a:hover {
-  color: #ffffff;
+a:hover,
+a:focus {
+  color: #ffffff;        /* hover brightens */
+  text-decoration: none; /* keep no underline */
 }
 
+/* ============================================================
+   HEADER (top bar)
+   - Left: site title (The Trilogy Home)
+   - Right: tabs (Books / Essays / Bio / Links)
+   ============================================================ */
 
-/* =========================
-   HEADER LAYOUT
-========================= */
-
+/* subtle divider line */
 .site-header {
   border-bottom: 1px solid #111;
 }
 
+/* full-width header with padding */
 .site-header .wrapper {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: right;
   max-width: none;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 40px;   /* MODIFY: header left padding */
+  padding-right: 40px;  /* MODIFY: header right padding */
 }
 
-.site-nav {
-  margin-right: 12; /* it was 0 */
-}
-
-/* hide text logo (space reserved for future logo) */
-
-/* show a small left title link (logo later) */
+/* left title */
 .site-title {
-  display: inline-block;
   color: #7a7a7a !important;
-  letter-spacing: 0.22rem;
-  font-size: 0.8rem;
+  letter-spacing: 0.22rem; /* MODIFY: title spacing */
+  font-size: 0.8rem;       /* MODIFY: title size */
   text-transform: uppercase;
   margin: 0;
 }
 
 .site-title:hover {
-  color: #b0b0b0 !important; /* was: 
-  color: #b0b0b0 !important; */
+  color: #b0b0b0 !important; /* hover brightens */
 }
-/* navigation */
 
+/* right tabs */
 .site-nav {
-  margin-right: 20px;
+  margin-left: auto;
+}
+
+/* FORCE tabs to the far right (your request) */
+.site-nav .trigger {
+  display: flex;
+  justify-content: flex-end;
+  gap: 18px; /* MODIFY: spacing between tabs */
 }
 
 .site-nav .page-link {
   color: #7a7a7a !important;
-  letter-spacing: 0.22rem;
-  font-size: 0.8rem;
+  letter-spacing: 0.18rem; /* MODIFY: tab spacing */
+  font-size: 0.8rem;       /* MODIFY: tab size */
   text-transform: uppercase;
+  text-decoration: none !important; /* no underline */
 }
 
 .site-nav .page-link:hover {
-  color: #b0b0b0;
+  color: #ffffff !important;          /* hover brightens */
+  text-decoration: none !important;   /* keep no underline */
 }
 
+/* Mobile menu panel on black */
+.site-nav .nav-trigger:checked ~ .trigger {
+  background: #000;
+  border: 1px solid #111;
+  padding: 12px;
+}
 
-/* =========================
-   HOMEPAGE CENTERING
-========================= */
+/* ============================================================
+   HOMEPAGE CENTERING (one-screen, no scrolling)
+   NOTE: Applies site-wide. If you later want scrolling on other
+   pages, tell me and I will scope it to the home page only.
+   ============================================================ */
 
 .page-content {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 70px); /* MODIFY: total height minus header */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,34 +119,47 @@ a:hover {
 
 .page-content .wrapper {
   text-align: center;
-  max-width: 100%;
+  max-width: 760px; /* MODIFY: center block width */
+  width: 100%;
 }
 
+/* prevent scrolling (homepage look) */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
 
-/* =========================
-   HOMEPAGE TITLE BLOCK
-========================= */
+/* ============================================================
+   HOMEPAGE TITLE BLOCK (used by your index.md)
+   index.md should include:
+     <div class="arabic-name">...</div>
+     <h1>...</h1>
+     <p class="tagline">...</p>
+   ============================================================ */
 
 .arabic-name {
   font-family: "Amiri", serif;
-  font-size: 40px;
-  letter-spacing: 0.18rem;
-  margin-bottom: 14px;
+  font-size: 40px;        /* MODIFY: Arabic size */
+  letter-spacing: 0.10rem;/* MODIFY: Arabic spacing (keep small) */
+  margin-bottom: 16px;
 }
 
+/* MODIFY: English name (you asked smaller) */
 h1 {
-  letter-spacing: 0.64em;
+  font-size: 2.2rem;      /* MODIFY: English name size (smaller) */
+  letter-spacing: 0.55em; /* MODIFY: English spacing */
+  margin: 0 0 12px 0;
 }
 
 .tagline {
   color: #aaa;
-  font-size: 1.60rem;
+  font-size: 1rem;        /* MODIFY: tagline size */
+  margin: 0;
 }
 
-
-/* =========================
-   FOOTNOTES
-========================= */
+/* ============================================================
+   FOOTNOTES (kept for essays)
+   ============================================================ */
 
 .footnotes {
   margin-top: 3rem;
@@ -163,21 +202,9 @@ a.reversefootnote:hover {
   opacity: 0.8;
 }
 
-
-/* =========================
-   REMOVE FOOTER
-========================= */
-
+/* ============================================================
+   FOOTER: hidden (your request)
+   ============================================================ */
 .site-footer {
   display: none;
-}
-
-
-/* =========================
-   PREVENT HOMEPAGE SCROLL
-========================= */
-
-html, body {
-  height: 100%;
-  overflow: hidden;
 }
