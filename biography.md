@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bio
+title: Biography     # MODIFY: menu label + page title
 permalink: /bio/
 ---
 
