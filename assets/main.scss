@@ -238,191 +238,123 @@ a.reversefootnote:hover {
 }
 
 /* ============================================================
-   BIO PAGE
-   Inspired by minimalist editorial layouts
+   BIOGRAPHY PAGE (single source of truth)
+   Photo left – text right (wide)
    ============================================================ */
 
-.bio-hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  min-height: calc(100vh - 90px);
-  gap: 60px;
-}
-
-.bio-text {
-  max-width: 520px;
-}
-
-.bio-name {
-  font-size: 2.2rem;
-  letter-spacing: 0.35em;
-  margin-bottom: 14px;
-}
-
-.bio-tagline {
-  color: #aaa;
-  letter-spacing: 0.25em;
-  font-size: 0.9rem;
-  margin-bottom: 26px;
-}
-
-.bio-description {
-  color: #ccc;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-.bio-image img {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  object-fit: cover;
-}
-
-/* responsive */
-
-@media (max-width: 900px) {
-
-  .bio-hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .bio-image img {
-    margin: auto;
-  }
-
-}
-
-/* ==========================================
-BIO PAGE LAYOUT
-Photo left – text right
-========================================== */
-
-.bio-layout {
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 80px;
-  align-items: center;
-  min-height: calc(100vh - 90px);
-}
-
-/* Photo */
-
-.bio-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Text */
-
-.bio-content {
-  max-width: 520px;
-}
-
-.bio-content h1 {
-  font-size: 2rem;
-  letter-spacing: 0.35em;
-  margin-bottom: 20px;
-}
-
-.bio-role {
-  color: #aaa;
-  letter-spacing: 0.25em;
-  font-size: 0.9rem;
-  margin-bottom: 30px;
-}
-
-.bio-content p {
-  color: #ccc;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-
-/* Responsive */
-
-@media (max-width: 900px) {
-
-  .bio-layout {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .bio-photo img {
-    max-width: 320px;
-    margin: auto;
-  }
-
-}
-
-/* =========================================================
-   BIO PAGE LAYOUT
-   ========================================================= */
-
-/* Main container holding image + text */
+/* OUTER WRAP */
 .bio-layout{
 
-  display:flex;
+  display:grid;
+
+  /* MODIFY: photo column width + text column */
+  grid-template-columns: 520px 1fr;
 
   /* MODIFY: space between photo and text */
-  gap:60px;
+  gap: 90px;
 
-  /* MODIFY: vertical alignment (center / flex-start / flex-end) */
   align-items:center;
 
-  /* MODIFY: total width of the bio section */
-  max-width:600px;
+  /* MODIFY: make the whole biography wider */
+  max-width: 1200px;
 
-  /* Keeps the bio centered on the page */
-  margin:auto;
+  /* centers the block */
+  margin: 0 auto;
+
+  /* MODIFY: breathing room above/below */
+  padding: 40px 20px;
+
+  /* keeps it tall like a hero section */
+  min-height: calc(100vh - 90px);
 }
 
 
-/* =========================================================
-   AUTHOR PHOTO
-   ========================================================= */
-
+/* PHOTO */
 .bio-photo img{
 
-  /* MODIFY: image size */
-  width:1220px;
+  width: 100%;
 
-  /* MODIFY: corner style
-     0px = square
-     4px = subtle
-     50% = circle
-  */
-  border-radius:4px;
+  /* MODIFY: maximum photo size (increase for bigger portrait) */
+  max-width: 520px;
 
+  height: auto;
+  display: block;
+
+  /* MODIFY: corner style */
+  border-radius: 6px;
 }
 
 
-/* =========================================================
-   TEXT AREA
-   ========================================================= */
-
+/* TEXT BLOCK */
 .bio-content{
 
-  /* MODIFY: width of text block */
-  max-width:520px;
-
+  /* MODIFY: widen text column for more comfortable reading */
+  max-width: 640px;
 }
 
 
-/* =========================================================
-   AUTHOR ROLE / TAGLINE
-   ========================================================= */
+/* NAME */
+.bio-content h1{
 
+  /* MODIFY: name size */
+  font-size: 2.3rem;
+
+  /* MODIFY: tracking */
+  letter-spacing: 0.32em;
+
+  margin-bottom: 18px;
+}
+
+
+/* TAGLINE */
 .bio-role{
 
-  /* MODIFY: spacing between letters */
-  letter-spacing:2px;
+  color: #aaa;
 
-  /* MODIFY: transparency of subtitle */
-  opacity:0.8;
+  /* MODIFY: tracking */
+  letter-spacing: 0.22em;
+
+  /* MODIFY: tagline size */
+  font-size: 0.95rem;
+
+  margin-bottom: 32px;
+}
+
+
+/* PARAGRAPHS */
+.bio-content p{
+
+  color: #ccc;
+
+  /* MODIFY: readability */
+  line-height: 1.75;
+
+  margin-bottom: 16px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+
+  .bio-layout{
+
+    grid-template-columns: 1fr;
+
+    /* MODIFY: smaller gap on mobile */
+    gap: 36px;
+
+    text-align: center;
+  }
+
+  .bio-photo img{
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .bio-content{
+    max-width: 680px;
+    margin: 0 auto;
+  }
 
 }
 
