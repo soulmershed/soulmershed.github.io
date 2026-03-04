@@ -1,6 +1,12 @@
+title: Soulaiman B. Mershed
+description: Essays on cognition, systems, and structural dynamics
+
+theme: minima
+
+markdown: kramdown
+
 header_pages:
   - books.md
   - essays.md
   - bio.md
   - links.md
-title: "LOGO"
