@@ -283,3 +283,66 @@ a.reversefootnote:hover {
   }
 
 }
+
+/* ==========================================
+BIO PAGE LAYOUT
+Photo left – text right
+========================================== */
+
+.bio-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: calc(100vh - 90px);
+}
+
+/* Photo */
+
+.bio-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text */
+
+.bio-content {
+  max-width: 520px;
+}
+
+.bio-content h1 {
+  font-size: 2rem;
+  letter-spacing: 0.35em;
+  margin-bottom: 20px;
+}
+
+.bio-role {
+  color: #aaa;
+  letter-spacing: 0.25em;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.bio-content p {
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  .bio-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .bio-photo img {
+    max-width: 320px;
+    margin: auto;
+  }
+
+}
