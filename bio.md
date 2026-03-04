@@ -8,7 +8,7 @@ permalink: /bio/
 
 <div class="bio-photo">
 
-<img src="assets/profile.jpg" alt="Soulaiman B. Mershed">
+<img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Soulaiman B. Mershed">
 
 </div>
 
