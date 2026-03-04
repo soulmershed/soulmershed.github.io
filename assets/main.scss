@@ -49,3 +49,14 @@ a.footnote-backref {
 a.footnote-backref:hover {
   opacity: 0.9;
 }
+
+/* APA-like hanging indent for footnotes */
+.footnotes ol {
+  margin-left: 0;
+  padding-left: 1.2rem;
+}
+
+.footnotes li {
+  padding-left: 1.2rem;
+  text-indent: -1.2rem;
+}
