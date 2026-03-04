@@ -1,7 +1,23 @@
 ---
-layout: page
+layout: default
 title: Links
 permalink: /links/
 ---
 
-Links to interviews, social profiles, and external work will be added here.
+## Official
+
+- Website: This site (beta)
+- Email: (add later)
+- Newsletter: (add later)
+
+## Social
+
+- X / Twitter: (add later)
+- YouTube: (add later)
+- LinkedIn: (add later)
+
+## Publications & Media
+
+- Interviews: (add later)
+- Talks: (add later)
+- Articles: (add later)
