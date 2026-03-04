@@ -1,36 +1,162 @@
 ---
 ---
 
+/* Import fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
 
 @import "minima";
-/* Typography (optional) */
+
+
+/* =================================
+   GLOBAL
+================================= */
+
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  background: #000;
+  color: #fff;
+  font-family: "EB Garamond", Garamond, serif;
   font-size: 18px;
   line-height: 1.7;
 }
 
 .page-content {
-  max-width: 780px;
+  max-width: 760px;
+  margin: auto;
 }
 
-/* Footnotes */
+
+/* =================================
+   HEADER
+================================= */
+
+.site-header {
+  background: #000;
+  border-bottom: 1px solid #111;
+}
+
+/* Hide default Minima title/nav */
+
+.site-title {
+  display: none;
+}
+
+.site-nav {
+  display: none;
+}
+
+
+/* =================================
+   CUSTOM HEADER
+================================= */
+
+.custom-header {
+  background: #000;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo placeholder */
+
+.site-logo {
+  text-decoration: none;
+  color: #777;
+  letter-spacing: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.site-logo:hover {
+  color: #aaa;
+}
+
+/* Navigation */
+
+.custom-nav .page-link {
+  color: #777;
+  text-decoration: none;
+  letter-spacing: 0.25rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-left: 1.4rem;
+}
+
+.custom-nav .page-link:hover {
+  color: #aaa;
+}
+
+
+/* =================================
+   HOMEPAGE HERO
+================================= */
+
+.home-hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-hero-inner {
+  max-width: 900px;
+}
+
+/* Arabic name */
+
+.hero-name-ar {
+  font-family: "Amiri", serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.15rem;
+  margin-bottom: 1rem;
+}
+
+/* English name */
+
+.hero-name-en {
+  font-family: "EB Garamond", Garamond, serif;
+  font-size: 4.3rem;
+  letter-spacing: 0.6rem;
+  margin-bottom: 1.3rem;
+}
+
+/* Tagline */
+
+.hero-tagline {
+  font-size: 0.95rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  color: #777;
+}
+
+
+/* =================================
+   FOOTNOTES
+================================= */
+
 .footnotes {
   margin-top: 3rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #ddd;
-  font-size: 0.92rem;
+  border-top: 1px solid #222;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
 .footnotes ol {
-  margin-left: 1.2rem;
+  margin-left: 0;
+  padding-left: 1.2rem;
 }
 
 .footnotes li {
-  margin-bottom: 0.7rem;
+  padding-left: 1.2rem;
+  text-indent: -1.2rem;
+  margin-bottom: 0.6rem;
 }
+
+/* Superscripts */
 
 sup {
   font-size: 0.7rem;
@@ -41,229 +167,39 @@ sup a {
   text-decoration: none;
 }
 
-/* Remove the “return” icon styling emphasis (still keeps the backlink) */
-a.footnote-backref {
+/* Footnote back arrow */
+
+a.footnote-backref,
+a.reversefootnote {
   text-decoration: none;
-  margin-left: 0.35rem;
-  opacity: 0.5;
-}
-a.footnote-backref:hover {
-  opacity: 0.9;
+  opacity: 0.35;
 }
 
-/* APA-like hanging indent for footnotes */
-.footnotes ol {
-  margin-left: 0;
-  padding-left: 1.2rem;
-}
-
-.footnotes li {
-  padding-left: 1.2rem;
-  text-indent: -1.2rem;
-}
-
-/* Discreet footnote return link */
-a.reversefootnote,
-a.footnote-backref {
-  text-decoration: none;
-  opacity: 0.25;
-  font-size: 0.9em;
-}
-
-a.reversefootnote:hover,
-a.footnote-backref:hover {
-  opacity: 0.7;
-}
-
-/* Homepage dark theme */
-
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: "EB Garamond", Garamond, serif;
-}
-
-/* Links */
-
-a {
-  color: #e6e6e6;
-}
-
-a:hover {
-  color: #ffffff;
-}
-
-/* Header */
-
-.site-header {
-  background: #000;
-  border-bottom: 1px solid #222;
-}
-
-/* Footer */
-
-.site-footer {
-  background: #000;
-  border-top: 1px solid #222;
-}
-
-/* Content width for long-form writing */
-
-.page-content {
-  max-width: 760px;
-}
-
-/* Headings */
-
-h1, h2, h3 {
-  font-weight: 500;
-}
-
-.arabic-name {
-  font-family: "Amiri", serif;
-  font-size: 1.5rem;
-}
-
-/* ===== HOMEPAGE HERO ===== */
-
-.home-hero {
-  background: #000;
-  color: #fff;
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.home-hero-inner {
-  max-width: 900px;
-}
-
-/* Name styling */
-
-.hero-name {
-  font-family: "EB Garamond", Garamond, serif;
-  font-size: 3.5rem;
-  letter-spacing: 0.45rem;
-  margin-bottom: 1rem;
-}
-
-/* Tagline */
-
-.hero-tagline {
-  font-size: 1.2rem;
-  opacity: 0.7;
-}
-
-/* Navigation colors */
-
-.site-header {
-  background: #000;
-}
-
-.site-title,
-.site-nav a {
-  color: #fff;
-}
-
-.site-nav a:hover {
+a.footnote-backref:hover,
+a.reversefootnote:hover {
   opacity: 0.8;
 }
 
-.hero-name {
-  letter-spacing: 0.65rem;
+
+/* =================================
+   LINKS
+================================= */
+
+a {
+  color: #ddd;
 }
 
-/* ===== Global ===== */
-body {
-  background: #000;
+a:hover {
   color: #fff;
-  font-family: "EB Garamond", Garamond, serif;
 }
 
-/* ===== Custom Header ===== */
-.custom-header {
+
+/* =================================
+   FOOTER
+================================= */
+
+.site-footer {
   background: #000;
-  border-bottom: 1px solid #111;
-}
-
-.header-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.site-logo {
-  text-decoration: none;
-  color: #888; /* gray, not white */
-  letter-spacing: 0.35rem;
-  font-size: 0.9rem;
-}
-
-.site-logo:hover {
-  color: #aaa;
-}
-
-.custom-nav .page-link {
-  color: #777;        /* gray nav */
-  text-decoration: none;
-  letter-spacing: 0.22rem;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  margin-left: 1.2rem;
-}
-
-.custom-nav .page-link:hover {
-  color: #aaa;
-}
-
-/* Hide Minima's default title/nav styling conflicts */
-.site-title,
-.site-nav {
-  display: none;
-}
-
-/* ===== Homepage Hero ===== */
-.home-hero {
-  min-height: calc(100vh - 72px); /* full height minus header */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.home-hero-inner {
-  max-width: 900px;
-  padding: 0 1.25rem;
-}
-
-/* Arabic name */
-.hero-name-ar {
-  font-family: "Amiri", serif;
-  font-size: 2.2rem;
-  letter-spacing: 0.15rem; /* moderate spacing for Arabic */
-  margin-bottom: 0.9rem;
-  opacity: 0.95;
-}
-
-/* English name */
-.hero-name-en {
-  font-family: "EB Garamond", Garamond, serif;
-  font-size: 4.2rem;
-  letter-spacing: 0.55rem; /* strong spacing */
-  margin-bottom: 1.2rem;
-}
-
-/* Tagline */
-.hero-tagline {
-  font-size: 0.95rem;
-  letter-spacing: 0.35rem; /* spaced letters */
-  text-transform: uppercase;
-  color: #777; /* gray tagline */
-}
-
-/* Prevent content wrapper from forcing white background */
-.page-content, .wrapper {
-  background: transparent;
+  border-top: 1px solid #111;
+  color: #777;
 }
