@@ -11,7 +11,7 @@ body_class: home
 <h1>SOULAIMAN B. MERSHED</h1>
 
 <p class="tagline">
-Essays on cognition, systems, and structural dynamics.
+On cognition, media, and societal dynamics.
 </p>
 
 </div>
