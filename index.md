@@ -5,7 +5,7 @@ permalink: /
 
 <div class="home-center">
 
-<div class="arabic-name">ســليمان بن بســــام مــــرشد</div>
+<div class="arabic-name">ســـليمان بن بســــام مــــرشد</div>
 
 <h1>SOULAIMAN B. MERSHED</h1>
 
