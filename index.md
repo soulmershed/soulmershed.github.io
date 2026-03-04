@@ -15,11 +15,4 @@ Essays on cognition, systems, and structural dynamics.
 
 <hr>
 
-<ul class="home-links">
-<li><a href="/essays/">Essays</a></li>
-<li><a href="/books/">Books</a></li>
-<li><a href="/bio/">Bio</a></li>
-<li><a href="/links/">Links</a></li>
-</ul>
-
 </div>
