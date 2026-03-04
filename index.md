@@ -6,6 +6,8 @@ permalink: /
 
 # Soulaiman B. Mershed
 
+<span class="arabic-name">سليمان مرشد</span>
+
 Author of long-form work on cognition, systems, and structural dynamics.
 
 ---
