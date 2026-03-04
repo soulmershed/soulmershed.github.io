@@ -3,16 +3,13 @@ layout: default
 permalink: /
 ---
 
-<div class="home-hero">
-  <div class="home-hero-inner">
+# SOULAIMAN B. MERSHED
 
-    <div class="hero-name-ar" lang="ar" dir="rtl">سليمان ب. مرشد</div>
+Essays on cognition, systems, and structural dynamics.
 
-    <div class="hero-name-en">SOULAIMAN B. MERSHED</div>
+---
 
-    <div class="hero-tagline">
-      ESSAYS ON COGNITION, SYSTEMS, AND STRUCTURAL DYNAMICS
-    </div>
-
-  </div>
-</div>
+- [Essays](/essays/)
+- [Books](/books/)
+- [Bio](/bio/)
+- [Links](/links/)
