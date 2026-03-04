@@ -357,3 +357,71 @@ Photo left – text right
   }
 
 }
+
+/* =========================================================
+   BIO PAGE LAYOUT
+   ========================================================= */
+
+/* Main container holding image + text */
+.bio-layout{
+
+  display:flex;
+
+  /* MODIFY: space between photo and text */
+  gap:60px;
+
+  /* MODIFY: vertical alignment (center / flex-start / flex-end) */
+  align-items:center;
+
+  /* MODIFY: total width of the bio section */
+  max-width:900px;
+
+  /* Keeps the bio centered on the page */
+  margin:auto;
+}
+
+
+/* =========================================================
+   AUTHOR PHOTO
+   ========================================================= */
+
+.bio-photo img{
+
+  /* MODIFY: image size */
+  width:220px;
+
+  /* MODIFY: corner style
+     0px = square
+     4px = subtle
+     50% = circle
+  */
+  border-radius:4px;
+
+}
+
+
+/* =========================================================
+   TEXT AREA
+   ========================================================= */
+
+.bio-content{
+
+  /* MODIFY: width of text block */
+  max-width:520px;
+
+}
+
+
+/* =========================================================
+   AUTHOR ROLE / TAGLINE
+   ========================================================= */
+
+.bio-role{
+
+  /* MODIFY: spacing between letters */
+  letter-spacing:2px;
+
+  /* MODIFY: transparency of subtitle */
+  opacity:0.8;
+
+}
