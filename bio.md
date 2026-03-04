@@ -4,6 +4,10 @@ title: Biography     # MODIFY: menu label + page title
 permalink: /bio/
 ---
 
+<div class="bio-title">
+  <h1>Biography</h1>
+</div>
+
 <div class="bio-layout">
 
 <div class="bio-photo">
