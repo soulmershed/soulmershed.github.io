@@ -324,11 +324,18 @@ body:has(.home-hero){
   letter-spacing:0.28em;
   margin:0 0 18px 0;
 }
+/* ============================================================
+   MODIFY: BIOGRAPHY SUBTITLE (the line you marked)
+   ============================================================ */
+
 .bio-role{
-  color:#aaa;
-  letter-spacing:0.22em;
-  font-size:0.95rem;
-  margin:0 0 28px 0;
+
+  font-size:1.05rem;      /* MODIFY: text size */
+  letter-spacing:0.22em;  /* MODIFY: spacing between letters */
+  color:#9a9a9a;          /* MODIFY: subtitle color */
+
+  margin-bottom:28px;     /* MODIFY: space below line */
+
 }
 .bio-content p{
   color:#ccc;
