@@ -407,29 +407,32 @@ img{
 }
 
 /* ============================================================
-   HOMEPAGE FULL-HEIGHT CENTERING
+   GLOBAL VERTICAL CENTERING (ALL PAGES)
    ============================================================ */
 
-body.home {
-
-  height: 100vh;
-
+/* page should occupy full viewport */
+html, body {
+  height: 100%;
 }
 
-body.home .page-content {
+/* main content area */
+.page-content {
 
-  min-height: calc(100vh - 70px); /* MODIFY if header height changes */
+  /* MODIFY: adjust if header height changes */
+  min-height: calc(100vh - 70px);
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;     /* vertical centering */
+  justify-content: center; /* horizontal centering */
 
-  padding-top: 0; /* prevents header spacing from shifting center */
-
+  padding-top: 0; /* prevents offset from header spacing */
 }
 
-body.home .page-content .wrapper {
+/* wrapper keeps text readable */
+.page-content .wrapper {
+
+  max-width: 760px; /* MODIFY */
+  width: 100%;
 
   text-align: center;
-
 }
