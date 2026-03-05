@@ -2,464 +2,349 @@
 ---
 
 /* ============================================================
-   MAIN.SCSS — CLEAN, UN-DUPLICATED
+   MAIN.SCSS — FIXED, CLEAN, SINGLE-FILE
    Purpose: Minimal black author site using Minima (GitHub Pages)
-   How to modify:
-   - Search for "MODIFY:" markers
-   - Keep the top YAML front-matter (---) intact
+
+   MODIFY GUIDE
+   ------------------------------------------------------------
+   [A] GLOBAL: colors, typography, links
+   [B] HEADER: logo + title + tabs
+   [C] HOMEPAGE: centered hero (HOME ONLY)
+   [D] BIOGRAPHY: photo flush-left + text centered (BIO ONLY)
+   [E] ESSAYS: footnotes
+   [F] UTILITIES: safe defaults
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=EB+Garamond:wght@400;500;600&display=swap');
 @import "minima";
 
 /* ============================================================
-   MODIFY: GLOBAL (body text only — NOT header)
+   [A] GLOBAL
    ============================================================ */
-body {
-  background: #000;
-  color: #fff;
-  font-family: "EB Garamond", Garamond, serif;
-  font-size: 16px;   /* MODIFY: body font size */
-  line-height: 1.6;  /* MODIFY: body line height */
+
+body{
+  background:#000;
+  color:#fff;
+  font-family:"EB Garamond", Garamond, serif;
+  font-size:16px;   /* MODIFY: body font size */
+  line-height:1.6;  /* MODIFY: body line height */
 }
 
-/* ============================================================
-   MODIFY: LINKS (hover brightens, NO underline)
-   ============================================================ */
+/* LINKS (hover brightens, no underline) */
 a,
-a:visited {
-  color: #d0d0d0;
-  text-decoration: none; /* IMPORTANT: removes underline */
+a:visited{
+  color:#d0d0d0;
+  text-decoration:none;
 }
 
 a:hover,
-a:focus {
-  color: #ffffff;        /* hover brightens */
-  text-decoration: none; /* keep no underline */
+a:focus{
+  color:#ffffff;
+  text-decoration:none;
+}
+
+/* Hide footer (optional) */
+.site-footer{
+  display:none;
 }
 
 /* ============================================================
-   HEADER (top bar)
-   - Left: site title (The Trilogy Home)
-   - Right: tabs (Books / Essays / Bio / Links)
+   [B] HEADER (top bar)
    ============================================================ */
 
-/* subtle divider line */
-.site-header {
-  border-bottom: 1px solid #111;
+.site-header{
+  border-bottom:1px solid #111;
 }
 
-/* full-width header with padding */
-.site-header .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: none;
-  padding-left: 40px;   /* MODIFY: header left padding */
-  padding-right: 40px;  /* MODIFY: header right padding */
+/* Full-width header wrapper */
+.site-header .wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  max-width:none;
+
+  padding-left:40px;   /* MODIFY: header left padding */
+  padding-right:40px;  /* MODIFY: header right padding */
 }
 
-/* left title */
-.site-title {
-  color: #7a7a7a !important;
-  letter-spacing: 0.22rem; /* MODIFY: title spacing */
-  font-size: 0.8rem;       /* MODIFY: title size */
-  text-transform: uppercase;
-  margin: 0;
+/* Site title area (logo + name) */
+.site-title{
+  display:flex;
+  align-items:center;
+
+  gap:8px; /* MODIFY: space between logo and title */
+
+  color:#7a7a7a !important;
+  letter-spacing:0.22rem; /* MODIFY: title spacing */
+  font-size:0.8rem;       /* MODIFY: title size */
+  text-transform:uppercase;
+
+  margin:0;
 }
 
-.site-title:hover {
-  color: #b0b0b0 !important; /* hover brightens */
+.site-title:hover{
+  color:#b0b0b0 !important;
 }
 
-/* right tabs */
-.site-nav {
-  margin-left: auto;
+/* Logo image */
+.site-logo{
+  height:24px; /* MODIFY: logo height */
+  width:auto;
+  display:block;
 }
 
-/* FORCE tabs to the far right (your request) */
-.site-nav .trigger {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px; /* MODIFY: spacing between tabs */
+/* If you use <span class="site-name"> inside header.html */
+.site-name{
+  font-size:14px; /* MODIFY */
+  letter-spacing:2px; /* MODIFY */
+  line-height:1;
 }
 
-.site-nav .page-link {
-  color: #7a7a7a !important;
-  letter-spacing: 0.18rem; /* MODIFY: tab spacing */
-  font-size: 0.8rem;       /* MODIFY: tab size */
-  text-transform: uppercase;
-  text-decoration: none !important; /* no underline */
+/* Tabs (right side) */
+.site-nav{
+  margin-left:auto;
 }
 
-.site-nav .page-link:hover {
-  color: #ffffff !important;          /* hover brightens */
-  text-decoration: none !important;   /* keep no underline */
+.site-nav .trigger{
+  display:flex;
+  justify-content:flex-end;
+  gap:16px; /* MODIFY: spacing between tabs */
+}
+
+.site-nav .page-link{
+  color:#7a7a7a !important;
+  letter-spacing:0.18rem; /* MODIFY: tab spacing */
+  font-size:0.8rem;       /* MODIFY: tab size */
+  text-transform:uppercase;
+  text-decoration:none !important;
+}
+
+.site-nav .page-link:hover{
+  color:#ffffff !important;
+  text-decoration:none !important;
 }
 
 /* Mobile menu panel on black */
-.site-nav .nav-trigger:checked ~ .trigger {
-  background: #000;
-  border: 1px solid #111;
-  padding: 12px;
+.site-nav .nav-trigger:checked ~ .trigger{
+  background:#000;
+  border:1px solid #111;
+  padding:12px;
 }
 
 /* ============================================================
-   HOMEPAGE CENTERING (one-screen, no scrolling)
-   NOTE: Applies site-wide. If you later want scrolling on other
-   pages, tell me and I will scope it to the home page only.
+   [C] HOMEPAGE (HOME ONLY)
+   Requires index.md front-matter: body_class: home
    ============================================================ */
 
-.page-content {
-  height: calc(100vh - 70px); /* MODIFY: total height minus header */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Center the homepage content */
+body.home .page-content{
+  height:calc(100vh - 70px); /* MODIFY: header height offset */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.page-content .wrapper {
-  text-align: center;
-  max-width: 760px; /* MODIFY: center block width */
-  width: 100%;
+body.home .page-content .wrapper{
+  text-align:center;
+  max-width:760px; /* MODIFY: homepage center block width */
+  width:100%;
 }
 
-/* prevent scrolling (homepage look) */
-/* ============================================================
-   HOMEPAGE ONLY (Desktop): no scrolling
-   Requires: index.md front-matter -> body_class: home
-   ============================================================ */
-
-@media (min-width: 901px) {
-  body.home {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  body.home .page-content {
-    height: calc(100vh - 70px);
+/* Optional: prevent scrolling on desktop HOME only */
+@media (min-width:901px){
+  body.home{
+    height:100vh;
+    overflow:hidden;
   }
 }
 
-/* ============================================================
-   HOMEPAGE TITLE BLOCK (used by your index.md)
-   index.md should include:
-     <div class="arabic-name">...</div>
-     <h1>...</h1>
-     <p class="tagline">...</p>
-   ============================================================ */
-
-.arabic-name {
-  font-family: "Amiri", serif;
-  font-size: 40px;        /* MODIFY: Arabic size */
-  letter-spacing: 0.10rem;/* MODIFY: Arabic spacing (keep small) */
-  margin-bottom: 16px;
+/* Homepage Arabic line */
+body.home .arabic-name{
+  font-family:"Amiri", serif;
+  font-size:40px;        /* MODIFY */
+  letter-spacing:0.10rem;/* MODIFY */
+  margin-bottom:16px;
 }
 
-/* MODIFY: English name (you asked smaller) */
-/* English name */
-h1 {
-  font-size: 2.0rem;        /* main size */
-  letter-spacing: 0.42em;   /* spacing for large screens */
-  margin: 0 0 12px 0;
+/* Homepage main title ONLY (do NOT style global h1) */
+body.home h1{
+  font-size:2.0rem;      /* MODIFY */
+  letter-spacing:0.42em; /* MODIFY */
+  margin:0 0 12px 0;
 }
 
-/* Medium screens */
-@media (max-width: 900px) {
-  h1 {
-    letter-spacing: 0.30em;
-    font-size: 2rem;
+/* Responsive title spacing (home only) */
+@media (max-width:900px){
+  body.home h1{
+    letter-spacing:0.30em;
+    font-size:2rem;
   }
 }
 
-/* Small screens */
-@media (max-width: 600px) {
-  h1 {
-    letter-spacing: 0.18em;
-    font-size: 1.7rem;
+@media (max-width:600px){
+  body.home h1{
+    letter-spacing:0.18em;
+    font-size:1.7rem;
   }
 }
 
-.tagline {
-  color: #aaa;
-  font-size: 1.5rem;        /* MODIFY: tagline size */
-  margin: 0;
+body.home .tagline{
+  color:#aaa;
+  font-size:1.5rem; /* MODIFY */
+  margin:0;
 }
 
 /* ============================================================
-   FOOTNOTES (kept for essays)
+   [D] BIOGRAPHY PAGE (BIO ONLY)
+   Requires bio.md front-matter: body_class: biography
+   Goal: photo flush-left, no border radius, no forced word wrap
    ============================================================ */
 
-.footnotes {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #222;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #d0d0d0;
+/* Remove Minima wrapper constraint on Biography only */
+body.biography .page-content .wrapper{
+  max-width:none;
+  width:100%;
+  padding-left:0;
+  padding-right:0;
+  text-align:left; /* MODIFY: use left for biography */
 }
 
-.footnotes ol {
-  margin-left: 0;
-  padding-left: 1.2rem;
-}
-
-.footnotes li {
-  padding-left: 1.2rem;
-  text-indent: -1.2rem;
-  margin-bottom: 0.6rem;
-}
-
-sup {
-  font-size: 0.7rem;
-  vertical-align: super;
-}
-
-sup a {
-  text-decoration: none;
-  color: #9aa9ff;
-}
-
-a.footnote-backref,
-a.reversefootnote {
-  text-decoration: none;
-  opacity: 0.35;
-}
-
-a.footnote-backref:hover,
-a.reversefootnote:hover {
-  opacity: 0.8;
-}
-
-/* ============================================================
-   FOOTER: hidden (your request)
-   ============================================================ */
-.site-footer {
-  display: none;
-}
-
-/* ============================================================
-   BIOGRAPHY PAGE
-   Photo left — text centered in remaining space
-   BIOGRAPHY PAGE — NO HORIZONTAL SCROLL
-   Photo flush left | text centered in remaining space
-   ============================================================ */
-
-/* ==============================
-   MAIN LAYOUT
-   ============================== */
-
-.bio-layout{
-
+/* Layout: photo column + remaining space */
+body.biography .bio-layout{
   display:grid;
 
-  /* MODIFY: photo width | text width | empty balance space */
-  grid-template-columns: 520px 640px 1fr;
-  /* MODIFY: photo width (use clamp so it shrinks on small screens) */
+  /* MODIFY: photo width shrinks on small screens */
   grid-template-columns: clamp(280px, 38vw, 520px) minmax(0, 1fr);
 
-  /* MODIFY: space between columns */
-  gap: 80px;
   /* MODIFY: space between photo and text */
   gap: clamp(28px, 5vw, 70px);
 
   align-items:center;
 
-  /* full width so photo reaches the edge */
-  max-width: 1400px;
-  /* CRITICAL: prevents overflow beyond screen width */
   width:100%;
   max-width:100%;
 
-  margin: 0 auto;
-  /* CRITICAL: prevents sideways scrolling */
   overflow-x:hidden;
 
-  padding: 40px 40px;
-  /* MODIFY: keep top/bottom space */
-  padding: 30px 0;
-
-  min-height: calc(100vh - 90px);
+  padding:30px 0; /* MODIFY */
 }
 
-
-/* ============================================================
-   PHOTO
-   ============================================================ */
-/* ==============================
-   PHOTO (flush left)
-   ============================== */
-
-.bio-photo{
-  /* CRITICAL: ensures photo starts at the very left edge */
+/* Photo flush-left */
+body.biography .bio-photo{
   margin:0;
   padding:0;
 }
 
-.bio-photo img{
-
-  /* CRITICAL: image fills its grid column without exceeding it */
+body.biography .bio-photo img{
   width:100%;
-  max-width:520px;
   max-width:100%;
-
   height:auto;
   display:block;
 
-  /* MODIFY: corner style */
-  border-radius:6px;
+  border-radius:0; /* MODIFY: no border radius */
 }
 
-
-/* ============================================================
-   TEXT COLUMN
-   ============================================================ */
-
-.bio-content{
-
-  /* keeps text readable */
-  max-width:640px;
-
-}
-
-
-/* NAME */
-
-.bio-content h1{
-
-  font-size:2.3rem;
-/* ==============================
-   TEXT (centered in remaining area)
-   ============================== */
-
-  letter-spacing:0.32em;
-
-  margin-bottom:20px;
-}
-
-
-/* TAGLINE */
-.bio-content{
-
-.bio-role{
-  /* CRITICAL: lets text column shrink without overflow */
+/* Text column centered within remaining space */
+body.biography .bio-content{
   min-width:0;
 
+  max-width:640px; /* MODIFY */
+  margin:0 auto;
+
+  padding:0 24px; /* MODIFY: inner padding */
+}
+
+/* Name / tagline */
+body.biography .bio-content h1{
+  font-size:2.2rem;      /* MODIFY */
+  letter-spacing:0.28em; /* MODIFY */
+  margin-bottom:18px;
+}
+
+body.biography .bio-role{
   color:#aaa;
-  /* MODIFY: readable line-length */
-  max-width: 640px;
-
   letter-spacing:0.22em;
-  /* centers the text block within the remaining space */
-  margin: 0 auto;
-
   font-size:0.95rem;
-  /* OPTIONAL: add right padding so text never kisses the edge */
-  padding: 0 24px;
-
-  margin-bottom:32px;
+  margin-bottom:28px;
 }
 
-
-/* PARAGRAPHS */
-
-.bio-content p{
-
+/* Bio paragraphs */
+body.biography .bio-content p{
   color:#ccc;
-
   line-height:1.75;
-
   margin-bottom:16px;
-/* CRITICAL: long words/URLs won’t force overflow */
-.bio-content *{
-  overflow-wrap: anywhere;
 }
 
+/* Responsive biography */
+@media (max-width:900px){
+  body.biography .bio-layout{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:20px 18px;
+  }
+
+  body.biography .bio-photo img{
+    max-width:360px; /* MODIFY */
+    margin:0 auto;
+  }
+
+  body.biography .bio-content{
+    padding:0;
+    text-align:center;
+  }
+}
 
 /* ============================================================
-/* ==============================
-   MOBILE
+   [E] ESSAYS (footnotes)
    ============================================================ */
-   ============================== */
 
-@media (max-width: 900px){
-
-  .bio-layout{
-    grid-template-columns: 1fr;
-    gap: 28px;
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-    gap:40px;
-
-    /* gives breathing room on small screens */
-    padding: 20px 18px;
-  }
-
-  .bio-photo img{
-    max-width:360px;
-    margin:auto;
-    /* MODIFY: portrait size on mobile */
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .bio-content{
-    padding: 0;
-    text-align: center;
-  }
-
+.footnotes{
+  margin-top:3rem;
+  padding-top:1.5rem;
+  border-top:1px solid #222;
+  font-size:0.9rem;
+  line-height:1.6;
+  color:#d0d0d0;
 }
 
-/* =======================================
-   HEADER LOGO
-======================================= */
-
-.site-title{
-
-display:flex;
-
-/* vertical alignment of logo + text */
-align-items:center;
-
-/* MODIFY: space between logo and text */
-gap:8px;
-
+.footnotes ol{
+  margin-left:0;
+  padding-left:1.2rem;
 }
 
-
-/* =======================================
-   LOGO IMAGE
-======================================= */
-
-.site-logo{
-
-/* MODIFY: logo height (recommended 22–28px) */
-height:24px;
-
-/* keeps proportions */
-width:auto;
-
-/* prevents layout shifting */
-display:block;
-
+.footnotes li{
+  padding-left:1.2rem;
+  text-indent:-1.2rem;
+  margin-bottom:0.6rem;
 }
 
+sup{
+  font-size:0.7rem;
+  vertical-align:super;
+}
 
-/* =======================================
-   SITE NAME
-======================================= */
+sup a{
+  text-decoration:none;
+  color:#9aa9ff;
+}
 
-.site-name{
+a.footnote-backref,
+a.reversefootnote{
+  text-decoration:none;
+  opacity:0.35;
+}
 
-/* MODIFY: text size */
-font-size:14px;
+a.footnote-backref:hover,
+a.reversefootnote:hover{
+  opacity:0.8;
+}
 
-/* MODIFY: spacing between letters */
-letter-spacing:2px;
+/* ============================================================
+   [F] UTILITIES
+   ============================================================ */
 
-/* aligns better with logo */
-line-height:1;
-
+img{
+  max-width:100%;
+  height:auto;
 }
