@@ -171,36 +171,19 @@ a:focus{
 
 }
 
-/* ============================================================
-   HOMEPAGE ONLY: hard-disable scrolling
-   Requires: index.md has body_class: home
-   ============================================================ */
+/* HOMEPAGE ONLY: disable scrolling */
+html, body { height: 100%; }
 
-html, body {
-  height: 100%;
-}
-
-/* Desktop + mobile-safe lock */
-body.home,
-html body.home {
+body.home {
   height: 100vh;
-  overflow: hidden;        /* no scrollbars */
+  overflow: hidden;
 }
 
-/* Prevent inner containers from creating overflow */
+/* If a child is overflowing, lock it too */
 body.home .page-content {
   height: calc(100vh - 70px); /* adjust if header height differs */
   overflow: hidden;
 }
-
-/* Remove Minima’s default vertical spacing that can cause 1–5px overflow */
-body.home .page-content,
-body.home .page-content .wrapper {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
 /* ============================================================
    BIOGRAPHY PAGE
    ============================================================ */
