@@ -81,7 +81,7 @@ a:focus{
 .site-title{
   display:flex;
   align-items:center;
-  gap:12px;                 /* MODIFY: gap between logo and text */
+  gap:16px;                 /* MODIFY: gap between logo and text */
   color:#7a7a7a !important;
   letter-spacing:0.26rem;   /* MODIFY: title spacing */
   font-size:0.8rem;         /* MODIFY: title size */
@@ -102,7 +102,7 @@ a:focus{
 /* Text beside logo */
 .site-name{
   font-size:14px;     /* MODIFY */
-  letter-spacing:2px; /* MODIFY */
+  letter-spacing:3px; /* MODIFY */
   line-height:1;
 }
 
