@@ -1,6 +1,5 @@
 ---
 layout: home
-body_class: home
 ---
 
 <div class="home-center">
