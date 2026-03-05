@@ -405,3 +405,31 @@ img{
 .site-footer{
   display:none;
 }
+
+/* ============================================================
+   HOMEPAGE FULL-HEIGHT CENTERING
+   ============================================================ */
+
+body.home {
+
+  height: 100vh;
+
+}
+
+body.home .page-content {
+
+  min-height: calc(100vh - 70px); /* MODIFY if header height changes */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 0; /* prevents header spacing from shifting center */
+
+}
+
+body.home .page-content .wrapper {
+
+  text-align: center;
+
+}
