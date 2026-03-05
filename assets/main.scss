@@ -195,6 +195,41 @@ body:has(.home-hero){
 }
 
 /* ============================================================
+   FIX: true vertical alignment for header title + nav
+   (neutralize Minima's line-height/padding baselines)
+   ============================================================ */
+
+.site-header .wrapper{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.site-title{
+  padding: 0 !important;
+  line-height: 1 !important;          /* key */
+}
+
+.site-nav{
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1 !important;          /* key */
+  display: flex;
+  align-items: center;
+}
+
+.site-nav .trigger{
+  display: flex;
+  align-items: center;               /* key */
+}
+
+.site-nav .page-link{
+  display: inline-flex;              /* prevents baseline quirks */
+  align-items: center;
+  padding: 0 !important;             /* key */
+  line-height: 1 !important;         /* key */
+}
+
+/* ============================================================
    HOMEPAGE TYPOGRAPHY
    ============================================================ */
 
