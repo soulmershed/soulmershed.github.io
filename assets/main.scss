@@ -328,6 +328,30 @@ body:has(.home-hero){
 .footnotes li{ margin-bottom:0.6rem; }
 
 /* ============================================================
+   MODIFY: DATE (post meta) TEXT SIZE
+   Affects the date you highlighted: 2026-03-03
+   ============================================================ */
+
+.post-meta,
+.post-meta time,
+time.dt-published{
+  font-size: 0.85rem; /* MODIFY: date size */
+  line-height: 1.2;   /* MODIFY: date line-height */
+  color: #6e6e6e;     /* MODIFY: date color */
+  letter-spacing: 0.06em; /* MODIFY: optional */
+  text-transform: none;   /* keep as-is unless you want uppercase */
+}
+
+/* If the date appears inside a small badge/pill, normalize it */
+.post-meta{
+  display: inline-block;   /* keeps it compact */
+  padding: 0;              /* set to 0 if you do NOT want a badge */
+  border: none;            /* remove any border if present */
+  border-radius: 0;        /* remove rounded pill look */
+  background: transparent; /* remove badge background */
+}
+
+/* ============================================================
    UTILITIES
    ============================================================ */
 img{
