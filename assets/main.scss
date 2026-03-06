@@ -14,10 +14,32 @@
    ✓ Homepage hero preserved
    ============================================================ */
 
-/* Put this at the BOTTOM of main.scss so it overrides everything */
-.page-content:has(h1:contains("Books")) .wrapper,
-.page-content:has(h1:contains("Books")) .wrapper * {
-  text-align: center !important;
+/* Replace the old :contains rule with this */
+.page-content h1 {
+  /* Books / Essays / Biography page main heading */
+  text-align: center;
+}
+
+.page-content .post-list-heading,
+.page-content .page-heading {
+  text-align: center;
+}
+
+/* Target the actual content blocks under the h1 */
+.page-content > .wrapper > *:not(.post-list):not(.post-content) {
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Make sure description paragraphs stay centered and elegant */
+.page-content > .wrapper > p {
+  text-align: center;
+  max-width: 620px;
+  margin: 1.2em auto;
+  font-size: 1.05rem;
+  color: #ccc;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:wght@400;500;600&display=swap');
@@ -39,7 +61,7 @@
 
   --page-title-gap:180px; /* MODIFY: GAP before Books / Essays titles */
 
-  --hero-gap-top:180px;   /* MODIFY: homepage hero spacing */
+  --hero-gap-top:160px;   /* MODIFY: homepage hero spacing */
 
 }
 
@@ -207,16 +229,26 @@ a:hover{
 
 }
 
-/* Ensure titles are centered */
+/* ============================================================
+   PAGE TITLES (Books / Essays / Biography / Links)
+   ============================================================ */
 
 .page-heading,
 .post-list-heading,
+.post-title,
 .home{
   text-align:center;
 }
 
+.post-title,
 .page-heading{
-  margin-bottom:28px;
+
+  letter-spacing:0.18em;   /* MODIFY: spacing between letters */
+
+  font-size:2.2rem;        /* MODIFY: page title size */
+
+  margin-bottom:96px;
+
 }
 
 /* ============================================================
@@ -249,6 +281,29 @@ a:hover{
   max-width:680px;     /* keeps the line elegant */
   margin-left:auto;
   margin-right:auto;
+}
+
+/* ============================================================
+BOOK PAGE CONTROLS
+============================================================ */
+
+/* MODIFY: book title size */
+.book-title{
+  font-size:1.8rem;      /* change this to control title size */
+  letter-spacing:0.02em;
+  margin-bottom:14px;
+}
+
+/* MODIFY: book description */
+.book-description{
+  font-size:1.15rem;
+  color:#d0d0d0;
+}
+
+/* MODIFY: bottom note text */
+.book-note{
+  margin-top:28px;
+  color:#b0b0b0;
 }
 
 /* ============================================================
@@ -307,11 +362,15 @@ body:has(.home-hero){
 
 .home-hero h1{
 
-  font-size:2.1rem;
+  font-size:2.1rem;        /* MODIFY: homepage English name size */
 
-  letter-spacing:0.42em;
+  letter-spacing:0.30em;   /* MODIFY: reduce spacing to avoid wrap */
 
   margin:0 0 14px 0;
+
+  white-space:nowrap;      /* MODIFY: keeps name on one line */
+
+  display:inline-block;
 
 }
 
@@ -319,7 +378,7 @@ body:has(.home-hero){
 
   color:#6e6e6e;
 
-  font-size:1.35rem;
+  font-size:1.5rem;
 
 }
 
