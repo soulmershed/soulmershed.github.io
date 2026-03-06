@@ -1,0 +1,16 @@
+{
+  "forwardPorts": [4000, 35729],
+  "portsAttributes": {
+    "4000": {
+      "label": "Jekyll site",
+      "onAutoForward": "openPreview"
+    },
+    "35729": {
+      "label": "LiveReload"
+    }
+  },
+  "postCreateCommand": "bundle install",
+  "postAttachCommand": {
+    "server": "bundle exec jekyll serve --livereload --host 0.0.0.0"
+  }
+}
