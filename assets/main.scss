@@ -230,6 +230,18 @@ a:hover{
 }
 
 /* ============================================================
+   ESSAYS PAGE INTRO ALIGNMENT
+   Fix paragraph under page title
+   ============================================================ */
+
+.page-content p{
+  text-align:center;
+  max-width:680px;     /* keeps the line elegant */
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ============================================================
    HOMEPAGE HERO
    ============================================================ */
 
