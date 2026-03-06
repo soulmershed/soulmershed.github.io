@@ -99,29 +99,20 @@ Links
 
 <div class="copy-box">
 <pre id="gitcmd">git add . &amp;&amp; git commit -m "Update site" &amp;&amp; git push</pre>
-<button onclick="copyCommand()">Copy</button>
+<button onclick="copyCommand()">📋</button>
 </div>
 
-<p>git add .
-git commit -m “Add Codespaces development setup”
-git push</p>
+<script>
+function copyCommand() {
+  const text = document.getElementById("gitcmd").innerText;
+  navigator.clipboard.writeText(text);
+}
+</script>
 
 <h2 id="useful-links">Useful Links</h2>
 <ul>
   <li><a href="https://opulent-bassoon-5g65jq7x4x6xc7pq9.github.dev/">Codespace</a></li>
   <li><a href="https://opulent-bassoon-5g65jq7x4x6xc7pq9-4000.app.github.dev/">Test Website</a></li>
-</ul>
-
-<h2 id="ideas-for-website">Ideas for Website</h2>
-<ul>
-  <li>Add book section</li>
-  <li>Add essay RSS feed</li>
-  <li>Improve typography</li>
-</ul>
-
-<h2 id="css-references">CSS References</h2>
-<ul>
-  <li>https://css-tricks.com</li>
 </ul>
 
   </div>

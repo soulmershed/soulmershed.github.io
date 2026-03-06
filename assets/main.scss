@@ -528,10 +528,16 @@ img{
 .copy-box{
   display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:space-between;
   background:#111;
   padding:10px 14px;
   border-radius:6px;
+  margin-bottom:12px;
+}
+
+.copy-box pre{
+  margin:0;
+  color:#ddd;
 }
 
 .copy-box button{
@@ -540,6 +546,7 @@ img{
   border:none;
   padding:6px 10px;
   cursor:pointer;
+  border-radius:4px;
 }
 
 .copy-box button:hover{

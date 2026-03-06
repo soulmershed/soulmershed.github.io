@@ -323,8 +323,10 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 600px) { .arabic-name { font-size: 34px; }
   .home-hero { padding-top: 160px; } }
 /* ============================================================ One-click Copy ============================================================ */
-.copy-box { display: flex; align-items: center; gap: 12px; background: #111; padding: 10px 14px; border-radius: 6px; }
+.copy-box { display: flex; align-items: center; justify-content: space-between; background: #111; padding: 10px 14px; border-radius: 6px; margin-bottom: 12px; }
 
-.copy-box button { background: #333; color: #fff; border: none; padding: 6px 10px; cursor: pointer; }
+.copy-box pre { margin: 0; color: #ddd; }
+
+.copy-box button { background: #333; color: #fff; border: none; padding: 6px 10px; cursor: pointer; border-radius: 4px; }
 
 .copy-box button:hover { background: #555; }
