@@ -211,7 +211,7 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .il { color: #099; }
 
 /* ============================================================ ROOT CONTROLS ============================================================ */
-:root { --header-h:70px; /* MODIFY: header height */ --header-pad-x:40px; /* MODIFY: header side padding */ --page-width:760px; /* MODIFY: reading width */ --nav-gap:28px; /* MODIFY: space between navigation tabs */ --page-title-gap:180px; /* MODIFY: GAP before Books / Essays titles */ --hero-gap-top:160px; /* MODIFY: homepage hero spacing */ }
+:root { --header-h:70px; /* MODIFY: header height */ --header-pad-x:40px; /* MODIFY: header side padding */ --page-width:760px; /* MODIFY: reading width */ --nav-gap:28px; /* MODIFY: space between navigation tabs */ --page-title-gap:180px; /* MODIFY: GAP before Books / Essays titles */ --hero-gap-top:120px; /* MODIFY: homepage hero spacing */ }
 
 /* ============================================================ GLOBAL TYPOGRAPHY ============================================================ */
 body { background: #000; color: #fff; font-family: "EB Garamond", Garamond, serif; font-size: 20px; line-height: 1.6; margin: 0; }
@@ -221,7 +221,9 @@ body { background: #000; color: #fff; font-family: "EB Garamond", Garamond, seri
 /* ============================================================ LINKS ============================================================ */
 a, a:visited { color: #d0d0d0; text-decoration: none; }
 
-a:hover { color: #ffffff; }
+a:hover { color: #ffffff; text-decoration: none; }
+
+.site-title:hover, .site-nav .page-link:hover { text-decoration: none !important; }
 
 /* ============================================================ HEADER ============================================================ */
 .site-header { border-bottom: 1px solid #111; min-height: var(--header-h); }

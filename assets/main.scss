@@ -61,7 +61,7 @@
 
   --page-title-gap:180px; /* MODIFY: GAP before Books / Essays titles */
 
-  --hero-gap-top:160px;   /* MODIFY: homepage hero spacing */
+  --hero-gap-top:120px;   /* MODIFY: homepage hero spacing */
 
 }
 
@@ -101,6 +101,12 @@ a:visited{
 
 a:hover{
   color:#ffffff;
+  text-decoration:none;
+}
+
+.site-title:hover,
+.site-nav .page-link:hover{
+  text-decoration:none !important;
 }
 
 /* ============================================================
