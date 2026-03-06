@@ -98,16 +98,9 @@ Links
 <h2 id="handy-commands">Handy Commands</h2>
 
 <div class="copy-box">
-<pre id="gitcmd">git add . &amp;&amp; git commit -m "Update site" &amp;&amp; git push</pre>
-<button onclick="copyCommand()">📋</button>
+  <pre id="gitcmd">git add . &amp;&amp; git commit -m "Update site" &amp;&amp; git push</pre>
+  <button class="copy-btn" data-copy="gitcmd">📋</button>
 </div>
-
-<script>
-function copyCommand() {
-  const text = document.getElementById("gitcmd").innerText;
-  navigator.clipboard.writeText(text);
-}
-</script>
 
 <h2 id="useful-links">Useful Links</h2>
 <ul>
