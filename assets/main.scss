@@ -2,36 +2,38 @@
 ---
 
 /* ============================================================
-   MAIN.SCSS — STABLE VERSION
-   Minimal black author site — GitHub Pages + Minima
+   MAIN.SCSS — STABLE AUTHOR WEBSITE VERSION
+   GitHub Pages + Minima
 
    FIXES INCLUDED
-   ✓ Navigation tabs spacing restored
-   ✓ Tabs remain right aligned
-   ✓ Larger gap above homepage name
-   ✓ Header alignment stable
-   ✓ Arabic typography preserved
-   ✓ Essays remain readable
+   ✓ Navigation tabs spacing
+   ✓ Navigation right alignment
+   ✓ Larger gap before page titles
+   ✓ Books & Essays centered
+   ✓ Essays readable (left-aligned body)
+   ✓ Homepage hero preserved
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:wght@400;500;600&display=swap');
 @import "minima";
 
 /* ============================================================
-   GLOBAL VARIABLES
+   ROOT CONTROLS
    ============================================================ */
 
 :root{
 
   --header-h:70px;        /* MODIFY: header height */
 
-  --header-pad-x:40px;    /* MODIFY: left/right header padding */
+  --header-pad-x:40px;    /* MODIFY: header side padding */
 
   --page-width:760px;     /* MODIFY: reading width */
 
-  --nav-gap:26px;         /* MODIFY: spacing between navigation tabs */
+  --nav-gap:28px;         /* MODIFY: space between navigation tabs */
 
-  --hero-gap-top:200px;   /* MODIFY: gap above Arabic name */
+  --page-title-gap:160px; /* MODIFY: GAP before Books / Essays titles */
+
+  --hero-gap-top:220px;   /* MODIFY: homepage hero spacing */
 
 }
 
@@ -45,7 +47,7 @@ body{
 
   font-family:"EB Garamond", Garamond, serif;
 
-  font-size:20px;     /* MODIFY */
+  font-size:20px;
 
   line-height:1.6;
 
@@ -69,8 +71,7 @@ a:visited{
   text-decoration:none;
 }
 
-a:hover,
-a:focus{
+a:hover{
   color:#ffffff;
 }
 
@@ -82,8 +83,6 @@ a:focus{
   border-bottom:1px solid #111;
   min-height:var(--header-h);
 }
-
-/* Header layout */
 
 .site-header .wrapper{
 
@@ -116,8 +115,6 @@ a:focus{
 
   margin:0;
 
-  padding:0;
-
   color:#7a7a7a !important;
 
   font-size:0.8rem;
@@ -133,38 +130,27 @@ a:focus{
 }
 
 .site-logo{
-
-  height:24px;   /* MODIFY */
-
-  width:auto;
-
+  height:24px;  /* MODIFY */
 }
 
 .site-name{
-
-  font-size:14px;     /* MODIFY */
-
-  letter-spacing:3px; /* MODIFY */
-
-  line-height:1;
-
+  font-size:14px;
+  letter-spacing:3px;
 }
 
 /* ============================================================
-   NAVIGATION (RIGHT SIDE)
+   NAVIGATION
    ============================================================ */
 
 .site-nav{
 
-  margin-left:auto;      /* keeps nav pushed right */
+  margin-left:auto;  /* keeps nav pushed to right */
 
   display:flex;
 
   align-items:center;
 
 }
-
-/* Navigation container */
 
 .site-nav .trigger{
 
@@ -174,11 +160,9 @@ a:focus{
 
   justify-content:flex-end;
 
-  gap:var(--nav-gap);   /* MODIFY: spacing between tabs */
+  gap:var(--nav-gap);  /* MODIFY: navigation tab spacing */
 
 }
-
-/* Individual tab */
 
 .site-nav .page-link{
 
@@ -190,8 +174,6 @@ a:focus{
 
   text-transform:uppercase;
 
-  display:inline-block;
-
 }
 
 .site-nav .page-link:hover{
@@ -199,12 +181,12 @@ a:focus{
 }
 
 /* ============================================================
-   NORMAL PAGE CONTENT
+   PAGE CONTENT (Books / Essays / Biography / Links)
    ============================================================ */
 
 .page-content{
 
-  padding-top:90px; /* MODIFY */
+  padding-top:var(--page-title-gap);  /* MODIFY: GAP BEFORE PAGE TITLES */
 
 }
 
@@ -217,6 +199,34 @@ a:focus{
 
   text-align:center;
 
+}
+
+/* Ensure titles are centered */
+
+.page-heading,
+.post-list-heading,
+.home{
+  text-align:center;
+}
+
+/* ============================================================
+   ESSAYS LIST PAGE
+   ============================================================ */
+
+/* Center the list page */
+
+.post-list{
+  text-align:center;
+}
+
+/* ============================================================
+   ESSAY ARTICLE BODY
+   ============================================================ */
+
+/* Keep essay bodies readable */
+
+.post-content{
+  text-align:left;
 }
 
 /* ============================================================
@@ -239,17 +249,13 @@ a:focus{
 
   gap:12px;
 
-  padding-top:var(--hero-gap-top); /* MODIFY: GAP ABOVE NAME */
+  padding-top:var(--hero-gap-top);  /* MODIFY: homepage spacing */
 
 }
-
-/* Remove default spacing on homepage */
 
 .page-content:has(.home-hero){
   padding-top:0;
 }
-
-/* Lock homepage scroll */
 
 body:has(.home-hero){
   overflow:hidden;
@@ -259,8 +265,6 @@ body:has(.home-hero){
    HOMEPAGE TYPOGRAPHY
    ============================================================ */
 
-/* Arabic name */
-
 .arabic-name{
 
   font-family:"Amiri", serif !important;
@@ -269,19 +273,15 @@ body:has(.home-hero){
 
   unicode-bidi:isolate;
 
-  font-size:44px;     /* MODIFY */
+  font-size:44px;
 
-  font-weight:400;
+  letter-spacing:0;
 
   line-height:1.35;
 
-  letter-spacing:0 !important;
-
-  margin-bottom:18px; /* MODIFY */
+  margin-bottom:18px;
 
 }
-
-/* English name */
 
 .home-hero h1{
 
@@ -292,8 +292,6 @@ body:has(.home-hero){
   margin:0 0 14px 0;
 
 }
-
-/* Subtitle */
 
 .home-hero .tagline{
 
@@ -313,7 +311,7 @@ body:has(.home-hero){
 
   grid-template-columns:clamp(280px,38vw,520px) minmax(0,1fr);
 
-  gap:70px; /* MODIFY */
+  gap:70px;
 
   align-items:center;
 
@@ -336,6 +334,8 @@ body:has(.home-hero){
   margin:0 auto;
 
   padding:0 24px;
+
+  text-align:center;
 
 }
 
@@ -360,17 +360,10 @@ body:has(.home-hero){
 }
 
 /* ============================================================
-   ESSAYS / POSTS
+   ESSAY META (DATES)
    ============================================================ */
 
-.post-content{
-  text-align:left;
-}
-
-/* Date styling */
-
 .post-meta,
-.post-meta time,
 time.dt-published{
 
   font-size:0.85rem;
@@ -408,8 +401,6 @@ img{
   height:auto;
 }
 
-/* Minimal aesthetic */
-
 .site-footer{
   display:none;
 }
@@ -438,7 +429,7 @@ img{
   }
 
   .home-hero{
-    padding-top:160px; /* MODIFY mobile gap */
+    padding-top:160px;
   }
 
 }
