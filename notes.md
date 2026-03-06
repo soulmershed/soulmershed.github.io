@@ -1,6 +1,12 @@
 # Personal Notes
 
 ## Handy Commands
+
+<div class="copy-box">
+<pre id="gitcmd">git add . && git commit -m "Update site" && git push</pre>
+<button onclick="copyCommand()">Copy</button>
+</div>
+
 git add .
 git commit -m "Add Codespaces development setup"
 git push
