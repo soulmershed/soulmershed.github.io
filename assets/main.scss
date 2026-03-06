@@ -153,7 +153,7 @@ a:focus{
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:16px; /* MODIFY: spacing between tabs */
+  gap:20px; /* MODIFY: spacing between tabs */
 }
 
 .site-nav .page-link{
@@ -222,7 +222,7 @@ a:focus{
   text-align:center;
   gap:10px;                   /* MODIFY: vertical rhythm between lines */
 
-  padding-top:140px;          /* MODIFY: MAIN CONTROL for gap above the name */
+  padding-top:160px;          /* MODIFY: MAIN CONTROL for gap above the name */
   box-sizing:border-box;
 }
 
