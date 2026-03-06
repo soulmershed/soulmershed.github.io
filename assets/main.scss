@@ -14,6 +14,12 @@
    ✓ Homepage hero preserved
    ============================================================ */
 
+/* Put this at the BOTTOM of main.scss so it overrides everything */
+.page-content:has(h1:contains("Books")) .wrapper,
+.page-content:has(h1:contains("Books")) .wrapper * {
+  text-align: center !important;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:wght@400;500;600&display=swap');
 @import "minima";
 
