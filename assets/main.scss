@@ -2,28 +2,53 @@
 ---
 
 /* ============================================================
-   MAIN.SCSS — FIXED + MARKED (GUIDANCE)
+   MAIN.SCSS — FULLY CORRECTED + MARKED
    Minimal black author site — GitHub Pages + Minima
-   Key goals:
-   1) Clean black theme + minimalist header
-   2) Homepage hero centered + no scroll (without breaking other pages)
-   3) Arabic line uses Amiri correctly (NO letter-spacing; RTL)
-   4) Biography layout wide + responsive
-   5) Essays/posts remain readable (normal scrolling)
+
+   WHAT THIS VERSION FIXES
+   1) Header title and nav align properly
+   2) Tabs stay right-aligned
+   3) Homepage hero is centered horizontally
+   4) Gap above the homepage name is easy to control
+   5) Arabic line uses Amiri correctly
+   6) Biography layout remains wide and responsive
+   7) Essays/posts keep normal scrolling and readability
+
+   IMPORTANT CONTROL POINTS
+   - Header height:            --header-h
+   - Header side padding:      --header-pad-x
+   - Tabs spacing:             .site-nav .trigger { gap: ... }
+   - Gap above homepage name:  .home-hero { padding-top: ... }
+   - Homepage block position:  .home-hero { justify-content: ... }
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=EB+Garamond:wght@400;500;600&display=swap');
 @import "minima";
 
 /* ============================================================
-   MODIFY: GLOBAL TYPOGRAPHY (site-wide)
+   MODIFY: ROOT CONTROLS
    ============================================================ */
+:root{
+  --header-h: 70px;      /* MODIFY: real header height */
+  --header-pad-x: 40px;  /* MODIFY: header left/right padding */
+  --page-width: 760px;   /* MODIFY: normal reading width */
+}
+
+/* ============================================================
+   GLOBAL TYPOGRAPHY
+   ============================================================ */
+html,
+body{
+  min-height: 100%;
+}
+
 body{
   background:#000;
   color:#fff;
   font-family:"EB Garamond", Garamond, serif;
   font-size:20px;   /* MODIFY: base size */
   line-height:1.6;  /* MODIFY: base line-height */
+  margin:0;
 }
 
 /* Keep Minima sections on black */
@@ -35,13 +60,14 @@ body{
 }
 
 /* ============================================================
-   MODIFY: LINKS (hover brightens, NO underline)
+   LINKS
    ============================================================ */
 a,
 a:visited{
   color:#d0d0d0;
   text-decoration:none;
 }
+
 a:hover,
 a:focus{
   color:#ffffff;
@@ -49,30 +75,25 @@ a:focus{
 }
 
 /* ============================================================
-   MODIFY: HEADER HEIGHT (used by hero centering calc)
-   IMPORTANT: keep this consistent with the header’s real height.
-   ============================================================ */
-:root{
-  --header-h: 70px;    /* MODIFY: if your header is taller/shorter */
-  --header-pad-x: 40px;/* MODIFY: left/right padding */
-}
-
-/* ============================================================
-   HEADER (top bar)
+   HEADER
    ============================================================ */
 .site-header{
   border-bottom:1px solid #111;
   min-height:var(--header-h);
 }
 
+/* This wrapper controls the full top bar layout */
 .site-header .wrapper{
   display:flex;
   align-items:center;
   justify-content:space-between;
   max-width:none;
+  min-height:var(--header-h);
+
+  padding-top:0 !important;
+  padding-bottom:0 !important;
   padding-left:var(--header-pad-x);
   padding-right:var(--header-pad-x);
-  min-height:var(--header-h);
 }
 
 /* ============================================================
@@ -81,50 +102,81 @@ a:focus{
 .site-title{
   display:flex;
   align-items:center;
-  gap:16px;                 /* MODIFY: gap between logo and text */
-  color:#7a7a7a !important;
-  letter-spacing:0.26rem;   /* MODIFY: title spacing */
-  font-size:0.8rem;         /* MODIFY: title size */
-  text-transform:uppercase;
+  gap:16px;               /* MODIFY: gap between logo and text */
   margin:0;
+  padding:0 !important;
+
+  color:#7a7a7a !important;
+  font-size:0.8rem;       /* MODIFY: title size */
+  line-height:1 !important;
+  letter-spacing:0.26rem; /* MODIFY: title spacing */
+  text-transform:uppercase;
+
+  flex-shrink:0;
 }
+
 .site-title:hover{
   color:#b0b0b0 !important;
 }
 
-/* Logo image */
 .site-logo{
-  height:24px; /* MODIFY */
-  width:auto;
   display:block;
+  width:auto;
+  height:24px; /* MODIFY: logo size */
 }
 
-/* Text beside logo */
 .site-name{
-  font-size:14px;     /* MODIFY */
-  letter-spacing:3px; /* MODIFY */
+  font-size:14px;     /* MODIFY: English name size in header */
   line-height:1;
+  letter-spacing:3px; /* MODIFY: spacing between letters */
 }
 
 /* ============================================================
-   NAVIGATION (tabs right)
+   NAVIGATION (RIGHT-ALIGNED)
+   IMPORTANT:
+   - margin-left:auto pushes the nav to the far right
+   - do NOT reset margin to 0, or the nav will drift left
    ============================================================ */
 .site-nav{
-  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+
+  margin-left:auto !important; /* IMPORTANT: keeps tabs at far right */
+  padding:0 !important;
+  line-height:1 !important;
+  border:none;
+  background:transparent;
 }
+
 .site-nav .trigger{
   display:flex;
+  align-items:center;
   justify-content:flex-end;
   gap:16px; /* MODIFY: spacing between tabs */
 }
+
 .site-nav .page-link{
+  display:inline-flex;
+  align-items:center;
+
+  margin:0;
+  padding:0 !important;
+  line-height:1 !important;
+
   color:#7a7a7a !important;
-  letter-spacing:0.18rem; /* MODIFY */
-  font-size:0.8rem;       /* MODIFY */
+  font-size:0.8rem;       /* MODIFY: tab size */
+  letter-spacing:0.18rem; /* MODIFY: tab spacing */
   text-transform:uppercase;
   text-decoration:none !important;
 }
-.site-nav .page-link:hover{
+
+.site-nav .page-link:not(:last-child){
+  margin-right:0;
+}
+
+.site-nav .page-link:hover,
+.site-nav .page-link:focus{
   color:#ffffff !important;
   text-decoration:none !important;
 }
@@ -137,260 +189,193 @@ a:focus{
 }
 
 /* ============================================================
-   IMPORTANT FIX: DO NOT FORCE GLOBAL VERTICAL CENTERING
-   Your previous file centered ALL pages and also killed scrolling.
-   That corrupts posts/essays pages.
-   We keep normal flow globally, and center ONLY the homepage hero.
+   GLOBAL PAGE CONTENT
    ============================================================ */
-
-/* ============================================================
-   GLOBAL CONTENT WRAPPER (normal pages)
-   ============================================================ */
-
-/* MODIFY: global spacing under header for normal pages.
-   Keep this if you want the elegant “breathing space” site-wide. */
 .page-content{
-  padding-top:90px; /* MODIFY: global space under header (normal pages) */
+  padding-top:90px; /* MODIFY: space under header on normal pages */
 }
 
-/* Center text site-wide (as in your aesthetic) */
+/* General reading wrapper for normal pages */
 .page-content .wrapper{
-  text-align:center;
-  max-width:760px; /* MODIFY: reading width for normal pages */
+  max-width:var(--page-width); /* MODIFY */
   margin-left:auto;
   margin-right:auto;
+  text-align:center;
 }
 
 /* ============================================================
-   HOMEPAGE HERO (NO posts injected)
+   HOMEPAGE HERO
    REQUIREMENT:
-   - index.md should NOT use layout: home (Minima adds Posts/RSS)
-   - Use: layout: page (or default) and include <div class="home-hero">...
-   ============================================================ */
+   - index.md should use layout: page (or default), not layout: home
+   - inside index.md use a wrapper like:
+     <div class="home-hero"> ... </div>
 
+   MAIN GAP CONTROL ABOVE THE NAME:
+   - padding-top below controls the gap you marked
+   ============================================================ */
 .home-hero{
-  /* Take full viewport minus header; ignore global padding-top */
   min-height:calc(100vh - var(--header-h));
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start; /* MODIFY: use center or flex-start */
   text-align:center;
-  gap:10px; /* MODIFY: vertical rhythm between lines */
+  gap:10px;                   /* MODIFY: vertical rhythm between lines */
+
+  padding-top:140px;          /* MODIFY: MAIN CONTROL for gap above the name */
+  box-sizing:border-box;
 }
 
-/* Remove the global “space under header” only on the hero page */
+/* Remove normal top spacing only on homepage hero */
 .page-content:has(.home-hero){
   padding-top:0 !important;
 }
 
-/* Prevent scrolling ONLY on the homepage hero.
-   NOTE: :has() is not supported in some older browsers.
-   If your browser does not support it, use body class method (see note below). */
-html, body{
-  height:100%;
-}
+/* Prevent scrolling only on homepage */
 body:has(.home-hero){
   overflow:hidden;
-}
-
-/* ============================================================
-   FIX: true vertical alignment for header title + nav
-   (neutralize Minima's line-height/padding baselines)
-   ============================================================ */
-
-.site-header .wrapper{
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-.site-title{
-  padding: 0 !important;
-  line-height: 1 !important;          /* key */
-}
-
-.site-nav{
-  padding: 0 !important;
-  margin: 0 !important;
-  line-height: 1 !important;          /* key */
-  display: flex;
-  align-items: center;
-}
-
-.site-nav .trigger{
-  display: flex;
-  align-items: center;               /* key */
-}
-
-.site-nav .page-link{
-  display: inline-flex;              /* prevents baseline quirks */
-  align-items: center;
-  padding: 0 !important;             /* key */
-  line-height: 1 !important;         /* key */
 }
 
 /* ============================================================
    HOMEPAGE TYPOGRAPHY
    ============================================================ */
 
-/* Arabic line: TRUE Amiri behavior (critical fixes)
-   - RTL direction
-   - NO letter-spacing (Arabic shaping must remain intact)
-   - comfortable line-height */
+/* Arabic name */
 .arabic-name{
+  margin:0 0 18px 0;   /* MODIFY: space below Arabic line */
+
   font-family:"Amiri", serif !important;
+  font-size:44px;      /* MODIFY: Arabic size */
+  font-weight:400;
+  line-height:1.35;    /* MODIFY: Arabic comfort */
+  letter-spacing:0 !important;
+
   direction:rtl;
   unicode-bidi:isolate;
-  font-size:44px;          /* MODIFY: Arabic size */
-  font-weight:400;
-  line-height:1.35;        /* MODIFY: Arabic vertical comfort */
-  letter-spacing:0 !important; /* IMPORTANT: never space Arabic letters */
-  margin:0 0 18px 0;       /* MODIFY: spacing under Arabic line */
   text-align:center;
+
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
-/* English name */
+/* English homepage name */
 .home-hero h1{
-  font-size:2.1rem;      /* MODIFY */
-  letter-spacing:0.42em; /* MODIFY */
-  line-height:1.05;
   margin:0 0 14px 0;
+
+  font-size:2.1rem;      /* MODIFY */
+  line-height:1.05;
+  letter-spacing:0.42em; /* MODIFY */
 }
 
-/* Tagline */
+/* Homepage subtitle/tagline */
 .home-hero .tagline{
+  margin:0;
   color:#6e6e6e;
   font-size:1.35rem; /* MODIFY */
-  margin:0;
   line-height:1.4;
-}
-
-/* Responsive adjustments */
-@media (max-width:900px){
-  .arabic-name{ font-size:38px; } /* MODIFY */
-  .home-hero h1{
-    font-size:2.0rem;
-    letter-spacing:0.30em;
-  }
-  .home-hero .tagline{ font-size:1.2rem; }
-}
-@media (max-width:600px){
-  .arabic-name{ font-size:34px; } /* MODIFY */
-  .home-hero h1{
-    font-size:1.7rem;
-    letter-spacing:0.18em;
-  }
 }
 
 /* ============================================================
    BIOGRAPHY PAGE
-   NOTE:
-   - If your biography page uses permalink /biography/ and layout page,
-     Minima body class is often "page". If you want reliable scoping,
-     add a wrapper class in the page HTML, e.g. <div class="bio-layout">...
+   USE:
+   <div class="bio-layout">
+     <figure class="bio-photo">...</figure>
+     <div class="bio-content">...</div>
+   </div>
    ============================================================ */
-
-/* allow full width for biography layout (only when layout exists) */
 .bio-layout{
   display:grid;
-  grid-template-columns:clamp(280px,38vw,520px) minmax(0,1fr);
-  gap:70px; /* MODIFY */
+  grid-template-columns:clamp(280px, 38vw, 520px) minmax(0, 1fr);
   align-items:center;
+  gap:70px; /* MODIFY */
+
   width:100%;
   overflow-x:hidden;
 }
 
-/* photo */
-.bio-photo{ margin:0; }
+.bio-photo{
+  margin:0;
+}
+
 .bio-photo img{
+  display:block;
   width:100%;
   max-width:520px; /* MODIFY */
   height:auto;
-  display:block;
   border-radius:0;
 }
 
-/* text */
 .bio-content{
   max-width:640px; /* MODIFY */
   margin:0 auto;
   padding:0 24px;
   text-align:center;
 }
+
 .bio-content h1{
+  margin:0 0 18px 0;
   font-size:2.2rem;    /* MODIFY */
   letter-spacing:0.28em;
-  margin:0 0 18px 0;
 }
-/* ============================================================
-   MODIFY: BIOGRAPHY SUBTITLE (the line you marked)
-   ============================================================ */
 
+/* Biography subtitle / role */
 .bio-role{
+  margin:0 0 28px 0;   /* MODIFY: space below subtitle */
 
-  font-size:1.05rem;      /* MODIFY: text size */
-  letter-spacing:0.22em;  /* MODIFY: spacing between letters */
-  color:#9a9a9a;          /* MODIFY: subtitle color */
-
-  margin-bottom:28px;     /* MODIFY: space below line */
-
+  color:#9a9a9a;       /* MODIFY */
+  font-size:1.05rem;   /* MODIFY */
+  letter-spacing:0.22em;
 }
+
 .bio-content p{
+  margin:0 0 16px 0;
   color:#ccc;
   line-height:1.75;
-  margin:0 0 16px 0;
-}
-
-/* BIO responsive */
-@media (max-width:900px){
-  .bio-layout{
-    grid-template-columns:1fr;
-    gap:30px;
-    padding:20px;
-  }
-  .bio-photo img{
-    max-width:360px; /* MODIFY */
-    margin:0 auto;
-  }
 }
 
 /* ============================================================
-   FOOTNOTES (ESSAYS)
+   ESSAYS / POSTS
    ============================================================ */
+.post-content{
+  text-align:left; /* essays/posts remain readable */
+}
+
+.post-title,
+.post-header,
+.post-meta{
+  text-align:center;
+}
+
+/* Date text */
+.post-meta,
+.post-meta time,
+time.dt-published{
+  display:inline-block;
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+
+  color:#6e6e6e;       /* MODIFY */
+  font-size:0.85rem;   /* MODIFY: date size */
+  line-height:1.2;     /* MODIFY */
+  letter-spacing:0.06em;
+  text-transform:none;
+}
+
+/* Footnotes */
 .footnotes{
   margin-top:3rem;
   padding-top:1.5rem;
   border-top:1px solid #222;
+
+  color:#d0d0d0;
   font-size:0.9rem;
   line-height:1.6;
-  color:#d0d0d0;
-}
-.footnotes li{ margin-bottom:0.6rem; }
-
-/* ============================================================
-   MODIFY: DATE (post meta) TEXT SIZE
-   Affects the date you highlighted: 2026-03-03
-   ============================================================ */
-
-.post-meta,
-.post-meta time,
-time.dt-published{
-  font-size: 0.85rem; /* MODIFY: date size */
-  line-height: 1.2;   /* MODIFY: date line-height */
-  color: #6e6e6e;     /* MODIFY: date color */
-  letter-spacing: 0.06em; /* MODIFY: optional */
-  text-transform: none;   /* keep as-is unless you want uppercase */
 }
 
-/* If the date appears inside a small badge/pill, normalize it */
-.post-meta{
-  display: inline-block;   /* keeps it compact */
-  padding: 0;              /* set to 0 if you do NOT want a badge */
-  border: none;            /* remove any border if present */
-  border-radius: 0;        /* remove rounded pill look */
-  background: transparent; /* remove badge background */
+.footnotes li{
+  margin-bottom:0.6rem;
 }
 
 /* ============================================================
@@ -401,24 +386,98 @@ img{
   height:auto;
 }
 
-/* Footer hidden (minimal look) */
 .site-footer{
   display:none;
 }
 
 /* ============================================================
-   NOTE (GUIDANCE):
-   If :has() is not supported in your browser and home scroll lock
-   does not work, use a body class instead:
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px){
+  .arabic-name{
+    font-size:38px; /* MODIFY */
+  }
 
-   1) In index.md front-matter:
+  .home-hero h1{
+    font-size:2rem;
+    letter-spacing:0.30em;
+  }
+
+  .home-hero .tagline{
+    font-size:1.2rem;
+  }
+
+  .bio-layout{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:20px;
+  }
+
+  .bio-photo img{
+    max-width:360px; /* MODIFY */
+    margin:0 auto;
+  }
+}
+
+@media (max-width: 700px){
+  .site-header .wrapper{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .site-title{
+    gap:10px;
+  }
+
+  .site-name{
+    font-size:12px;
+    letter-spacing:2px;
+  }
+
+  .site-nav .trigger{
+    gap:12px;
+  }
+
+  .site-nav .page-link{
+    font-size:0.72rem;
+    letter-spacing:0.12rem;
+  }
+
+  .home-hero{
+    padding-top:110px; /* MODIFY: homepage gap on smaller screens */
+  }
+}
+
+@media (max-width: 600px){
+  .arabic-name{
+    font-size:34px; /* MODIFY */
+  }
+
+  .home-hero h1{
+    font-size:1.7rem;
+    letter-spacing:0.18em;
+  }
+
+  .page-content{
+    padding-top:70px; /* MODIFY */
+  }
+}
+
+/* ============================================================
+   FALLBACK NOTE FOR :has()
+   If :has() is not supported in your browser:
+
+   1) In index.md front matter:
       body_class: home
 
-   2) Add to your layout’s <body>:
+   2) In your layout body tag:
       <body class="{{ page.body_class | default: page.layout }}">
 
-   3) Then replace:
+   3) Replace:
       body:has(.home-hero){ overflow:hidden; }
+      .page-content:has(.home-hero){ padding-top:0 !important; }
+
       with:
       body.home{ overflow:hidden; }
+      body.home .page-content{ padding-top:0 !important; }
    ============================================================ */
