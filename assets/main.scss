@@ -18,7 +18,7 @@
   --header-pad-x: 40px;     /* MODIFY: header side padding */
   --page-width: 760px;      /* MODIFY: normal page reading width */
   --nav-gap: 28px;          /* MODIFY: spacing between navigation tabs */
-  --page-title-gap: 180px;  /* MODIFY: gap before page titles */
+  --page-title-gap: 40px;  /* MODIFY: gap before page titles */
   --hero-gap-top: 120px;    /* MODIFY: homepage hero spacing */
 }
 
@@ -172,6 +172,7 @@ a:hover{
 
 /* ============================================================
    GENERIC PAGE BLOCKS
+   Keep normal pages centered, but DO NOT trap page articles
    ============================================================ */
 
 .page-content > .wrapper > *:not(.post-list):not(.post-content):not(.post){
@@ -279,7 +280,9 @@ body:has(.home-hero){
 }
 
 /* ============================================================
-   BIOGRAPHY PAGE — PHOTO ALIGNED TO BOTTOM
+   BIOGRAPHY PAGE — TRUE FULL-WIDTH FIX
+   IMAGE DEFINES PAGE HEIGHT
+   TEXT CENTERED VERTICALLY
    ============================================================ */
 
 /* Remove wrapper width restriction on biography page */
@@ -312,33 +315,31 @@ body:has(.home-hero){
   text-align:initial !important;
 }
 
-/* Biography layout – photo flush to bottom */
+/* Biography layout */
 .bio-layout{
   display:grid;
-  grid-template-columns:520px 1fr;   /* MODIFY: photo width + text column */
-  gap:80px;                          /* MODIFY: gap between image and text */
-  align-items:end;                   /* ← photo column aligns content to bottom */
+  grid-template-columns:520px 1fr; /* MODIFY: photo width + text column */
+  gap:80px;                        /* MODIFY: gap between image and text */
+  align-items:start;             /* both columns same row height */
   width:100%;
   margin:0 !important;
-  min-height:80vh;                   /* prevents tiny page feel – adjust or remove if unwanted */
 }
 
 /* Photo block */
 .bio-photo{
   margin:0 !important;
   padding:0 !important;
-  display:flex;
-  align-items:flex-end;              /* reinforces bottom alignment */
 }
 
 .bio-photo img{
   display:block;
-  width:520px;                       /* MODIFY: photo width */
-  height:auto;                       /* keep natural proportions */
+  width:630px;        /* MODIFY: photo width */
+  height:auto;        /* keep natural image proportions */
   margin:0 !important;
+  vertical-align:top;
 }
 
-/* Text block – remains vertically centered */
+/* Text block fills full row height and centers content vertically */
 .bio-content{
   max-width:640px;
   margin:0 auto;
@@ -346,7 +347,8 @@ body:has(.home-hero){
   min-height:100%;
   display:flex;
   flex-direction:column;
-  justify-content:center;            /* centers text vertically */
+  justify-content:flex-start;
+padding-top:160px;   /* MODIFY: controls gap above the biography text */
   text-align:center;
 }
 
@@ -366,8 +368,43 @@ body:has(.home-hero){
 .bio-content p{
   text-align:center;
   max-width:680px;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left:36px;
+  margin-right:36px;
+}
+
+.bio-layout{
+  display:grid;
+  grid-template-columns:520px 1fr;
+  gap:80px;
+  align-items:start;
+  width:100%;
+  margin:0 !important;
+}
+
+.bio-photo{
+  margin:0 !important;
+  padding:0 !important;
+  align-self:start;
+}
+
+.bio-photo img{
+  display:block;
+  width:520px;
+  height:auto;
+  margin:0 !important;
+}
+
+.bio-content{
+  margin:0;
+  padding:0 24px;
+  align-self:start;
+}
+
+.bio-content-inner{
+  max-width:640px;
+  margin:0 auto;
+  padding-top:0;
+  text-align:center;
 }
 
 /* ============================================================
@@ -415,13 +452,11 @@ img{
   .bio-layout{
     grid-template-columns:1fr;
     gap:40px;
-    align-items:stretch;           /* reset for mobile stacking */
   }
 
   .bio-photo{
     display:flex;
     justify-content:center;
-    align-items:center;            /* center on mobile */
   }
 
   .bio-photo img{

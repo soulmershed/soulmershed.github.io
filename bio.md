@@ -1,38 +1,38 @@
 ---
 layout: page
-title: Biography     # MODIFY: menu label + page title
+title: Biography
 permalink: /bio/
 ---
 
 <div class="bio-layout">
 
-<div class="bio-photo">
+  <div class="bio-photo">
+    <img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Soulaiman B. Mershed">
+  </div>
 
-<img src="{{ '/assets/profile.jpg' | relative_url }}" alt="Soulaiman B. Mershed">
+  <div class="bio-content">
+    <div class="bio-content-inner">
 
-</div>
+      <h1>Soulaiman B. Mershed</h1>
 
-<div class="bio-content">
+      <p class="bio-role">
+        Author exploring cognition, systems, and structural dynamics.
+      </p>
 
-<h1>Soulaiman B. Mershed</h1>
+      <p>
+        Soulaiman B. Mershed writes on the intersection of neuroscience,
+        behavioral economics, and long-term civilizational thinking.
+        His work explores how cognitive architecture interacts with
+        modern technological systems.
+      </p>
 
-<p class="bio-role">
-Author exploring cognition, systems, and structural dynamics.
-</p>
+      <p>
+        He is currently working on a trilogy examining the relationship
+        between human cognition, social structures, and technological
+        acceleration.
+      </p>
 
-<p>
-Soulaiman B. Mershed writes on the intersection of neuroscience,
-behavioral economics, and long-term civilizational thinking.
-His work explores how cognitive architecture interacts with
-modern technological systems.
-</p>
-
-<p>
-He is currently working on a trilogy examining the relationship
-between human cognition, social structures, and technological
-acceleration.
-</p>
-
-</div>
+    </div>
+  </div>
 
 </div>
