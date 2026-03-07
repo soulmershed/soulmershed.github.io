@@ -279,7 +279,7 @@ body:has(.home-hero) { overflow: hidden; }
 
 .home-hero .tagline { color: #6e6e6e; font-size: 1.5rem; }
 
-/* ============================================================ BIOGRAPHY PAGE — TRUE FULL-WIDTH FIX IMAGE DEFINES PAGE HEIGHT TEXT CENTERED VERTICALLY ============================================================ */
+/* ============================================================ BIOGRAPHY PAGE ============================================================ */
 /* Remove wrapper width restriction on biography page */
 .page-content:has(.bio-layout) .wrapper { max-width: none !important; width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; text-align: initial !important; }
 
@@ -290,15 +290,15 @@ body:has(.home-hero) { overflow: hidden; }
 .page-content:has(.bio-layout) .post-content { max-width: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; text-align: initial !important; }
 
 /* Biography layout */
-.bio-layout { display: grid; grid-template-columns: 520px 1fr; /* MODIFY: photo width + text column */ gap: 80px; /* MODIFY: gap between image and text */ align-items: start; /* both columns same row height */ width: 100%; margin: 0 !important; }
+.bio-layout { display: grid; grid-template-columns: 520px 1fr; /* MODIFY: left column width */ gap: 80px; /* MODIFY: gap between photo and text */ align-items: start; width: 100%; margin: 0 !important; }
 
 /* Photo block */
-.bio-photo { margin: 0 !important; padding: 0 !important; }
+.bio-photo { margin: 0 !important; padding: 0 !important; line-height: 0; /* FIX: removes tiny gap under image */ font-size: 0; /* FIX: removes inline spacing artifacts */ align-self: start; }
 
-.bio-photo img { display: block; width: 630px; /* MODIFY: photo width */ height: auto; /* keep natural image proportions */ margin: 0 !important; vertical-align: top; }
+.bio-photo img { display: block; width: 520px; /* MODIFY: photo width */ height: auto; margin: 0 !important; }
 
-/* Text block fills full row height and centers content vertically */
-.bio-content { max-width: 640px; margin: 0 auto; padding: 0 24px; min-height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding-top: 160px; /* MODIFY: controls gap above the biography text */ text-align: center; }
+/* Text block */
+.bio-content { max-width: 640px; margin: 0 auto; padding: 160px 24px 0 24px; /* MODIFY: top right bottom left */ display: flex; flex-direction: column; justify-content: flex-start; align-self: start; text-align: center; }
 
 .bio-content h1 { font-size: 2.2rem; letter-spacing: 0.28em; }
 
@@ -306,16 +306,6 @@ body:has(.home-hero) { overflow: hidden; }
 
 /* Keep biography paragraphs centered inside bio content only */
 .bio-content p { text-align: center; max-width: 680px; margin-left: 36px; margin-right: 36px; }
-
-.bio-layout { display: grid; grid-template-columns: 520px 1fr; gap: 80px; align-items: start; width: 100%; margin: 0 !important; }
-
-.bio-photo { margin: 0 !important; padding: 0 !important; align-self: start; }
-
-.bio-photo img { display: block; width: 520px; height: auto; margin: 0 !important; }
-
-.bio-content { margin: 0; padding: 0 24px; align-self: start; }
-
-.bio-content-inner { max-width: 640px; margin: 0 auto; padding-top: 0; text-align: center; }
 
 /* ============================================================ ESSAY META (DATES) ============================================================ */
 .post-meta, time.dt-published { font-size: 0.85rem; color: #6e6e6e; }
@@ -330,8 +320,10 @@ img { max-width: 100%; height: auto; }
 
 /* ============================================================ RESPONSIVE ============================================================ */
 @media (max-width: 900px) { .bio-layout { grid-template-columns: 1fr; gap: 40px; }
-  .bio-photo { display: flex; justify-content: center; }
-  .bio-photo img { width: 100%; max-width: 420px; }
+  .bio-photo { display: block; margin: 0 !important; padding: 0 !important; width: 100%; }
+  .bio-photo img { display: block; width: 100%; max-width: 420px; margin: 0 auto !important; }
+  .bio-content { padding: 0 24px; }
+  .bio-content p { margin-left: auto; margin-right: auto; }
   .arabic-name { font-size: 38px; }
   .home-hero h1 { font-size: 2rem; letter-spacing: 0.30em; } }
 @media (max-width: 600px) { .arabic-name { font-size: 34px; }
