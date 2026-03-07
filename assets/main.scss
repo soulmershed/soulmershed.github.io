@@ -501,3 +501,255 @@ img{
 .page-content:has(.bio-layout) .post-header{
   display:none;
 }
+
+/* ============================================================
+   ESSAY READER SETTINGS
+   Add at the bottom of main.scss
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+/* Default reader variables */
+:root{
+  --reader-bg: #ffffff;
+  --reader-text: #111111;
+  --reader-panel-bg: rgba(255,255,255,0.92);
+  --reader-panel-border: rgba(0,0,0,0.12);
+  --reader-font: "EB Garamond", Garamond, serif;
+  --reader-font-size: 20px;
+  --reader-line-height: 1.8;
+  --reader-max-width: 780px;
+}
+
+/* Essay page wrapper */
+.essay-reader-page{
+  background: var(--reader-bg);
+  color: var(--reader-text);
+  min-height: 100vh;
+  padding: 32px 20px 80px;
+}
+
+/* Toolbar area */
+.reader-toolbar-wrap{
+  max-width: var(--reader-max-width);
+  margin: 0 auto 28px auto;
+}
+
+.reader-toggle{
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid var(--reader-panel-border);
+  background: transparent;
+  color: var(--reader-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.reader-toggle:hover{
+  opacity: 0.88;
+}
+
+.reader-panel{
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--reader-panel-border);
+  background: var(--reader-panel-bg);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.reader-panel-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 18px 22px;
+}
+
+.reader-control{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reader-control label{
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.reader-control select,
+.reader-control input[type="range"]{
+  width: 100%;
+}
+
+.reader-control select{
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--reader-panel-border);
+  background: #fff;
+  color: #111;
+  font-family: inherit;
+}
+
+#fontSizeValue{
+  font-size: 0.88rem;
+  opacity: 0.8;
+}
+
+/* Main essay reading shell */
+.essay-reader-shell{
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  background: var(--reader-bg);
+  color: var(--reader-text);
+  font-family: var(--reader-font);
+  font-size: var(--reader-font-size);
+  line-height: var(--reader-line-height);
+}
+
+/* Header */
+.essay-reader-header{
+  margin-bottom: 40px;
+}
+
+.essay-reader-header h1{
+  margin: 0 0 12px 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--reader-text);
+}
+
+.essay-reader-meta{
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.72;
+}
+
+/* Content */
+.essay-reader-content{
+  color: var(--reader-text);
+}
+
+.essay-reader-content p,
+.essay-reader-content li,
+.essay-reader-content blockquote{
+  font-family: var(--reader-font);
+  font-size: var(--reader-font-size);
+  line-height: var(--reader-line-height);
+}
+
+.essay-reader-content p{
+  margin: 0 0 1.25em 0;
+}
+
+.essay-reader-content h2,
+.essay-reader-content h3,
+.essay-reader-content h4{
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+  line-height: 1.25;
+  color: var(--reader-text);
+}
+
+.essay-reader-content a{
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.essay-reader-content blockquote{
+  margin: 1.8em 0;
+  padding-left: 1em;
+  border-left: 3px solid rgba(127,127,127,0.45);
+  opacity: 0.94;
+}
+
+.essay-reader-content hr{
+  border: 0;
+  border-top: 1px solid rgba(127,127,127,0.24);
+  margin: 2.4em 0;
+}
+
+/* Theme helpers */
+.essay-reader-page.theme-white{
+  --reader-bg: #ffffff;
+  --reader-text: #111111;
+  --reader-panel-bg: rgba(255,255,255,0.93);
+  --reader-panel-border: rgba(0,0,0,0.12);
+}
+
+.essay-reader-page.theme-cream{
+  --reader-bg: #f6f1e7;
+  --reader-text: #1a1a1a;
+  --reader-panel-bg: rgba(246,241,231,0.94);
+  --reader-panel-border: rgba(0,0,0,0.12);
+}
+
+.essay-reader-page.theme-darkblue{
+  --reader-bg: #0d1b2a;
+  --reader-text: #f4efe4;
+  --reader-panel-bg: rgba(13,27,42,0.94);
+  --reader-panel-border: rgba(255,255,255,0.16);
+}
+
+.essay-reader-page.theme-black{
+  --reader-bg: #000000;
+  --reader-text: #f5f1e8;
+  --reader-panel-bg: rgba(10,10,10,0.94);
+  --reader-panel-border: rgba(255,255,255,0.14);
+}
+
+/* Font family helpers */
+.essay-reader-page.font-ebgaramond{
+  --reader-font: "EB Garamond", Garamond, serif;
+}
+
+.essay-reader-page.font-times{
+  --reader-font: "Times New Roman", Times, serif;
+}
+
+.essay-reader-page.font-georgia{
+  --reader-font: Georgia, serif;
+}
+
+/* Line spacing helpers */
+.essay-reader-page.spacing-narrow{
+  --reader-line-height: 1.55;
+}
+
+.essay-reader-page.spacing-medium{
+  --reader-line-height: 1.8;
+}
+
+.essay-reader-page.spacing-wide{
+  --reader-line-height: 2.05;
+}
+
+/* Manual font color helpers */
+.essay-reader-page.text-black{
+  --reader-text: #111111;
+}
+
+.essay-reader-page.text-darkgray{
+  --reader-text: #3b3b3b;
+}
+
+.essay-reader-page.text-white{
+  --reader-text: #ffffff;
+}
+
+.essay-reader-page.text-creamtext{
+  --reader-text: #f5f1e8;
+}
+
+@media (max-width: 700px){
+  .reader-panel-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .essay-reader-page{
+    padding: 22px 16px 60px;
+  }
+}
