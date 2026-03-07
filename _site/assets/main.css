@@ -275,7 +275,7 @@ body:has(.home-hero) { overflow: hidden; }
 /* ============================================================ HOMEPAGE TYPOGRAPHY ============================================================ */
 .arabic-name { font-family: "Amiri", serif !important; direction: rtl; unicode-bidi: isolate; font-size: 44px; letter-spacing: 0; line-height: 1.35; margin-bottom: 18px; }
 
-.home-hero h1 { font-size: 2.1rem; /* MODIFY: homepage English name size */ letter-spacing: 0.30em; /* MODIFY: reduce spacing to avoid wrap */ margin: 0 0 14px 0; white-space: nowrap; display: inline-block; }
+.home-hero h1 { font-size: 2.1rem; /* MODIFY: homepage English name size */ letter-spacing: 0.30em; /* MODIFY: reduce spacing to avoid wrap */ margin: 0 0 12px 0; white-space: nowrap; display: inline-block; }
 
 .home-hero .tagline { color: #6e6e6e; font-size: 1.5rem; }
 
