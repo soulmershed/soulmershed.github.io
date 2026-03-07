@@ -2,63 +2,69 @@
 layout: default
 ---
 
-<article class="essay-reader-page">
-  <div class="reader-toolbar-wrap">
-    <button class="reader-toggle" id="readerToggle" type="button" aria-expanded="false" aria-controls="readerPanel">
-      Reader settings
-    </button>
+<article class="essay-reader-page theme-white font-ebgaramond spacing-medium text-black{% if page.essay %} essay-post{% endif %}">
+  <button
+    class="reader-settings-toggle"
+    id="readerToggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="readerPanel"
+  >
+    Aa
+  </button>
 
-    <div class="reader-panel" id="readerPanel" hidden>
-      <div class="reader-panel-grid">
-        <div class="reader-control">
-          <label for="pageTheme">Page color</label>
-          <select id="pageTheme">
-            <option value="white">White</option>
-            <option value="cream">Cream</option>
-            <option value="darkblue">Dark blue</option>
-            <option value="black">Black</option>
-          </select>
-        </div>
+  <aside class="reader-settings-panel" id="readerPanel" hidden>
+    <div class="reader-settings-inner">
+      <h2>Reader settings</h2>
 
-        <div class="reader-control">
-          <label for="fontFamily">Font type</label>
-          <select id="fontFamily">
-            <option value="ebgaramond">EB Garamond</option>
-            <option value="times">Times New Roman</option>
-            <option value="georgia">Georgia</option>
-          </select>
-        </div>
+      <div class="reader-control">
+        <label for="pageTheme">Page color</label>
+        <select id="pageTheme">
+          <option value="white">White</option>
+          <option value="cream">Cream</option>
+          <option value="darkblue">Dark blue</option>
+          <option value="black">Black</option>
+        </select>
+      </div>
 
-        <div class="reader-control">
-          <label for="fontSize">Font size</label>
-          <input id="fontSize" type="range" min="16" max="26" step="1" value="20">
-          <span id="fontSizeValue">20 px</span>
-        </div>
+      <div class="reader-control">
+        <label for="fontFamily">Font type</label>
+        <select id="fontFamily">
+          <option value="ebgaramond">EB Garamond</option>
+          <option value="times">Times New Roman</option>
+          <option value="georgia">Georgia</option>
+        </select>
+      </div>
 
-        <div class="reader-control">
-          <label for="fontColor">Font color</label>
-          <select id="fontColor">
-            <option value="auto">Automatic</option>
-            <option value="black">Black</option>
-            <option value="darkgray">Dark gray</option>
-            <option value="white">White</option>
-            <option value="creamtext">Cream</option>
-          </select>
-        </div>
+      <div class="reader-control">
+        <label for="fontSize">Font size</label>
+        <input id="fontSize" type="range" min="16" max="28" step="1" value="21">
+        <span class="reader-note" id="fontSizeValue">21 px</span>
+      </div>
 
-        <div class="reader-control">
-          <label for="lineSpacing">Line spacing</label>
-          <select id="lineSpacing">
-            <option value="narrow">Narrow</option>
-            <option value="medium">Medium</option>
-            <option value="wide">Wide</option>
-          </select>
-        </div>
+      <div class="reader-control">
+        <label for="fontColor">Font color</label>
+        <select id="fontColor">
+          <option value="auto">Automatic</option>
+          <option value="black">Black</option>
+          <option value="darkgray">Dark gray</option>
+          <option value="white">White</option>
+          <option value="creamtext">Cream</option>
+        </select>
+      </div>
+
+      <div class="reader-control">
+        <label for="lineSpacing">Line spacing</label>
+        <select id="lineSpacing">
+          <option value="narrow">Narrow</option>
+          <option value="medium">Medium</option>
+          <option value="wide">Wide</option>
+        </select>
       </div>
     </div>
-  </div>
+  </aside>
 
-  <div class="essay-reader-shell" id="essayReaderShell">
+  <div class="essay-reader-shell">
     <header class="essay-reader-header">
       <h1>{{ page.title }}</h1>
 

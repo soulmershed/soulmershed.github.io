@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const defaults = {
     theme: "white",
     font: "ebgaramond",
-    fontSize: "20",
+    fontSize: "21",
     fontColor: "auto",
     spacing: "medium"
   };

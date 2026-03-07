@@ -186,11 +186,37 @@ a:hover{
    GENERIC PAGE PARAGRAPHS
    ============================================================ */
 
-.page-content p{
+/* ============================================================
+   GENERIC PAGE PARAGRAPHS
+   Center normal pages only, NOT posts / essays / biography
+   ============================================================ */
+
+.page-content > .wrapper > :not(.post):not(.post-list):not(.bio-layout) p{
   text-align:center;
   max-width:680px;
   margin-left:auto;
   margin-right:auto;
+}
+
+/* ============================================================
+   POSTS / ESSAYS
+   Prevent generic page centering from affecting article content
+   ============================================================ */
+
+.post .post-content,
+.post .post-content p,
+.post .post-content h1,
+.post .post-content h2,
+.post .post-content h3,
+.post .post-content h4,
+.post .post-content h5,
+.post .post-content h6,
+.post .post-content li,
+.post .post-content blockquote{
+  max-width:none;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
 }
 
 /* ============================================================
@@ -503,253 +529,338 @@ img{
 }
 
 /* ============================================================
-   ESSAY READER SETTINGS
-   Add at the bottom of main.scss
+   ESSAYS ONLY — STABLE VERSION
+   Applies ONLY to posts marked with: essay: true
+
+   HOW TO MODIFY
+   - MODIFY: ESSAY WIDTH        -> controls reading column width
+   - MODIFY: TOP GAP            -> space above essay title area
+   - MODIFY: BODY SIZE          -> paragraph font size
+   - MODIFY: LINE HEIGHT        -> paragraph line spacing
+   - MODIFY: INDENT             -> paragraph indentation size
+   - MODIFY: TEXT COLORS        -> essay text / metadata / rules
+   - MODIFY: TITLE SIZE         -> main essay title size
+   - MODIFY: HEADING SIZES      -> section heading sizes
+   - MODIFY: MOBILE VALUES      -> smaller-screen adjustments
+
+   BOOK-STYLE IMPROVEMENTS INCLUDED
+   ✓ First paragraph has no indent
+   ✓ First paragraph after headings has no indent
+   ✓ Subsequent paragraphs are indented
+   ✓ No extra vertical gaps between normal paragraphs
+   ✓ Garamond-style reading texture
+   ✓ Slightly refined title/body typography
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
-
-/* Default reader variables */
 :root{
-  --reader-bg: #ffffff;
-  --reader-text: #111111;
-  --reader-panel-bg: rgba(255,255,255,0.92);
-  --reader-panel-border: rgba(0,0,0,0.12);
-  --reader-font: "EB Garamond", Garamond, serif;
-  --reader-font-size: 20px;
-  --reader-line-height: 1.8;
-  --reader-max-width: 780px;
+  /* MODIFY: ESSAY WIDTH */
+  --essay-width: 760px;
+
+  /* MODIFY: TOP GAP */
+  --essay-top-gap: 70px;
+
+  /* MODIFY: BODY SIZE */
+  --essay-font-size: 1.30rem;
+
+  /* MODIFY: LINE HEIGHT */
+  --essay-line-height: 1.78;
+
+  /* MODIFY: INDENT */
+  --essay-indent: 2em;
+
+  /* MODIFY: TEXT COLORS */
+  --essay-text: #f3f3f3;
+  --essay-meta: #a8a8a8;
+  --essay-heading: #ffffff;
+  --essay-rule: rgba(255,255,255,0.18);
+  --essay-quote-rule: rgba(255,255,255,0.28);
+
+  /* OPTIONAL MICRO-TYPOGRAPHY */
+  --essay-body-letter-spacing: 0.003em;
+  --essay-title-letter-spacing: 0.01em;
 }
 
-/* Essay page wrapper */
-.essay-reader-page{
-  background: var(--reader-bg);
-  color: var(--reader-text);
-  min-height: 100vh;
-  padding: 32px 20px 80px;
+/* ============================================================
+   ESSAY PAGE CONTAINER ONLY
+   ============================================================ */
+.essay-post{
+  max-width: var(--essay-width);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: var(--essay-top-gap);
 }
 
-/* Toolbar area */
-.reader-toolbar-wrap{
-  max-width: var(--reader-max-width);
-  margin: 0 auto 28px auto;
+/* ============================================================
+   ESSAY TITLE ONLY
+   MODIFY: TITLE SIZE in font-size
+   ============================================================ */
+.essay-post .post-title{
+  max-width: var(--essay-width);
+  margin: 0 auto 20px auto !important;
+  color: var(--essay-heading) !important;
+  font-family: "EB Garamond", Garamond, serif !important;
+  font-size: clamp(2.3rem, 4vw, 3.25rem) !important;
+  line-height: 1.10 !important;
+  letter-spacing: var(--essay-title-letter-spacing) !important;
+  text-align: left !important;
+  text-wrap: balance;
 }
 
-.reader-toggle{
-  display: inline-block;
-  padding: 10px 16px;
-  border: 1px solid var(--reader-panel-border);
-  background: transparent;
-  color: var(--reader-text);
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  border-radius: 8px;
+/* ============================================================
+   ESSAY DATE ONLY
+   MODIFY: margin-bottom for larger/smaller gap below date
+   ============================================================ */
+.essay-post .post-meta{
+  display: block;
+  max-width: var(--essay-width);
+  margin: 0 auto 2.6em auto !important;
+  color: var(--essay-meta) !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left !important;
 }
 
-.reader-toggle:hover{
-  opacity: 0.88;
-}
-
-.reader-panel{
-  margin-top: 14px;
-  padding: 18px;
-  border: 1px solid var(--reader-panel-border);
-  background: var(--reader-panel-bg);
-  border-radius: 14px;
-  backdrop-filter: blur(10px);
-}
-
-.reader-panel-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(220px, 1fr));
-  gap: 18px 22px;
-}
-
-.reader-control{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.reader-control label{
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
-.reader-control select,
-.reader-control input[type="range"]{
-  width: 100%;
-}
-
-.reader-control select{
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--reader-panel-border);
-  background: #fff;
-  color: #111;
-  font-family: inherit;
-}
-
-#fontSizeValue{
-  font-size: 0.88rem;
-  opacity: 0.8;
-}
-
-/* Main essay reading shell */
-.essay-reader-shell{
-  max-width: var(--reader-max-width);
+/* ============================================================
+   ESSAY BODY ONLY
+   ============================================================ */
+.essay-post .post-content{
+  max-width: var(--essay-width);
   margin: 0 auto;
-  background: var(--reader-bg);
-  color: var(--reader-text);
-  font-family: var(--reader-font);
-  font-size: var(--reader-font-size);
-  line-height: var(--reader-line-height);
+  color: var(--essay-text) !important;
+  font-family: "EB Garamond", Garamond, serif !important;
+  text-align: left !important;
+
+  /* subtle refinement for book-like texture */
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
 }
 
-/* Header */
-.essay-reader-header{
-  margin-bottom: 40px;
+/* ============================================================
+   GENERIC PAGE PARAGRAPHS
+   Center normal pages only, NOT post articles
+   ============================================================ */
+
+.page-content > .wrapper > :not(.post):not(.post-list):not(.bio-layout) p{
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.essay-reader-header h1{
-  margin: 0 0 12px 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: 0.02em;
-  text-align: left;
-  color: var(--reader-text);
+/* ============================================================
+   POSTS / ESSAYS HARD RESET
+   ============================================================ */
+
+.post .post-content,
+.post .post-content p,
+.post .post-content h1,
+.post .post-content h2,
+.post .post-content h3,
+.post .post-content h4,
+.post .post-content h5,
+.post .post-content h6,
+.post .post-content li,
+.post .post-content blockquote{
+  text-align: left !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-.essay-reader-meta{
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.72;
+/* ============================================================
+   FIRST PARAGRAPH OF THE WHOLE ESSAY
+   NO INDENT
+   KEEP THIS LOW IN THE FILE SO IT OVERRIDES CLEANLY
+   ============================================================ */
+.essay-post .post-content > p:first-of-type{
+  text-indent: 0 !important;
 }
 
-/* Content */
-.essay-reader-content{
-  color: var(--reader-text);
+/* ============================================================
+   FIRST PARAGRAPH AFTER STRUCTURAL ELEMENTS
+   NO INDENT + SMALL TOP GAP
+   This creates the classic book/chapter style:
+   heading
+   first paragraph flush left
+   following paragraphs indented
+   ============================================================ */
+.essay-post .post-content h1 + p,
+.essay-post .post-content h2 + p,
+.essay-post .post-content h3 + p,
+.essay-post .post-content h4 + p,
+.essay-post .post-content h5 + p,
+.essay-post .post-content h6 + p,
+.essay-post .post-content blockquote + p,
+.essay-post .post-content ul + p,
+.essay-post .post-content ol + p,
+.essay-post .post-content hr + p{
+  text-indent: 0 !important;
+  margin-top: 0.35em !important;
 }
 
-.essay-reader-content p,
-.essay-reader-content li,
-.essay-reader-content blockquote{
-  font-family: var(--reader-font);
-  font-size: var(--reader-font-size);
-  line-height: var(--reader-line-height);
+/* ============================================================
+   OPTIONAL: IF YOU INSERT AN IMAGE, THE NEXT PARAGRAPH SHOULD
+   START FLUSH LEFT RATHER THAN INDENTED
+   ============================================================ */
+.essay-post .post-content img + p,
+.essay-post .post-content figure + p{
+  text-indent: 0 !important;
+  margin-top: 0.5em !important;
 }
 
-.essay-reader-content p{
-  margin: 0 0 1.25em 0;
+/* ============================================================
+   HEADINGS INSIDE ESSAY POSTS ONLY
+   MODIFY: HEADING SIZES / MARGINS BELOW
+   ============================================================ */
+.essay-post .post-content h2,
+.essay-post .post-content h3,
+.essay-post .post-content h4{
+  color: var(--essay-heading) !important;
+  font-family: "EB Garamond", Garamond, serif !important;
+  text-align: left !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0.005em !important;
 }
 
-.essay-reader-content h2,
-.essay-reader-content h3,
-.essay-reader-content h4{
-  margin-top: 2em;
-  margin-bottom: 0.7em;
-  line-height: 1.25;
-  color: var(--reader-text);
+.essay-post .post-content h2{
+  margin-top: 2.4em !important;   /* MODIFY: gap before h2 */
+  margin-bottom: 0.55em !important;
+  font-size: 2rem !important;     /* MODIFY: h2 size */
 }
 
-.essay-reader-content a{
-  color: inherit;
+.essay-post .post-content h3{
+  margin-top: 2.1em !important;   /* MODIFY: gap before h3 */
+  margin-bottom: 0.5em !important;
+  font-size: 1.5rem !important;   /* MODIFY: h3 size */
+}
+
+.essay-post .post-content h4{
+  margin-top: 1.9em !important;   /* MODIFY: gap before h4 */
+  margin-bottom: 0.45em !important;
+  font-size: 1.2rem !important;   /* MODIFY: h4 size */
+}
+
+/* ============================================================
+   LISTS INSIDE ESSAY POSTS ONLY
+   Lists keep normal spacing because indent-style flow is mainly
+   for paragraphs, not list blocks
+   ============================================================ */
+.essay-post .post-content ul,
+.essay-post .post-content ol{
+  margin: 0.7em 0 1.2em 1.5em !important;
+  padding: 0 !important;
+}
+
+.essay-post .post-content li{
+  color: var(--essay-text) !important;
+  font-family: "EB Garamond", Garamond, serif !important;
+  font-size: var(--essay-font-size) !important;
+  line-height: var(--essay-line-height) !important;
+  margin-bottom: 0.3em !important;
+  text-align: left !important;
+}
+
+/* ============================================================
+   BLOCKQUOTES INSIDE ESSAY POSTS ONLY
+   ============================================================ */
+.essay-post .post-content blockquote{
+  margin: 1.8em 0 !important;
+  padding: 0.2em 0 0.2em 1em !important;
+  border-left: 2px solid var(--essay-quote-rule) !important;
+  color: #dddddd !important;
+}
+
+.essay-post .post-content blockquote p{
+  text-indent: 0 !important;
+  margin: 0 !important;
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.essay-post .post-content a{
+  color: #ffffff !important;
   text-decoration: underline;
-  text-underline-offset: 0.14em;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 1px;
 }
 
-.essay-reader-content blockquote{
-  margin: 1.8em 0;
-  padding-left: 1em;
-  border-left: 3px solid rgba(127,127,127,0.45);
-  opacity: 0.94;
+/* ============================================================
+   STRONG / EMPHASIS
+   ============================================================ */
+.essay-post .post-content strong{
+  color: #ffffff !important;
 }
 
-.essay-reader-content hr{
+/* ============================================================
+   HORIZONTAL RULE
+   ============================================================ */
+.essay-post .post-content hr{
   border: 0;
-  border-top: 1px solid rgba(127,127,127,0.24);
-  margin: 2.4em 0;
+  border-top: 1px solid var(--essay-rule);
+  margin: 2.5em 0;
 }
 
-/* Theme helpers */
-.essay-reader-page.theme-white{
-  --reader-bg: #ffffff;
-  --reader-text: #111111;
-  --reader-panel-bg: rgba(255,255,255,0.93);
-  --reader-panel-border: rgba(0,0,0,0.12);
+/* ============================================================
+   IMAGES
+   ============================================================ */
+.essay-post .post-content img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2em auto;
 }
 
-.essay-reader-page.theme-cream{
-  --reader-bg: #f6f1e7;
-  --reader-text: #1a1a1a;
-  --reader-panel-bg: rgba(246,241,231,0.94);
-  --reader-panel-border: rgba(0,0,0,0.12);
-}
+/* ============================================================
+   OPTIONAL: FIGURES / CAPTIONS
+   Uncomment later if you start using figure/figcaption
 
-.essay-reader-page.theme-darkblue{
-  --reader-bg: #0d1b2a;
-  --reader-text: #f4efe4;
-  --reader-panel-bg: rgba(13,27,42,0.94);
-  --reader-panel-border: rgba(255,255,255,0.16);
+.essay-post .post-content figcaption{
+  color: var(--essay-meta) !important;
+  font-family: "EB Garamond", Garamond, serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  margin-top: 0.6em !important;
 }
+   ============================================================ */
 
-.essay-reader-page.theme-black{
-  --reader-bg: #000000;
-  --reader-text: #f5f1e8;
-  --reader-panel-bg: rgba(10,10,10,0.94);
-  --reader-panel-border: rgba(255,255,255,0.14);
-}
-
-/* Font family helpers */
-.essay-reader-page.font-ebgaramond{
-  --reader-font: "EB Garamond", Garamond, serif;
-}
-
-.essay-reader-page.font-times{
-  --reader-font: "Times New Roman", Times, serif;
-}
-
-.essay-reader-page.font-georgia{
-  --reader-font: Georgia, serif;
-}
-
-/* Line spacing helpers */
-.essay-reader-page.spacing-narrow{
-  --reader-line-height: 1.55;
-}
-
-.essay-reader-page.spacing-medium{
-  --reader-line-height: 1.8;
-}
-
-.essay-reader-page.spacing-wide{
-  --reader-line-height: 2.05;
-}
-
-/* Manual font color helpers */
-.essay-reader-page.text-black{
-  --reader-text: #111111;
-}
-
-.essay-reader-page.text-darkgray{
-  --reader-text: #3b3b3b;
-}
-
-.essay-reader-page.text-white{
-  --reader-text: #ffffff;
-}
-
-.essay-reader-page.text-creamtext{
-  --reader-text: #f5f1e8;
-}
-
+/* ============================================================
+   MOBILE
+   MODIFY: MOBILE VALUES HERE
+   ============================================================ */
 @media (max-width: 700px){
-  .reader-panel-grid{
-    grid-template-columns: 1fr;
+  :root{
+    --essay-top-gap: 40px;      /* MODIFY: mobile top gap */
+    --essay-font-size: 1.18rem; /* MODIFY: mobile body size */
+    --essay-line-height: 1.80;  /* MODIFY: mobile line height */
+    --essay-indent: 1.5em;      /* MODIFY: mobile indent */
   }
 
-  .essay-reader-page{
-    padding: 22px 16px 60px;
+  .essay-post{
+    padding-top: var(--essay-top-gap);
+  }
+
+  .essay-post .post-title{
+    font-size: clamp(1.95rem, 7vw, 2.55rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .essay-post .post-meta{
+    margin-bottom: 2em !important;
+    font-size: 0.88rem !important;
+  }
+
+  .essay-post .post-content h2{
+    font-size: 1.75rem !important;
+  }
+
+  .essay-post .post-content h3{
+    font-size: 1.38rem !important;
+  }
+
+  .essay-post .post-content h4{
+    font-size: 1.12rem !important;
   }
 }
