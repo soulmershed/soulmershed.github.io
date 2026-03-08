@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-03-08T12:23:45+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">S B Mershed Press</title><subtitle>Essays on cognition, systems, and structural dynamics</subtitle><entry><title type="html">Change, Cognition, and Communication</title><link href="http://0.0.0.0:4000/essays/change-cognition-communication/" rel="alternate" type="text/html" title="Change, Cognition, and Communication" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/change-cognition-communication</id><content type="html" xml:base="http://0.0.0.0:4000/essays/change-cognition-communication/"><![CDATA[<div style="margin-top:2.5rem;"></div>
+---
+layout: post
+title: "Change, Cognition, and Communication"
+date: 2026-03-07
+permalink: /essays/change-cognition-communication/
+excerpt: "Fire, writing, and social media illustrate how technological tools restructure human environments and cognition."
+essay: true
+math: true
+---
+
+
+<div style="margin-top:2.5rem;"></div>
 
 <div align="center">
 
@@ -9,7 +20,7 @@ Once integrated into society, they reorganize the conditions under which human c
 
 <div style="margin-top:2.5rem;"></div>
 
-<h2 id="introduction">Introduction</h2>
+## Introduction
 
 <p style="margin-bottom:0;">
 Human societies rarely remain unchanged when powerful tools emerge. Technologies do more than extend capability; they reorganize <strong>how people live, think, and coordinate with one another</strong>. Throughout history, new tools have repeatedly altered the environments in which human behavior unfolds. What begins as a technical innovation often becomes a structural force, shaping patterns of cooperation, attention, and social organization in ways that early observers rarely anticipate.
@@ -40,7 +51,7 @@ The task, therefore, is not to determine whether these tools are <strong>“good
 </p>
 <div style="margin-top:3rem;"></div>
 
-<h2 id="structural-transitions-in-human-history">Structural Transitions in Human History</h2>
+## Structural Transitions in Human History
 
 <p style="margin:0;">
 Technological transitions often follow a recurring pattern:
@@ -59,7 +70,7 @@ The deepest transformation therefore lies not in the tool itself but in <strong>
 
 <div style="margin-top:3rem;"></div>
 
-<h2 id="tribe-before-and-after-fire">Tribe Before and After Fire</h2>
+## Tribe Before and After Fire
 
 <p style="margin:0;">
 Archaeological and anthropological research indicates that early humans began controlling fire hundreds of thousands of years ago, possibly during the time of <em>Homo erectus</em> (Wrangham, 2009).
@@ -79,46 +90,17 @@ After fire, evenings became social spaces, cooked food altered metabolism, and p
 
 <div style="margin-top:2rem;"></div>
 
-<h3 id="social-conditions-before-and-after-fire">Social Conditions Before and After Fire</h3>
+### Social Conditions Before and After Fire
 
 <div style="margin-top:1rem;"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Dimension</th>
-      <th>Before Fire</th>
-      <th>After Fire</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Food preparation</td>
-      <td>Raw or minimally processed</td>
-      <td>Cooking improves caloric extraction</td>
-    </tr>
-    <tr>
-      <td>Daily rhythm</td>
-      <td>Activity limited by daylight</td>
-      <td>Night-time gathering possible</td>
-    </tr>
-    <tr>
-      <td>Protection</td>
-      <td>Limited defense against predators</td>
-      <td>Fire deters animals</td>
-    </tr>
-    <tr>
-      <td>Social interaction</td>
-      <td>Short communal periods</td>
-      <td>Extended evening communication</td>
-    </tr>
-    <tr>
-      <td>Settlement patterns</td>
-      <td>Highly mobile groups</td>
-      <td>Greater stability in camps</td>
-    </tr>
-  </tbody>
-</table>
+| Dimension | Before Fire | After Fire |
+|-----------|-------------|------------|
+| Food preparation | Raw or minimally processed | Cooking improves caloric extraction |
+| Daily rhythm | Activity limited by daylight | Night-time gathering possible |
+| Protection | Limited defense against predators | Fire deters animals |
+| Social interaction | Short communal periods | Extended evening communication |
+| Settlement patterns | Highly mobile groups | Greater stability in camps |
 
 <div style="margin-top:1.5rem;"></div>
 
@@ -143,7 +125,7 @@ It <strong>redefined the conditions of human life</strong>.
 
 <div style="margin-top:3rem;"></div>
 
-<h2 id="cognition-before-and-after-writing">Cognition Before and After Writing</h2>
+## Cognition Before and After Writing
 
 <p style="margin:0;">
 The emergence of writing introduced another structural transition, this time affecting <strong>knowledge and cognition</strong>.
@@ -169,7 +151,7 @@ With writing, knowledge could be externalized and accumulated across generations
 
 <div style="margin-top:2rem;"></div>
 
-<h3 id="platos-concern-about-writing">Plato’s Concern About Writing</h3>
+### Plato’s Concern About Writing
 
 <div align="center" style="margin-top:1.5rem; margin-bottom:1.5rem;">
 
@@ -199,39 +181,14 @@ Yet writing also enabled:
 
 <div style="margin-top:2rem;"></div>
 
-<h3 id="cognitive-environment-before-and-after-writing">Cognitive Environment Before and After Writing</h3>
+### Cognitive Environment Before and After Writing
 
-<table>
-  <thead>
-    <tr>
-      <th>Dimension</th>
-      <th>Before Writing</th>
-      <th>After Writing</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Knowledge storage</td>
-      <td>Human memory</td>
-      <td>External records</td>
-    </tr>
-    <tr>
-      <td>Transmission</td>
-      <td>Oral storytelling</td>
-      <td>Documents and archives</td>
-    </tr>
-    <tr>
-      <td>Error correction</td>
-      <td>Social memory</td>
-      <td>Written revision</td>
-    </tr>
-    <tr>
-      <td>Knowledge scale</td>
-      <td>Localized</td>
-      <td>Cumulative and global</td>
-    </tr>
-  </tbody>
-</table>
+| Dimension | Before Writing | After Writing |
+|----------|---------------|--------------|
+| Knowledge storage | Human memory | External records |
+| Transmission | Oral storytelling | Documents and archives |
+| Error correction | Social memory | Written revision |
+| Knowledge scale | Localized | Cumulative and global |
 
 <div style="margin-top:1.5rem;"></div>
 
@@ -253,7 +210,7 @@ But rather than weakening knowledge, it <strong>transforms the form that knowled
 
 <div style="margin-top:3rem;"></div>
 
-<h2 id="communication-before-and-after-social-media">Communication Before and After Social Media</h2>
+## Communication Before and After Social Media
 
 <p style="margin:0;">
 Modern digital platforms represent another transition in the structure of communication.
@@ -283,44 +240,15 @@ Social media platforms combine several distinctive features:
 
 <div style="margin-top:2rem;"></div>
 
-<h3 id="communication-environments">Communication Environments</h3>
+### Communication Environments
 
-<table>
-  <thead>
-    <tr>
-      <th>Dimension</th>
-      <th>Pre-Digital Communication</th>
-      <th>Social Media Platforms</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Speed</td>
-      <td>Slow or periodic</td>
-      <td>Instantaneous</td>
-    </tr>
-    <tr>
-      <td>Audience size</td>
-      <td>Limited</td>
-      <td>Global</td>
-    </tr>
-    <tr>
-      <td>Feedback loops</td>
-      <td>Delayed</td>
-      <td>Immediate</td>
-    </tr>
-    <tr>
-      <td>Information filtering</td>
-      <td>Editorial institutions</td>
-      <td>Algorithms</td>
-    </tr>
-    <tr>
-      <td>Social signaling</td>
-      <td>Local reputation</td>
-      <td>Public metrics</td>
-    </tr>
-  </tbody>
-</table>
+| Dimension | Pre-Digital Communication | Social Media Platforms |
+|----------|---------------------------|------------------------|
+| Speed | Slow or periodic | Instantaneous |
+| Audience size | Limited | Global |
+| Feedback loops | Delayed | Immediate |
+| Information filtering | Editorial institutions | Algorithms |
+| Social signaling | Local reputation | Public metrics |
 
 <div style="margin-top:1.5rem;"></div>
 
@@ -342,7 +270,7 @@ The difference lies in the <strong>scale, speed, and automation</strong> of thes
 
 <div style="margin-top:3rem;"></div>
 
-<h2 id="a-simple-model-of-structural-amplification">A Simple Model of Structural Amplification</h2>
+## A Simple Model of Structural Amplification
 
 <div align="center" style="margin-top:2rem; margin-bottom:2rem;">
 
@@ -374,7 +302,7 @@ This concept is consistent with research in <strong>network science and informat
 
 <div style="margin-top:3rem;"></div>
 
-<h2 id="conclusion">Conclusion</h2>
+## Conclusion
 
 <p style="margin:0;">
 Technological transitions often provoke anxiety in the societies that first encounter them.
@@ -405,77 +333,19 @@ Passivity, however, is not.</strong>
 
 <div style="margin-top:4rem;"></div>
 
-<h2 id="references">References</h2>
+## References
 
 <div style="margin-top:1.5rem;"></div>
 
-<p>Barabási, A.-L. (2016). <em>Network science</em>. Cambridge University Press.</p>
+Barabási, A.-L. (2016). *Network science*. Cambridge University Press.
 
-<p>Goody, J. (1987). <em>The interface between the written and the oral</em>. Cambridge University Press.</p>
+Goody, J. (1987). *The interface between the written and the oral*. Cambridge University Press.
 
-<p>Ong, W. J. (1982). <em>Orality and literacy: The technologizing of the word</em>. Routledge.</p>
+Ong, W. J. (1982). *Orality and literacy: The technologizing of the word*. Routledge.
 
-<p>Tufekci, Z. (2017). <em>Twitter and tear gas: The power and fragility of networked protest</em>. Yale University Press.</p>
+Tufekci, Z. (2017). *Twitter and tear gas: The power and fragility of networked protest*. Yale University Press.
 
-<p>Wrangham, R. (2009). <em>Catching fire: How cooking made us human</em>. Basic Books.</p>
+Wrangham, R. (2009). *Catching fire: How cooking made us human*. Basic Books.
 
-<p>Zuboff, S. (2019). <em>The age of surveillance capitalism</em>. PublicAffairs.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Fire, writing, and social media illustrate how technological tools restructure human environments and cognition.]]></summary></entry><entry><title type="html">Essay Title Here</title><link href="http://0.0.0.0:4000/essays/essay-title-here/" rel="alternate" type="text/html" title="Essay Title Here" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/template-essay</id><content type="html" xml:base="http://0.0.0.0:4000/essays/essay-title-here/"><![CDATA[<p>Write your opening paragraph here. This should introduce the theme, question, or tension clearly and elegantly.</p>
+Zuboff, S. (2019). *The age of surveillance capitalism*. PublicAffairs.
 
-<p>Write your second paragraph here. It should explain why the subject matters intellectually, socially, historically, or personally.</p>
-
-<h2 id="framing-the-question">Framing the Question</h2>
-
-<p>Set up the central problem, concept, or perspective here.</p>
-
-<p>Add a paragraph that defines the terms or provides background if needed.</p>
-
-<h2 id="main-argument">Main Argument</h2>
-
-<p>Present the first major claim or line of analysis here.</p>
-
-<p>Develop the claim with explanation, example, or evidence.</p>
-
-<h2 id="extension-or-counterpoint">Extension or Counterpoint</h2>
-
-<p>Add nuance, contrast, limitation, or a second perspective.</p>
-
-<blockquote>
-  <p>Optional quotation or highlighted passage.</p>
-</blockquote>
-
-<h2 id="implications">Implications</h2>
-
-<p>Explain why the argument matters beyond the page.</p>
-
-<p>Relate it to society, culture, politics, technology, or human behavior if relevant.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Close with a distilled insight, final argument, or memorable ending.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[A short description of the essay.]]></summary></entry><entry><title type="html">First Essay Title</title><link href="http://0.0.0.0:4000/2026/03/03/first-essay.html" rel="alternate" type="text/html" title="First Essay Title" /><published>2026-03-03T00:00:00+00:00</published><updated>2026-03-03T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/03/03/first-essay</id><content type="html" xml:base="http://0.0.0.0:4000/2026/03/03/first-essay.html"><![CDATA[<p>The concept of exponential growth is often misunderstood.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p>This miscalculation has consequences in finance, technology, and population dynamics.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
-
-<h2 id="structural-consequences">Structural Consequences</h2>
-
-<p>When reinforcement systems compound, they reshape incentives over time.<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
-
-<hr />
-
-<p>Start with a strong opening paragraph. Keep paragraphs short for web reading.</p>
-
-<h2 id="optional-section-heading">Optional section heading</h2>
-
-<p>Continue here.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Arthur, W. B. (1994). Increasing returns and path dependence in the economy. University of Michigan Press. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p>Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3" role="doc-endnote">
-      <p>Meadows, D. (2008). Thinking in systems: A primer. Chelsea Green Publishing. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[The concept of exponential growth is often misunderstood.1 Arthur, W. B. (1994). Increasing returns and path dependence in the economy. University of Michigan Press. &#8617;]]></summary></entry></feed>

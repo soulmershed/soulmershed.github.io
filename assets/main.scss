@@ -19,7 +19,7 @@
   --page-width: 760px;      /* MODIFY: normal page reading width */
   --nav-gap: 28px;          /* MODIFY: spacing between navigation tabs */
   --page-title-gap: 40px;   /* MODIFY: gap before page titles */
-  --hero-gap-top: 120px;    /* MODIFY: homepage hero spacing */
+  --hero-gap-top: 140px;    /* MODIFY: homepage hero spacing */
 }
 
 /* ============================================================
@@ -529,338 +529,921 @@ img{
 }
 
 /* ============================================================
-   ESSAYS ONLY — STABLE VERSION
-   Applies ONLY to posts marked with: essay: true
+   ESSAY READER — JS-MATCHED SCSS BLOCK
+   Paste this AFTER your current essay styles so it can override
+   earlier rules cleanly where needed.
 
-   HOW TO MODIFY
-   - MODIFY: ESSAY WIDTH        -> controls reading column width
-   - MODIFY: TOP GAP            -> space above essay title area
-   - MODIFY: BODY SIZE          -> paragraph font size
-   - MODIFY: LINE HEIGHT        -> paragraph line spacing
-   - MODIFY: INDENT             -> paragraph indentation size
-   - MODIFY: TEXT COLORS        -> essay text / metadata / rules
-   - MODIFY: TITLE SIZE         -> main essay title size
-   - MODIFY: HEADING SIZES      -> section heading sizes
-   - MODIFY: MOBILE VALUES      -> smaller-screen adjustments
+   PURPOSE
+   This block matches the article reader JavaScript exactly.
 
-   BOOK-STYLE IMPROVEMENTS INCLUDED
-   ✓ First paragraph has no indent
-   ✓ First paragraph after headings has no indent
-   ✓ Subsequent paragraphs are indented
-   ✓ No extra vertical gaps between normal paragraphs
-   ✓ Garamond-style reading texture
-   ✓ Slightly refined title/body typography
+   THE JS ADDS / USES
+   - .essay-reader-page
+   - .reader-panel-open
+   - .reduced-motion
+   - .theme-white / .theme-cream / .theme-darkblue / .theme-black
+   - .font-ebgaramond / .font-times / .font-georgia
+   - .spacing-narrow / .spacing-medium / .spacing-wide
+   - .text-black / .text-darkgray / .text-white / .text-creamtext
+   - --reader-font-size
+   - .reading-progress-bar
+   - .article-image-wrap / .article-image-caption
+   - .article-table-wrap
+   - .code-block-wrap / .code-copy-button
+
+   WHAT THIS BLOCK ENABLES
+   1) Theme switching
+   2) Font-family switching
+   3) Live font-size slider
+   4) Line-spacing switching
+   5) Text-color switching
+   6) Reader panel styling
+   7) Reading progress bar styling
+   8) Auto-wrapped images and tables
+   9) Copy button styling for code blocks
+   10) Reduced-motion support
+
+   IMPORTANT
+   - Paragraph indentation is still controlled here in SCSS
+   - JS only changes classes and CSS variables
+   - This block assumes your essay HTML uses:
+     .essay-reader-page
+     .essay-post
+     .essay-reader-shell
+     .essay-reader-header
+     .essay-reader-content
+   ============================================================ */
+
+
+/* ============================================================
+   1. READER-SPECIFIC VARIABLES
+   SINGLE PLACE TO TUNE JS-DRIVEN READER APPEARANCE
    ============================================================ */
 
 :root{
-  /* MODIFY: ESSAY WIDTH */
-  --essay-width: 760px;
+  /* ----------------------------
+     FONT SIZE FALLBACK
+     JS writes: --reader-font-size
+     If JS is unavailable, this fallback is used
+     ---------------------------- */
+  --reader-font-size-fallback: 21px;
 
-  /* MODIFY: TOP GAP */
-  --essay-top-gap: 70px;
+  /* ----------------------------
+     READER PANEL
+     MODIFY: toggle button / panel appearance
+     ---------------------------- */
+  --reader-toggle-size: 44px;
+  --reader-toggle-radius: 999px;
+  --reader-toggle-border: 1px solid rgba(255,255,255,0.18);
+  --reader-toggle-bg: rgba(15,15,15,0.82);
+  --reader-toggle-color: #f4f4f4;
+  --reader-toggle-shadow: 0 8px 26px rgba(0,0,0,0.18);
 
-  /* MODIFY: BODY SIZE */
-  --essay-font-size: 1.30rem;
+  --reader-panel-width: 290px;
+  --reader-panel-radius: 18px;
+  --reader-panel-border: 1px solid rgba(255,255,255,0.12);
+  --reader-panel-bg: rgba(18,18,18,0.94);
+  --reader-panel-color: #f2f2f2;
+  --reader-panel-shadow: 0 18px 48px rgba(0,0,0,0.24);
+  --reader-panel-backdrop: blur(14px);
 
-  /* MODIFY: LINE HEIGHT */
-  --essay-line-height: 1.78;
+  --reader-control-gap: 16px;
+  --reader-control-label-size: 0.86rem;
+  --reader-control-input-size: 0.98rem;
+  --reader-control-note-size: 0.85rem;
 
-  /* MODIFY: INDENT */
-  --essay-indent: 2em;
+  /* ----------------------------
+     READING PROGRESS BAR
+     MODIFY: top progress bar appearance
+     ---------------------------- */
+  --reader-progress-height: 3px;
+  --reader-progress-color: #9a9a9a;
+  --reader-progress-bg: rgba(255,255,255,0.10);
 
-  /* MODIFY: TEXT COLORS */
-  --essay-text: #f3f3f3;
-  --essay-meta: #a8a8a8;
+  /* ----------------------------
+     IMAGE CAPTIONS
+     MODIFY: figure caption appearance
+     ---------------------------- */
+  --essay-image-caption-size: 0.95rem;
+  --essay-image-caption-line-height: 1.5;
+  --essay-image-caption-color: var(--essay-meta);
+
+  /* ----------------------------
+     TABLE WRAPPER
+     MODIFY: mobile table wrapper appearance
+     ---------------------------- */
+  --essay-table-wrapper-border: 1px solid var(--essay-table-border);
+  --essay-table-wrapper-radius: 10px;
+
+  /* ----------------------------
+     CODE BLOCKS
+     MODIFY: code presentation and copy button
+     ---------------------------- */
+  --essay-code-bg: rgba(255,255,255,0.05);
+  --essay-code-border: 1px solid rgba(255,255,255,0.12);
+  --essay-code-color: var(--essay-text);
+  --essay-code-radius: 12px;
+  --essay-code-padding: 1.1rem 1.1rem 1rem 1.1rem;
+
+  --essay-copy-btn-bg: rgba(255,255,255,0.10);
+  --essay-copy-btn-bg-hover: rgba(255,255,255,0.16);
+  --essay-copy-btn-color: var(--essay-heading);
+  --essay-copy-btn-border: 1px solid rgba(255,255,255,0.14);
+  --essay-copy-btn-radius: 8px;
+
+  /* ----------------------------
+     SUBTITLE / ABSTRACT / EPIGRAPH
+     Optional essay.html extras
+     ---------------------------- */
+  --essay-subtitle-size: 1.15rem;
+  --essay-subtitle-line-height: 1.55;
+  --essay-subtitle-color: var(--essay-meta);
+  --essay-subtitle-gap: 1rem;
+
+  --essay-abstract-gap: 1.5rem;
+  --essay-abstract-padding: 1rem 1.15rem;
+  --essay-abstract-border: 1px solid var(--essay-rule);
+  --essay-abstract-radius: 12px;
+
+  --essay-epigraph-gap: 2rem;
+}
+
+
+/* ============================================================
+   2. READER PAGE BASE
+   JS TARGET: .essay-reader-page
+   ============================================================ */
+
+.essay-reader-page{
+  position: relative;
+  --reader-font-size: var(--reader-font-size-fallback);
+}
+
+
+/* ============================================================
+   3. THEME CLASSES — MATCH JS EXACTLY
+   JS adds one of:
+   .theme-white / .theme-cream / .theme-darkblue / .theme-black
+   ============================================================ */
+
+/* ----------------------------
+   WHITE THEME
+   ---------------------------- */
+.essay-reader-page.theme-white{
+  background: #ffffff;
+  color: #1e1e1e;
+
+  --essay-text: #1e1e1e;
+  --essay-meta: #767676;
+  --essay-heading: #111111;
+  --essay-rule: rgba(0,0,0,0.16);
+  --essay-quote-rule: rgba(0,0,0,0.22);
+  --essay-table-border: rgba(0,0,0,0.14);
+  --essay-table-head-bg: #f0f0f0;
+  --essay-table-cell-bg: #fafafa;
+  --essay-reference: rgba(0,0,0,0.58);
+
+  --reader-toggle-bg: rgba(255,255,255,0.92);
+  --reader-toggle-color: #111111;
+  --reader-toggle-border: 1px solid rgba(0,0,0,0.10);
+  --reader-toggle-shadow: 0 8px 24px rgba(0,0,0,0.10);
+
+  --reader-panel-bg: rgba(255,255,255,0.95);
+  --reader-panel-color: #111111;
+  --reader-panel-border: 1px solid rgba(0,0,0,0.08);
+  --reader-panel-shadow: 0 20px 50px rgba(0,0,0,0.12);
+
+  --reader-progress-bg: rgba(0,0,0,0.08);
+  --reader-progress-color: #2b2b2b;
+
+  --essay-code-bg: #f6f6f6;
+  --essay-code-border: 1px solid rgba(0,0,0,0.08);
+  --essay-copy-btn-bg: rgba(0,0,0,0.05);
+  --essay-copy-btn-bg-hover: rgba(0,0,0,0.10);
+  --essay-copy-btn-border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ----------------------------
+   CREAM THEME
+   ---------------------------- */
+.essay-reader-page.theme-cream{
+  background: #f5efe3;
+  color: #2a241d;
+
+  --essay-text: #2a241d;
+  --essay-meta: #7f7265;
+  --essay-heading: #17120d;
+  --essay-rule: rgba(43,31,20,0.16);
+  --essay-quote-rule: rgba(43,31,20,0.24);
+  --essay-table-border: rgba(43,31,20,0.14);
+  --essay-table-head-bg: #ece1cf;
+  --essay-table-cell-bg: #f8f3ea;
+  --essay-reference: rgba(43,31,20,0.60);
+
+  --reader-toggle-bg: rgba(245,239,227,0.94);
+  --reader-toggle-color: #17120d;
+  --reader-toggle-border: 1px solid rgba(43,31,20,0.10);
+  --reader-toggle-shadow: 0 8px 24px rgba(43,31,20,0.10);
+
+  --reader-panel-bg: rgba(245,239,227,0.97);
+  --reader-panel-color: #17120d;
+  --reader-panel-border: 1px solid rgba(43,31,20,0.08);
+  --reader-panel-shadow: 0 20px 50px rgba(43,31,20,0.12);
+
+  --reader-progress-bg: rgba(43,31,20,0.08);
+  --reader-progress-color: #574739;
+
+  --essay-code-bg: #efe5d6;
+  --essay-code-border: 1px solid rgba(43,31,20,0.08);
+  --essay-copy-btn-bg: rgba(43,31,20,0.06);
+  --essay-copy-btn-bg-hover: rgba(43,31,20,0.10);
+  --essay-copy-btn-border: 1px solid rgba(43,31,20,0.08);
+}
+
+/* ----------------------------
+   DARK BLUE THEME
+   ---------------------------- */
+.essay-reader-page.theme-darkblue{
+  background: #101926;
+  color: #e9e2d3;
+
+  --essay-text: #e9e2d3;
+  --essay-meta: #a8b0bb;
+  --essay-heading: #ffffff;
+  --essay-rule: rgba(255,255,255,0.16);
+  --essay-quote-rule: rgba(255,255,255,0.28);
+  --essay-table-border: rgba(255,255,255,0.18);
+  --essay-table-head-bg: rgba(255,255,255,0.08);
+  --essay-table-cell-bg: rgba(255,255,255,0.03);
+  --essay-reference: rgba(255,255,255,0.66);
+
+  --reader-toggle-bg: rgba(16,25,38,0.92);
+  --reader-toggle-color: #f7f2e9;
+  --reader-toggle-border: 1px solid rgba(255,255,255,0.12);
+  --reader-toggle-shadow: 0 8px 24px rgba(0,0,0,0.18);
+
+  --reader-panel-bg: rgba(16,25,38,0.96);
+  --reader-panel-color: #f7f2e9;
+  --reader-panel-border: 1px solid rgba(255,255,255,0.10);
+  --reader-panel-shadow: 0 20px 50px rgba(0,0,0,0.24);
+
+  --reader-progress-bg: rgba(255,255,255,0.08);
+  --reader-progress-color: #f2ddba;
+
+  --essay-code-bg: rgba(255,255,255,0.05);
+  --essay-code-border: 1px solid rgba(255,255,255,0.10);
+  --essay-copy-btn-bg: rgba(255,255,255,0.08);
+  --essay-copy-btn-bg-hover: rgba(255,255,255,0.13);
+  --essay-copy-btn-border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* ----------------------------
+   BLACK THEME
+   ---------------------------- */
+.essay-reader-page.theme-black{
+  background: #000000;
+  color: #efe6d7;
+
+  --essay-text: #efe6d7;
+  --essay-meta: #9f9f9f;
   --essay-heading: #ffffff;
   --essay-rule: rgba(255,255,255,0.18);
-  --essay-quote-rule: rgba(255,255,255,0.28);
+  --essay-quote-rule: rgba(255,255,255,0.32);
+  --essay-table-border: rgba(255,255,255,0.20);
+  --essay-table-head-bg: rgba(255,255,255,0.08);
+  --essay-table-cell-bg: rgba(255,255,255,0.02);
+  --essay-reference: rgba(255,255,255,0.68);
 
-  /* OPTIONAL MICRO-TYPOGRAPHY */
-  --essay-body-letter-spacing: 0.003em;
-  --essay-title-letter-spacing: 0.01em;
+  --reader-toggle-bg: rgba(10,10,10,0.92);
+  --reader-toggle-color: #f5edde;
+  --reader-toggle-border: 1px solid rgba(255,255,255,0.12);
+  --reader-toggle-shadow: 0 8px 24px rgba(0,0,0,0.22);
+
+  --reader-panel-bg: rgba(10,10,10,0.96);
+  --reader-panel-color: #f5edde;
+  --reader-panel-border: 1px solid rgba(255,255,255,0.10);
+  --reader-panel-shadow: 0 20px 50px rgba(0,0,0,0.26);
+
+  --reader-progress-bg: rgba(255,255,255,0.08);
+  --reader-progress-color: #f0d9b5;
+
+  --essay-code-bg: rgba(255,255,255,0.05);
+  --essay-code-border: 1px solid rgba(255,255,255,0.10);
+  --essay-copy-btn-bg: rgba(255,255,255,0.08);
+  --essay-copy-btn-bg-hover: rgba(255,255,255,0.13);
+  --essay-copy-btn-border: 1px solid rgba(255,255,255,0.10);
 }
 
-/* ============================================================
-   ESSAY PAGE CONTAINER ONLY
-   ============================================================ */
-.essay-post{
-  max-width: var(--essay-width);
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-top: var(--essay-top-gap);
-}
 
 /* ============================================================
-   ESSAY TITLE ONLY
-   MODIFY: TITLE SIZE in font-size
+   4. FONT FAMILY CLASSES — MATCH JS EXACTLY
+   JS adds one of:
+   .font-ebgaramond / .font-times / .font-georgia
    ============================================================ */
-.essay-post .post-title{
-  max-width: var(--essay-width);
-  margin: 0 auto 20px auto !important;
-  color: var(--essay-heading) !important;
+
+.essay-reader-page.font-ebgaramond .essay-reader-header,
+.essay-reader-page.font-ebgaramond .essay-reader-content,
+.essay-reader-page.font-ebgaramond .essay-reader-subtitle,
+.essay-reader-page.font-ebgaramond .essay-reader-abstract,
+.essay-reader-page.font-ebgaramond .essay-reader-epigraph{
   font-family: "EB Garamond", Garamond, serif !important;
-  font-size: clamp(2.3rem, 4vw, 3.25rem) !important;
-  line-height: 1.10 !important;
-  letter-spacing: var(--essay-title-letter-spacing) !important;
-  text-align: left !important;
-  text-wrap: balance;
 }
 
+.essay-reader-page.font-times .essay-reader-header,
+.essay-reader-page.font-times .essay-reader-content,
+.essay-reader-page.font-times .essay-reader-subtitle,
+.essay-reader-page.font-times .essay-reader-abstract,
+.essay-reader-page.font-times .essay-reader-epigraph{
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.essay-reader-page.font-georgia .essay-reader-header,
+.essay-reader-page.font-georgia .essay-reader-content,
+.essay-reader-page.font-georgia .essay-reader-subtitle,
+.essay-reader-page.font-georgia .essay-reader-abstract,
+.essay-reader-page.font-georgia .essay-reader-epigraph{
+  font-family: Georgia, serif !important;
+}
+
+
 /* ============================================================
-   ESSAY DATE ONLY
-   MODIFY: margin-bottom for larger/smaller gap below date
+   5. TEXT COLOR CLASSES — MATCH JS EXACTLY
+   JS adds one of:
+   .text-black / .text-darkgray / .text-white / .text-creamtext
+   These override only the body text unless you extend them
    ============================================================ */
-.essay-post .post-meta{
-  display: block;
-  max-width: var(--essay-width);
-  margin: 0 auto 2.6em auto !important;
+
+.essay-reader-page.text-black{
+  --essay-text: #111111;
+}
+
+.essay-reader-page.text-darkgray{
+  --essay-text: #353535;
+}
+
+.essay-reader-page.text-white{
+  --essay-text: #ffffff;
+}
+
+.essay-reader-page.text-creamtext{
+  --essay-text: #f2e7d1;
+}
+
+
+/* ============================================================
+   6. SPACING CLASSES — MATCH JS EXACTLY
+   JS adds one of:
+   .spacing-narrow / .spacing-medium / .spacing-wide
+   These directly control line-height and some vertical rhythm
+   ============================================================ */
+
+.essay-reader-page.spacing-narrow{
+  --essay-line-height: 1.60;
+  --essay-header-gap: 2.2em;
+  --essay-blockquote-margin: 1.9em 0;
+  --essay-table-margin: 1.8rem 0 2rem;
+  --essay-hr-margin: 2.1em 0;
+}
+
+.essay-reader-page.spacing-medium{
+  --essay-line-height: 1.78;
+  --essay-header-gap: 2.6em;
+  --essay-blockquote-margin: 2.15em 0;
+  --essay-table-margin: 2rem 0 2.4rem;
+  --essay-hr-margin: 2.5em 0;
+}
+
+.essay-reader-page.spacing-wide{
+  --essay-line-height: 1.96;
+  --essay-header-gap: 3em;
+  --essay-blockquote-margin: 2.35em 0;
+  --essay-table-margin: 2.3rem 0 2.8rem;
+  --essay-hr-margin: 2.8em 0;
+}
+
+
+/* ============================================================
+   7. LIVE FONT SIZE — MATCHES JS VARIABLE EXACTLY
+   JS writes:
+   --reader-font-size: 21px, etc.
+   This must override paragraph and list sizes cleanly
+   ============================================================ */
+
+.essay-reader-page .essay-reader-content p,
+.essay-reader-page .essay-reader-content li{
+  font-size: var(--reader-font-size, var(--essay-font-size)) !important;
+}
+
+
+/* ============================================================
+   8. OPTIONAL HEADER SUBTITLE / ABSTRACT / EPIGRAPH
+   These match the expanded essay.html structure
+   ============================================================ */
+
+.essay-post .essay-reader-subtitle{
+  margin: 0 0 var(--essay-subtitle-gap) 0 !important;
   color: var(--essay-meta) !important;
-  font-size: 0.95rem !important;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: var(--essay-subtitle-size) !important;
+  line-height: var(--essay-subtitle-line-height) !important;
   text-align: left !important;
 }
 
-/* ============================================================
-   ESSAY BODY ONLY
-   ============================================================ */
-.essay-post .post-content{
-  max-width: var(--essay-width);
-  margin: 0 auto;
+.essay-post .essay-reader-abstract{
+  margin: var(--essay-abstract-gap) 0 0 0 !important;
+  padding: var(--essay-abstract-padding);
+  border: var(--essay-abstract-border);
+  border-radius: var(--essay-abstract-radius);
   color: var(--essay-text) !important;
-  font-family: "EB Garamond", Garamond, serif !important;
-  text-align: left !important;
-
-  /* subtle refinement for book-like texture */
-  text-rendering: optimizeLegibility;
-  font-kerning: normal;
-}
-
-/* ============================================================
-   GENERIC PAGE PARAGRAPHS
-   Center normal pages only, NOT post articles
-   ============================================================ */
-
-.page-content > .wrapper > :not(.post):not(.post-list):not(.bio-layout) p{
-  text-align: center;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ============================================================
-   POSTS / ESSAYS HARD RESET
-   ============================================================ */
-
-.post .post-content,
-.post .post-content p,
-.post .post-content h1,
-.post .post-content h2,
-.post .post-content h3,
-.post .post-content h4,
-.post .post-content h5,
-.post .post-content h6,
-.post .post-content li,
-.post .post-content blockquote{
-  text-align: left !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* ============================================================
-   FIRST PARAGRAPH OF THE WHOLE ESSAY
-   NO INDENT
-   KEEP THIS LOW IN THE FILE SO IT OVERRIDES CLEANLY
-   ============================================================ */
-.essay-post .post-content > p:first-of-type{
-  text-indent: 0 !important;
-}
-
-/* ============================================================
-   FIRST PARAGRAPH AFTER STRUCTURAL ELEMENTS
-   NO INDENT + SMALL TOP GAP
-   This creates the classic book/chapter style:
-   heading
-   first paragraph flush left
-   following paragraphs indented
-   ============================================================ */
-.essay-post .post-content h1 + p,
-.essay-post .post-content h2 + p,
-.essay-post .post-content h3 + p,
-.essay-post .post-content h4 + p,
-.essay-post .post-content h5 + p,
-.essay-post .post-content h6 + p,
-.essay-post .post-content blockquote + p,
-.essay-post .post-content ul + p,
-.essay-post .post-content ol + p,
-.essay-post .post-content hr + p{
-  text-indent: 0 !important;
-  margin-top: 0.35em !important;
-}
-
-/* ============================================================
-   OPTIONAL: IF YOU INSERT AN IMAGE, THE NEXT PARAGRAPH SHOULD
-   START FLUSH LEFT RATHER THAN INDENTED
-   ============================================================ */
-.essay-post .post-content img + p,
-.essay-post .post-content figure + p{
-  text-indent: 0 !important;
-  margin-top: 0.5em !important;
-}
-
-/* ============================================================
-   HEADINGS INSIDE ESSAY POSTS ONLY
-   MODIFY: HEADING SIZES / MARGINS BELOW
-   ============================================================ */
-.essay-post .post-content h2,
-.essay-post .post-content h3,
-.essay-post .post-content h4{
-  color: var(--essay-heading) !important;
-  font-family: "EB Garamond", Garamond, serif !important;
-  text-align: left !important;
-  line-height: 1.18 !important;
-  letter-spacing: 0.005em !important;
-}
-
-.essay-post .post-content h2{
-  margin-top: 2.4em !important;   /* MODIFY: gap before h2 */
-  margin-bottom: 0.55em !important;
-  font-size: 2rem !important;     /* MODIFY: h2 size */
-}
-
-.essay-post .post-content h3{
-  margin-top: 2.1em !important;   /* MODIFY: gap before h3 */
-  margin-bottom: 0.5em !important;
-  font-size: 1.5rem !important;   /* MODIFY: h3 size */
-}
-
-.essay-post .post-content h4{
-  margin-top: 1.9em !important;   /* MODIFY: gap before h4 */
-  margin-bottom: 0.45em !important;
-  font-size: 1.2rem !important;   /* MODIFY: h4 size */
-}
-
-/* ============================================================
-   LISTS INSIDE ESSAY POSTS ONLY
-   Lists keep normal spacing because indent-style flow is mainly
-   for paragraphs, not list blocks
-   ============================================================ */
-.essay-post .post-content ul,
-.essay-post .post-content ol{
-  margin: 0.7em 0 1.2em 1.5em !important;
-  padding: 0 !important;
-}
-
-.essay-post .post-content li{
-  color: var(--essay-text) !important;
-  font-family: "EB Garamond", Garamond, serif !important;
-  font-size: var(--essay-font-size) !important;
-  line-height: var(--essay-line-height) !important;
-  margin-bottom: 0.3em !important;
   text-align: left !important;
 }
 
-/* ============================================================
-   BLOCKQUOTES INSIDE ESSAY POSTS ONLY
-   ============================================================ */
-.essay-post .post-content blockquote{
-  margin: 1.8em 0 !important;
-  padding: 0.2em 0 0.2em 1em !important;
-  border-left: 2px solid var(--essay-quote-rule) !important;
-  color: #dddddd !important;
+.essay-post .essay-reader-abstract p{
+  margin: 0 !important;
+  text-indent: 0 !important;
 }
 
-.essay-post .post-content blockquote p{
-  text-indent: 0 !important;
+.essay-post .essay-reader-epigraph{
+  margin: var(--essay-epigraph-gap) 0 0 auto !important;
+  max-width: 32rem;
+}
+
+.essay-post .essay-reader-epigraph blockquote{
   margin: 0 !important;
 }
 
-/* ============================================================
-   LINKS
-   ============================================================ */
-.essay-post .post-content a{
-  color: #ffffff !important;
-  text-decoration: underline;
-  text-underline-offset: 0.12em;
-  text-decoration-thickness: 1px;
+.essay-post .essay-reader-epigraph p{
+  text-indent: 0 !important;
 }
 
-/* ============================================================
-   STRONG / EMPHASIS
-   ============================================================ */
-.essay-post .post-content strong{
-  color: #ffffff !important;
+.essay-post .essay-reader-epigraph figcaption{
+  margin-top: 0.75rem;
+  color: var(--essay-meta);
+  font-size: 0.95rem;
+  text-align: right;
 }
 
-/* ============================================================
-   HORIZONTAL RULE
-   ============================================================ */
-.essay-post .post-content hr{
-  border: 0;
-  border-top: 1px solid var(--essay-rule);
-  margin: 2.5em 0;
-}
 
 /* ============================================================
-   IMAGES
+   9. READER TOGGLE BUTTON
+   JS TARGET: #readerToggle
    ============================================================ */
-.essay-post .post-content img{
+
+.reader-settings-toggle{
+  position: fixed;
+  top: calc(var(--header-h) + 18px);
+  right: 22px;
+  z-index: 1200;
+  width: var(--reader-toggle-size);
+  height: var(--reader-toggle-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--reader-toggle-border);
+  border-radius: var(--reader-toggle-radius);
+  background: var(--reader-toggle-bg);
+  color: var(--reader-toggle-color);
+  box-shadow: var(--reader-toggle-shadow);
+  backdrop-filter: var(--reader-panel-backdrop);
+  -webkit-backdrop-filter: var(--reader-panel-backdrop);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.96rem;
+  line-height: 1;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.reader-settings-toggle:hover{
+  transform: translateY(-1px);
+}
+
+.reader-settings-toggle:focus-visible{
+  outline: 2px solid var(--essay-heading);
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   10. READER PANEL
+   JS TARGET: #readerPanel and .reader-panel-open
+   ============================================================ */
+
+.reader-settings-panel{
+  position: fixed;
+  top: calc(var(--header-h) + 74px);
+  right: 22px;
+  z-index: 1190;
+  width: min(var(--reader-panel-width), calc(100vw - 32px));
+  border: var(--reader-panel-border);
+  border-radius: var(--reader-panel-radius);
+  background: var(--reader-panel-bg);
+  color: var(--reader-panel-color);
+  box-shadow: var(--reader-panel-shadow);
+  backdrop-filter: var(--reader-panel-backdrop);
+  -webkit-backdrop-filter: var(--reader-panel-backdrop);
+}
+
+.reader-settings-panel[hidden]{
+  display: none !important;
+}
+
+.reader-settings-inner{
+  padding: 18px 18px 16px 18px;
+}
+
+.reader-settings-inner h2{
+  margin: 0 0 1rem 0 !important;
+  color: var(--essay-heading) !important;
+  font-size: 1rem !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.03em;
+  text-align: left !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.reader-control + .reader-control{
+  margin-top: var(--reader-control-gap);
+}
+
+.reader-control label{
   display: block;
+  margin-bottom: 0.45rem;
+  color: var(--essay-meta);
+  font-size: var(--reader-control-label-size);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.reader-control select,
+.reader-control input[type="range"]{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reader-control select{
+  appearance: none;
+  border: 1px solid var(--essay-rule);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--reader-panel-color);
+  padding: 0.72rem 0.86rem;
+  font-size: var(--reader-control-input-size);
+  line-height: 1.2;
+}
+
+.reader-control input[type="range"]{
+  accent-color: var(--essay-heading);
+}
+
+.reader-note{
+  display: inline-block;
+  margin-top: 0.45rem;
+  color: var(--essay-meta);
+  font-size: var(--reader-control-note-size);
+  line-height: 1.35;
+}
+
+.essay-reader-page.reader-panel-open .reader-settings-toggle{
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   11. READING PROGRESS BAR
+   OPTIONAL HTML ELEMENT:
+   <div class="reading-progress-bar"></div>
+   JS updates transform: scaleX(...)
+   ============================================================ */
+
+.reading-progress-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1300;
+  width: 100%;
+  height: var(--reader-progress-height);
+  background: var(--reader-progress-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1290;
+  width: 100%;
+  height: var(--reader-progress-height);
+  background: var(--reader-progress-bg);
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   12. HEADINGS WITH GENERATED IDS
+   JS gives ids to h2/h3/h4. This improves anchor offset.
+   ============================================================ */
+
+.essay-post .essay-reader-content h2[id],
+.essay-post .essay-reader-content h3[id],
+.essay-post .essay-reader-content h4[id]{
+  scroll-margin-top: calc(var(--header-h) + 36px);
+}
+
+
+/* ============================================================
+   13. IMAGE WRAPPERS — MATCH JS EXACTLY
+   JS wraps standalone images in:
+   .article-image-wrap
+   .article-image-caption
+   ============================================================ */
+
+.essay-post .essay-reader-content .article-image-wrap{
+  margin: var(--essay-image-margin) !important;
+}
+
+.essay-post .essay-reader-content .article-image-wrap img{
+  margin: 0 auto !important;
+}
+
+.essay-post .essay-reader-content .article-image-caption{
+  margin-top: 0.8rem;
+  color: var(--essay-image-caption-color);
+  font-size: var(--essay-image-caption-size);
+  line-height: var(--essay-image-caption-line-height);
+  text-align: center;
+}
+
+
+/* ============================================================
+   14. TABLE WRAPPERS — MATCH JS EXACTLY
+   JS wraps tables in:
+   .article-table-wrap
+   ============================================================ */
+
+.essay-post .essay-reader-content .article-table-wrap{
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 0 0;
+  border: var(--essay-table-wrapper-border);
+  border-radius: var(--essay-table-wrapper-radius);
+}
+
+.essay-post .essay-reader-content .article-table-wrap table{
+  margin: 0 !important;
+  min-width: 100%;
+}
+
+
+/* ============================================================
+   15. CODE BLOCKS — MATCH JS EXACTLY
+   JS wraps pre blocks in:
+   .code-block-wrap
+   and adds:
+   .code-copy-button
+   ============================================================ */
+
+.essay-post .essay-reader-content pre{
+  margin: 0 !important;
+  overflow-x: auto;
+  background: var(--essay-code-bg);
+  color: var(--essay-code-color);
+  border: var(--essay-code-border);
+  border-radius: var(--essay-code-radius);
+  padding: var(--essay-code-padding);
+}
+
+.essay-post .essay-reader-content code{
+  font-size: 0.92em;
+}
+
+.essay-post .essay-reader-content :not(pre) > code{
+  padding: 0.15em 0.38em;
+  background: var(--essay-code-bg);
+  border: var(--essay-code-border);
+  border-radius: 6px;
+}
+
+.code-block-wrap{
+  position: relative;
+  margin: 2rem 0 2.2rem 0;
+}
+
+.code-copy-button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  border: var(--essay-copy-btn-border);
+  border-radius: var(--essay-copy-btn-radius);
+  background: var(--essay-copy-btn-bg);
+  color: var(--essay-copy-btn-color);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.code-copy-button:hover{
+  background: var(--essay-copy-btn-bg-hover);
+  transform: translateY(-1px);
+}
+
+.code-copy-button:focus-visible{
+  outline: 2px solid var(--essay-heading);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   16. EXTERNAL LINKS
+   JS adds target/rel only. Style remains here.
+   ============================================================ */
+
+.essay-post .essay-reader-content a[target="_blank"]::after{
+  content: " ↗";
+  font-size: 0.82em;
+}
+
+
+/* ============================================================
+   17. MATHJAX TUNING
+   Cleaner equation alignment and overflow
+   ============================================================ */
+
+.essay-post .essay-reader-content mjx-container{
   max-width: 100%;
-  height: auto;
-  margin: 2em auto;
 }
 
-/* ============================================================
-   OPTIONAL: FIGURES / CAPTIONS
-   Uncomment later if you start using figure/figcaption
+.essay-post .essay-reader-content mjx-container[display="true"]{
+  padding: 0.1rem 0;
+}
 
-.essay-post .post-content figcaption{
+
+/* ============================================================
+   18. REDUCED MOTION — MATCH JS EXACTLY
+   JS adds: .reduced-motion
+   ============================================================ */
+
+.essay-reader-page.reduced-motion *,
+.essay-reader-page.reduced-motion *::before,
+.essay-reader-page.reduced-motion *::after{
+  scroll-behavior: auto !important;
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+
+/* ============================================================
+   19. SMALL OVERRIDES TO EXISTING ESSAY RULES
+   Ensures JS-driven reader settings win cleanly
+   ============================================================ */
+
+/* Title size remains controlled by essay variables */
+.essay-reader-page .essay-reader-header h1{
+  color: var(--essay-heading) !important;
+}
+
+/* Date remains theme-aware and larger */
+.essay-reader-page .essay-reader-meta{
   color: var(--essay-meta) !important;
-  font-family: "EB Garamond", Garamond, serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.5 !important;
-  text-align: center !important;
-  margin-top: 0.6em !important;
 }
-   ============================================================ */
+
+/* Body text obeys JS text color and live size */
+.essay-reader-page .essay-reader-content{
+  color: var(--essay-text) !important;
+}
+
+.essay-reader-page .essay-reader-content p,
+.essay-reader-page .essay-reader-content li{
+  color: var(--essay-text) !important;
+  line-height: var(--essay-line-height) !important;
+}
+
+/* Headings remain heading-colored even if text color changes */
+.essay-reader-page .essay-reader-content h2,
+.essay-reader-page .essay-reader-content h3,
+.essay-reader-page .essay-reader-content h4,
+.essay-reader-page .essay-reader-content strong{
+  color: var(--essay-heading) !important;
+}
+
 
 /* ============================================================
-   MOBILE
-   MODIFY: MOBILE VALUES HERE
+   20. MOBILE READER PANEL + TOGGLE
+   Matches the JS interaction on smaller screens
    ============================================================ */
+
+@media (max-width: 900px){
+  .reader-settings-toggle{
+    top: calc(var(--header-h) + 14px);
+    right: 16px;
+  }
+
+  .reader-settings-panel{
+    top: calc(var(--header-h) + 68px);
+    right: 16px;
+    width: min(320px, calc(100vw - 24px));
+  }
+}
+
 @media (max-width: 700px){
-  :root{
-    --essay-top-gap: 40px;      /* MODIFY: mobile top gap */
-    --essay-font-size: 1.18rem; /* MODIFY: mobile body size */
-    --essay-line-height: 1.80;  /* MODIFY: mobile line height */
-    --essay-indent: 1.5em;      /* MODIFY: mobile indent */
+  .essay-reader-page{
+    --reader-toggle-size: 40px;
+    --reader-panel-width: 100vw;
+  }
+
+  .reader-settings-panel{
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+
+  .reader-settings-inner{
+    padding: 16px;
+  }
+
+  .code-copy-button{
+    top: 8px;
+    right: 8px;
+  }
+
+  .reading-progress-bar{
+    height: 2px;
+  }
+
+  body::before{
+    height: 2px;
+  }
+}
+
+
+/* ============================================================
+   21. PRINT
+   Professional minimalist print output for essays
+   ============================================================ */
+
+@media print{
+  .reader-settings-toggle,
+  .reader-settings-panel,
+  .reading-progress-bar,
+  body::before,
+  .code-copy-button{
+    display: none !important;
+  }
+
+  .essay-reader-page,
+  .essay-post{
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 
   .essay-post{
-    padding-top: var(--essay-top-gap);
+    max-width: none !important;
+    padding-top: 0 !important;
   }
 
-  .essay-post .post-title{
-    font-size: clamp(1.95rem, 7vw, 2.55rem) !important;
-    line-height: 1.12 !important;
+  .essay-post .essay-reader-content{
+    color: #000000 !important;
   }
 
-  .essay-post .post-meta{
-    margin-bottom: 2em !important;
-    font-size: 0.88rem !important;
+  .essay-post .essay-reader-content a{
+    color: #000000 !important;
+    text-decoration: underline !important;
   }
+}
 
-  .essay-post .post-content h2{
-    font-size: 1.75rem !important;
-  }
+.reader-settings-toggle{
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 9999;
+  display: block;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #888;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
 
-  .essay-post .post-content h3{
-    font-size: 1.38rem !important;
-  }
+.reader-settings-panel{
+  position: fixed;
+  top: 150px;
+  right: 20px;
+  z-index: 9998;
+  width: 280px;
+  padding: 16px;
+  border: 1px solid #888;
+  background: #111;
+  color: #fff;
+}
 
-  .essay-post .post-content h4{
-    font-size: 1.12rem !important;
-  }
+.reader-settings-panel[hidden]{
+  display: none;
 }
