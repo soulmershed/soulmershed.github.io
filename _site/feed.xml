@@ -1,13 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-03-08T12:23:45+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">S B Mershed Press</title><subtitle>Essays on cognition, systems, and structural dynamics</subtitle><entry><title type="html">Change, Cognition, and Communication</title><link href="http://0.0.0.0:4000/essays/change-cognition-communication/" rel="alternate" type="text/html" title="Change, Cognition, and Communication" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/change-cognition-communication</id><content type="html" xml:base="http://0.0.0.0:4000/essays/change-cognition-communication/"><![CDATA[<div style="margin-top:2.5rem;"></div>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-09T09:03:20+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">S B Mershed Press</title><subtitle>Essays on cognition, systems, and structural dynamics</subtitle><entry><title type="html">Change, Cognition, and Communication</title><link href="http://localhost:4000/essays/change-cognition-communication/" rel="alternate" type="text/html" title="Change, Cognition, and Communication" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://localhost:4000/essays/change-cognition-communication</id><content type="html" xml:base="http://localhost:4000/essays/change-cognition-communication/"><![CDATA[<style>
+  .post-header{
+    display:none;
+  }
+</style>
 
-<div align="center">
+<div style="height:120px;"></div>
 
-Technological tools rarely remain merely tools.  
-Once integrated into society, they reorganize the conditions under which human cognition and cooperation operate.
+<h1 style="text-align:center; font-size:3rem; line-height:1.15; letter-spacing:0.18em; font-weight:400; margin:0 auto; max-width:800px;">
+  Change, Cognition, and Communication
+</h1>
 
+<div style="height:160px;"></div>
+
+<div style="text-align:center; font-size:20px; letter-spacing:0.12em; opacity:0.85; margin:0 auto; color:B8B8B8;">
+Mar 7, 2026
 </div>
 
-<div style="margin-top:2.5rem;"></div>
+<div style="height:40px;"></div>
+
+<div style="text-align:center; max-width:900px; margin:0 auto; font-size:22px; line-height:1.7; letter-spacing:0.08em; font-style:Normal;">
+Technological tools rarely remain merely tools.  
+Once integrated into society, they reorganize the conditions under which human cognition and cooperation operate.
+</div>
+
+<div style="height:80px;"></div>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -38,6 +54,7 @@ Fire could both protect and destroy. Writing altered memory but enabled cumulati
 <p style="text-indent:2em;">
 The task, therefore, is not to determine whether these tools are <strong>“good” or “bad.”</strong> Such binary judgments rarely capture the complexity of technological transformation. A more useful approach is to examine how tools reorganize the environments in which human behavior unfolds. By studying these structural transitions, it becomes possible to better understand how societies adapt—and how they might respond more deliberately when the next transformation arrives.
 </p>
+
 <div style="margin-top:3rem;"></div>
 
 <h2 id="structural-transitions-in-human-history">Structural Transitions in Human History</h2>
@@ -127,10 +144,8 @@ Anthropologist <strong>Richard Wrangham</strong> argues that cooking increased e
 </p>
 
 <div align="center" style="margin-top:1.5rem; margin-bottom:1.5rem;">
-
 “Fire was humanity’s first major energy technology, transforming both diet and social organization.”  
 — Wrangham (2009)
-
 </div>
 
 <p style="margin:0;">
@@ -172,10 +187,8 @@ With writing, knowledge could be externalized and accumulated across generations
 <h3 id="platos-concern-about-writing">Plato’s Concern About Writing</h3>
 
 <div align="center" style="margin-top:1.5rem; margin-bottom:1.5rem;">
-
 “This invention will produce forgetfulness in the minds of those who learn to use it.”  
-— Plato, *Phaedrus*
-
+— Plato, <em>Phaedrus</em>
 </div>
 
 <p style="margin:0;">
@@ -346,9 +359,17 @@ The difference lies in the <strong>scale, speed, and automation</strong> of thes
 
 <div align="center" style="margin-top:2rem; margin-bottom:2rem;">
 
+Given
 $$
-P = \prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n}
+P=\prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n},
+\qquad S_c=4.00\times10^7,\quad N=10^4,
 $$
+compute \(P\) and express it in the form
+$$
+P=10^{-10^{c}}.
+$$
+
+&gt; ---
 
 </div>
 
@@ -363,9 +384,7 @@ Where:
 </ul>
 
 <div align="center" style="margin-top:2rem; margin-bottom:2rem;">
-
 <strong>Small structural changes can compound across networks and generate large-scale social outcomes.</strong>
-
 </div>
 
 <p style="text-indent:2em;">
@@ -397,10 +416,8 @@ The question is <strong>how consciously societies respond to it</strong>.
 </p>
 
 <div align="center" style="margin-top:2rem;">
-
 <strong>Change may be inevitable.  
 Passivity, however, is not.</strong>
-
 </div>
 
 <div style="margin-top:4rem;"></div>
@@ -419,7 +436,7 @@ Passivity, however, is not.</strong>
 
 <p>Wrangham, R. (2009). <em>Catching fire: How cooking made us human</em>. Basic Books.</p>
 
-<p>Zuboff, S. (2019). <em>The age of surveillance capitalism</em>. PublicAffairs.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Fire, writing, and social media illustrate how technological tools restructure human environments and cognition.]]></summary></entry><entry><title type="html">Essay Title Here</title><link href="http://0.0.0.0:4000/essays/essay-title-here/" rel="alternate" type="text/html" title="Essay Title Here" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/template-essay</id><content type="html" xml:base="http://0.0.0.0:4000/essays/essay-title-here/"><![CDATA[<p>Write your opening paragraph here. This should introduce the theme, question, or tension clearly and elegantly.</p>
+<p>Zuboff, S. (2019). <em>The age of surveillance capitalism</em>. PublicAffairs.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Fire, writing, and social media illustrate how technological tools restructure human environments and cognition.]]></summary></entry><entry><title type="html">Essay Title Here</title><link href="http://localhost:4000/essays/essay-title-here/" rel="alternate" type="text/html" title="Essay Title Here" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://localhost:4000/essays/template-essay</id><content type="html" xml:base="http://localhost:4000/essays/essay-title-here/"><![CDATA[<p>Write your opening paragraph here. This should introduce the theme, question, or tension clearly and elegantly.</p>
 
 <p>Write your second paragraph here. It should explain why the subject matters intellectually, socially, historically, or personally.</p>
 
@@ -451,7 +468,7 @@ Passivity, however, is not.</strong>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>Close with a distilled insight, final argument, or memorable ending.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[A short description of the essay.]]></summary></entry><entry><title type="html">First Essay Title</title><link href="http://0.0.0.0:4000/2026/03/03/first-essay.html" rel="alternate" type="text/html" title="First Essay Title" /><published>2026-03-03T00:00:00+00:00</published><updated>2026-03-03T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/03/03/first-essay</id><content type="html" xml:base="http://0.0.0.0:4000/2026/03/03/first-essay.html"><![CDATA[<p>The concept of exponential growth is often misunderstood.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+<p>Close with a distilled insight, final argument, or memorable ending.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[A short description of the essay.]]></summary></entry><entry><title type="html">First Essay Title</title><link href="http://localhost:4000/2026/03/03/first-essay.html" rel="alternate" type="text/html" title="First Essay Title" /><published>2026-03-03T00:00:00+00:00</published><updated>2026-03-03T00:00:00+00:00</updated><id>http://localhost:4000/2026/03/03/first-essay</id><content type="html" xml:base="http://localhost:4000/2026/03/03/first-essay.html"><![CDATA[<p>The concept of exponential growth is often misunderstood.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
 
 <p>This miscalculation has consequences in finance, technology, and population dynamics.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
 

@@ -8,17 +8,32 @@ essay: true
 math: true
 ---
 
+<style>
+  .post-header{
+    display:none;
+  }
+</style>
 
-<div style="margin-top:2.5rem;"></div>
+<div style="height:120px;"></div>
 
-<div align="center">
+<h1 style="text-align:center; font-size:3rem; line-height:1.15; letter-spacing:0.18em; font-weight:400; margin:0 auto; max-width:800px;">
+  Change, Cognition, and Communication
+</h1>
 
-Technological tools rarely remain merely tools.  
-Once integrated into society, they reorganize the conditions under which human cognition and cooperation operate.
+<div style="height:160px;"></div>
 
+<div style="text-align:center; font-size:20px; letter-spacing:0.12em; opacity:0.85; margin:0 auto; color:B8B8B8;">
+Mar 7, 2026
 </div>
 
-<div style="margin-top:2.5rem;"></div>
+<div style="height:40px;"></div>
+
+<div style="text-align:center; max-width:900px; margin:0 auto; font-size:22px; line-height:1.7; letter-spacing:0.08em; font-style:Normal;">
+Technological tools rarely remain merely tools.  
+Once integrated into society, they reorganize the conditions under which human cognition and cooperation operate.
+</div>
+
+<div style="height:80px;"></div>
 
 ## Introduction
 
@@ -49,6 +64,7 @@ Fire could both protect and destroy. Writing altered memory but enabled cumulati
 <p style="text-indent:2em;">
 The task, therefore, is not to determine whether these tools are <strong>“good” or “bad.”</strong> Such binary judgments rarely capture the complexity of technological transformation. A more useful approach is to examine how tools reorganize the environments in which human behavior unfolds. By studying these structural transitions, it becomes possible to better understand how societies adapt—and how they might respond more deliberately when the next transformation arrives.
 </p>
+
 <div style="margin-top:3rem;"></div>
 
 ## Structural Transitions in Human History
@@ -109,10 +125,8 @@ Anthropologist <strong>Richard Wrangham</strong> argues that cooking increased e
 </p>
 
 <div align="center" style="margin-top:1.5rem; margin-bottom:1.5rem;">
-
 “Fire was humanity’s first major energy technology, transforming both diet and social organization.”  
 — Wrangham (2009)
-
 </div>
 
 <p style="margin:0;">
@@ -154,10 +168,8 @@ With writing, knowledge could be externalized and accumulated across generations
 ### Plato’s Concern About Writing
 
 <div align="center" style="margin-top:1.5rem; margin-bottom:1.5rem;">
-
 “This invention will produce forgetfulness in the minds of those who learn to use it.”  
-— Plato, *Phaedrus*
-
+— Plato, <em>Phaedrus</em>
 </div>
 
 <p style="margin:0;">
@@ -274,9 +286,17 @@ The difference lies in the <strong>scale, speed, and automation</strong> of thes
 
 <div align="center" style="margin-top:2rem; margin-bottom:2rem;">
 
+Given
 $$
-P = \prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n}
+P=\prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n},
+\qquad S_c=4.00\times10^7,\quad N=10^4,
 $$
+compute \(P\) and express it in the form
+$$
+P=10^{-10^{c}}.
+$$
+
+> ---
 
 </div>
 
@@ -291,9 +311,7 @@ Where:
 </ul>
 
 <div align="center" style="margin-top:2rem; margin-bottom:2rem;">
-
 <strong>Small structural changes can compound across networks and generate large-scale social outcomes.</strong>
-
 </div>
 
 <p style="text-indent:2em;">
@@ -325,10 +343,8 @@ The question is <strong>how consciously societies respond to it</strong>.
 </p>
 
 <div align="center" style="margin-top:2rem;">
-
 <strong>Change may be inevitable.  
 Passivity, however, is not.</strong>
-
 </div>
 
 <div style="margin-top:4rem;"></div>
@@ -337,15 +353,14 @@ Passivity, however, is not.</strong>
 
 <div style="margin-top:1.5rem;"></div>
 
-Barabási, A.-L. (2016). *Network science*. Cambridge University Press.
+Barabási, A.-L. (2016). <em>Network science</em>. Cambridge University Press.
 
-Goody, J. (1987). *The interface between the written and the oral*. Cambridge University Press.
+Goody, J. (1987). <em>The interface between the written and the oral</em>. Cambridge University Press.
 
-Ong, W. J. (1982). *Orality and literacy: The technologizing of the word*. Routledge.
+Ong, W. J. (1982). <em>Orality and literacy: The technologizing of the word</em>. Routledge.
 
-Tufekci, Z. (2017). *Twitter and tear gas: The power and fragility of networked protest*. Yale University Press.
+Tufekci, Z. (2017). <em>Twitter and tear gas: The power and fragility of networked protest</em>. Yale University Press.
 
-Wrangham, R. (2009). *Catching fire: How cooking made us human*. Basic Books.
+Wrangham, R. (2009). <em>Catching fire: How cooking made us human</em>. Basic Books.
 
-Zuboff, S. (2019). *The age of surveillance capitalism*. PublicAffairs.
-
+Zuboff, S. (2019). <em>The age of surveillance capitalism</em>. PublicAffairs.

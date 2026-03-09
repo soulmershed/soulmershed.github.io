@@ -2,287 +2,153 @@
 layout: default
 ---
 
-{%- comment -%}
-============================================================
-ESSAY.HTML — CLEAN GUIDED VERSION
-
-PURPOSE
-- Uses a dedicated essay shell so essay-only SCSS can target it cleanly
-- Keeps reader settings panel
-- Supports:
-  1) paragraph indentation except first paragraph
-  2) larger date
-  3) correct display equations with MathJax
-  4) clear spacing before headings
-  5) proper essay structure
-
-IMPORTANT
-- Most visual control should remain in your SCSS
-- This file provides the correct HTML structure for that SCSS
-
-HOW TO MODIFY THIS FILE
-- MODIFY: ARTICLE CLASSES
-- MODIFY: DATE FORMAT
-- MODIFY: OPTIONAL SUBTITLE / ABSTRACT / EPIGRAPH blocks
-- MODIFY: MATHJAX CONFIG
-- MODIFY: READER SETTINGS PANEL LABELS / OPTIONS
-
-REQUIRED SCSS HOOKS USED HERE
-- .essay-post
-- .essay-reader-shell
-- .essay-reader-header
-- .essay-reader-title
-- .essay-reader-meta
-- .essay-reader-subtitle
-- .essay-reader-abstract
-- .essay-reader-epigraph
-- .essay-reader-content
-
-NOTES
-- Paragraph indentation itself is controlled in SCSS, not HTML
-- The first paragraph without indentation is also controlled in SCSS
-- Gap before headings is controlled in SCSS
-- Correct equations depend on MathJax + writing equations in valid syntax
-============================================================
-{%- endcomment -%}
-
 <article class="essay-reader-page theme-white font-ebgaramond spacing-medium text-black{% if page.essay %} essay-post{% endif %}">
-  {%- comment -%}
-  ============================================================
-  READER SETTINGS TOGGLE
-  MODIFY: button label if desired
-  ============================================================
-  {%- endcomment -%}
-  <button
-    class="reader-settings-toggle"
+
+<button
+  class="reader-settings-toggle"
     id="readerToggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="readerPanel"
-    aria-label="Open reader settings"
-  >
-    Aa
-  </button>
+      type="button"
+        aria-expanded="false"
+          aria-controls="readerPanel"
+            aria-label="Open reader settings"
+            >
+            Aa
+            </button>
 
-  {%- comment -%}
-  ============================================================
-  READER SETTINGS PANEL
-  MODIFY: options / labels as needed
-  ============================================================
-  {%- endcomment -%}
-  <aside class="reader-settings-panel" id="readerPanel" hidden>
-    <div class="reader-settings-inner">
-      <h2>Reader settings</h2>
+            <aside class="reader-settings-panel" id="readerPanel" hidden>
+              <div class="reader-settings-inner">
 
-      <div class="reader-control">
-        <label for="pageTheme">Page color</label>
-        <select id="pageTheme">
-          <option value="white">White</option>
-          <option value="cream">Cream</option>
-          <option value="darkblue">Dark blue</option>
-          <option value="black">Black</option>
-        </select>
-      </div>
+                  <h2>Reader settings</h2>
 
-      <div class="reader-control">
-        <label for="fontFamily">Font type</label>
-        <select id="fontFamily">
-          <option value="ebgaramond">EB Garamond</option>
-          <option value="times">Times New Roman</option>
-          <option value="georgia">Georgia</option>
-        </select>
-      </div>
+                      <div class="reader-control">
+                            <label for="pageTheme">Page color</label>
+                                  <select id="pageTheme">
+                                          <option value="white">White</option>
+                                                  <option value="cream">Cream</option>
+                                                          <option value="darkblue">Dark blue</option>
+                                                                  <option value="black">Black</option>
+                                                                        </select>
+                                                                            </div>
 
-      <div class="reader-control">
-        <label for="fontSize">Font size</label>
-        <input id="fontSize" type="range" min="16" max="28" step="1" value="21">
-        <span class="reader-note" id="fontSizeValue">21 px</span>
-      </div>
+                                                                                <div class="reader-control">
+                                                                                      <label for="fontFamily">Font type</label>
+                                                                                            <select id="fontFamily">
+                                                                                                    <option value="ebgaramond">EB Garamond</option>
+                                                                                                            <option value="times">Times New Roman</option>
+                                                                                                                    <option value="georgia">Georgia</option>
+                                                                                                                          </select>
+                                                                                                                              </div>
 
-      <div class="reader-control">
-        <label for="fontColor">Font color</label>
-        <select id="fontColor">
-          <option value="auto">Automatic</option>
-          <option value="black">Black</option>
-          <option value="darkgray">Dark gray</option>
-          <option value="white">White</option>
-          <option value="creamtext">Cream</option>
-        </select>
-      </div>
+                                                                                                                                  <div class="reader-control">
+                                                                                                                                        <label for="fontSize">Font size</label>
+                                                                                                                                              <input id="fontSize" type="range" min="16" max="28" step="1" value="21">
+                                                                                                                                                    <span class="reader-note" id="fontSizeValue">21 px</span>
+                                                                                                                                                        </div>
 
-      <div class="reader-control">
-        <label for="lineSpacing">Line spacing</label>
-        <select id="lineSpacing">
-          <option value="narrow">Narrow</option>
-          <option value="medium">Medium</option>
-          <option value="wide">Wide</option>
-        </select>
-      </div>
-    </div>
-  </aside>
+                                                                                                                                                            <div class="reader-control">
+                                                                                                                                                                  <label for="fontColor">Font color</label>
+                                                                                                                                                                        <select id="fontColor">
+                                                                                                                                                                                <option value="auto">Automatic</option>
+                                                                                                                                                                                        <option value="black">Black</option>
+                                                                                                                                                                                                <option value="darkgray">Dark gray</option>
+                                                                                                                                                                                                        <option value="white">White</option>
+                                                                                                                                                                                                                <option value="creamtext">Cream</option>
+                                                                                                                                                                                                                      </select>
+                                                                                                                                                                                                                          </div>
 
-  {%- comment -%}
-  ============================================================
-  ESSAY SHELL
-  This wrapper is the main width controller
-  SCSS target: .essay-reader-shell
-  ============================================================
-  {%- endcomment -%}
-  <div class="essay-reader-shell">
+                                                                                                                                                                                                                              <div class="reader-control">
+                                                                                                                                                                                                                                    <label for="lineSpacing">Line spacing</label>
+                                                                                                                                                                                                                                          <select id="lineSpacing">
+                                                                                                                                                                                                                                                  <option value="narrow">Narrow</option>
+                                                                                                                                                                                                                                                          <option value="medium">Medium</option>
+                                                                                                                                                                                                                                                                  <option value="wide">Wide</option>
+                                                                                                                                                                                                                                                                        </select>
+                                                                                                                                                                                                                                                                            </div>
 
-    {%- comment -%}
-    ============================================================
-    ESSAY HEADER
-    Contains title, optional subtitle, date, abstract, epigraph
-    SCSS target: .essay-reader-header
-    ============================================================
-    {%- endcomment -%}
-    <header class="essay-reader-header">
+                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                              </aside>
 
-      {%- comment -%}
-      ------------------------------------------------------------
-      MAIN TITLE
-      SCSS target: .essay-reader-title
-      MODIFY: leave as page.title unless needed otherwise
-      ------------------------------------------------------------
-      {%- endcomment -%}
-      <h1 class="essay-reader-title">{{ page.title }}</h1>
 
-      {%- comment -%}
-      ------------------------------------------------------------
-      OPTIONAL SUBTITLE
-      To use in front matter:
-      subtitle: Fire, Writing, and Social Media as Structural Transitions
-      ------------------------------------------------------------
-      {%- endcomment -%}
-      {% if page.subtitle %}
-        <p class="essay-reader-subtitle">{{ page.subtitle }}</p>
-      {% endif %}
+                                                                                                                                                                                                                                                                              <div class="essay-reader-shell">
 
-      {%- comment -%}
-      ------------------------------------------------------------
-      DATE
-      MODIFY: date format here
-      EXAMPLES:
-      "%Y-%m-%d"         -> 2026-03-08
-      "%b %-d, %Y"       -> Mar 8, 2026
-      "%B %-d, %Y"       -> March 8, 2026
-      Larger date appearance is controlled in SCSS
-      SCSS target: .essay-reader-meta
-      ------------------------------------------------------------
-      {%- endcomment -%}
-      {% if page.date %}
-        <p class="essay-reader-meta">
-          <time datetime="{{ page.date | date_to_xmlschema }}">
-            {{ page.date | date: "%b %-d, %Y" }}
-          </time>
-        </p>
-      {% endif %}
+                                                                                                                                                                                                                                                                              <header
+                                                                                                                                                                                                                                                                                class="essay-reader-header"
+                                                                                                                                                                                                                                                                                  style="margin-top: {{ page.title_gap | default: '200px' }};"
+                                                                                                                                                                                                                                                                                  >
 
-      {%- comment -%}
-      ------------------------------------------------------------
-      OPTIONAL ABSTRACT
-      To use in front matter:
-      abstract: >
-        This essay examines...
-      SCSS target: .essay-reader-abstract
-      ------------------------------------------------------------
-      {%- endcomment -%}
-      {% if page.abstract %}
-        <div class="essay-reader-abstract">
-          <p>{{ page.abstract }}</p>
-        </div>
-      {% endif %}
+                                                                                                                                                                                                                                                                                  <h1 class="essay-reader-title">
+                                                                                                                                                                                                                                                                                  {{ page.title }}
+                                                                                                                                                                                                                                                                                  </h1>
 
-      {%- comment -%}
-      ------------------------------------------------------------
-      OPTIONAL EPIGRAPH
-      To use in front matter:
-      epigraph: "Text..."
-      epigraph_source: "Author or source"
-      SCSS target: .essay-reader-epigraph
-      ------------------------------------------------------------
-      {%- endcomment -%}
-      {% if page.epigraph %}
-        <figure class="essay-reader-epigraph">
-          <blockquote>
-            <p>{{ page.epigraph }}</p>
-          </blockquote>
-          {% if page.epigraph_source %}
-            <figcaption>{{ page.epigraph_source }}</figcaption>
-          {% endif %}
-        </figure>
-      {% endif %}
-    </header>
+                                                                                                                                                                                                                                                                                  {% if page.subtitle %}
+                                                                                                                                                                                                                                                                                  <p class="essay-reader-subtitle">
+                                                                                                                                                                                                                                                                                  {{ page.subtitle }}
+                                                                                                                                                                                                                                                                                  </p>
+                                                                                                                                                                                                                                                                                  {% endif %}
 
-    {%- comment -%}
-    ============================================================
-    ESSAY BODY
-    This is where markdown content is inserted
-    SCSS target: .essay-reader-content
+                                                                                                                                                                                                                                                                                  {% if page.date %}
+                                                                                                                                                                                                                                                                                  <p
+                                                                                                                                                                                                                                                                                    class="essay-reader-meta"
+                                                                                                                                                                                                                                                                                      style="font-size: {{ page.date_size | default: '18px' }};"
+                                                                                                                                                                                                                                                                                      >
+                                                                                                                                                                                                                                                                                      <time datetime="{{ page.date | date_to_xmlschema }}">
+                                                                                                                                                                                                                                                                                      {{ page.date | date: "%b %-d, %Y" }}
+                                                                                                                                                                                                                                                                                      </time>
+                                                                                                                                                                                                                                                                                      </p>
+                                                                                                                                                                                                                                                                                      {% endif %}
 
-    IMPORTANT FOR ESSAYS
-    - Paragraph indentation is controlled in SCSS
-    - First paragraph with no indent is controlled in SCSS
-    - Gap before headings is controlled in SCSS
-    - Tables, blockquotes, equations, references are styled through SCSS
-    ============================================================
-    {%- endcomment -%}
-    <section class="essay-reader-content" aria-label="Essay content">
-      {{ content }}
-    </section>
-  </div>
-</article>
+                                                                                                                                                                                                                                                                                      {% if page.abstract %}
+                                                                                                                                                                                                                                                                                      <div class="essay-reader-abstract">
+                                                                                                                                                                                                                                                                                      <p>{{ page.abstract }}</p>
+                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                      {% endif %}
 
-{%- comment -%}
-============================================================
-MATHJAX CONFIG
-This enables proper rendering for equations.
+                                                                                                                                                                                                                                                                                      {% if page.epigraph %}
+                                                                                                                                                                                                                                                                                      <figure class="essay-reader-epigraph">
 
-USE THESE IN MARKDOWN:
-Inline math:
-\( E = mc^2 \)
+                                                                                                                                                                                                                                                                                      <blockquote>
+                                                                                                                                                                                                                                                                                      <p>{{ page.epigraph }}</p>
+                                                                                                                                                                                                                                                                                      </blockquote>
 
-Display math:
-$$
-P=\prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n}
-$$
+                                                                                                                                                                                                                                                                                      {% if page.epigraph_source %}
+                                                                                                                                                                                                                                                                                      <figcaption>{{ page.epigraph_source }}</figcaption>
+                                                                                                                                                                                                                                                                                      {% endif %}
 
-or:
-\[
-P=\prod_{n=0}^{N}\left(\frac{1}{S_c}\right)^{2^n}
-\]
+                                                                                                                                                                                                                                                                                      </figure>
+                                                                                                                                                                                                                                                                                      {% endif %}
 
-IMPORTANT
-- Do not place LaTeX inside fenced code blocks
-- Do not escape it unnecessarily
-- Keep MathJax loaded after content
-============================================================
-{%- endcomment -%}
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      packages: { '[+]': ['noerrors'] }
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0'
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-  };
-</script>
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+                                                                                                                                                                                                                                                                                      </header>
 
-{%- comment -%}
-============================================================
-READER SETTINGS SCRIPT
-Keeps your custom reader controls working
-============================================================
-{%- endcomment -%}
-<script src="{{ '/assets/js/reader-settings.js' | relative_url }}"></script>
+
+                                                                                                                                                                                                                                                                                      <section class="essay-reader-content" aria-label="Essay content">
+                                                                                                                                                                                                                                                                                      {{ content }}
+                                                                                                                                                                                                                                                                                      </section>
+
+                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                      </article>
+
+
+                                                                                                                                                                                                                                                                                      <script>
+                                                                                                                                                                                                                                                                                      window.MathJax = {
+                                                                                                                                                                                                                                                                                      tex: {
+                                                                                                                                                                                                                                                                                      inlineMath: [['\\(','\\)']],
+                                                                                                                                                                                                                                                                                      displayMath: [['$$','$$'],['\\[','\\]']],
+                                                                                                                                                                                                                                                                                      processEscapes: true,
+                                                                                                                                                                                                                                                                                      packages: {'[+]':['noerrors']}
+                                                                                                                                                                                                                                                                                      },
+                                                                                                                                                                                                                                                                                      chtml: {
+                                                                                                                                                                                                                                                                                      scale: 1.0,
+                                                                                                                                                                                                                                                                                      displayAlign: 'center',
+                                                                                                                                                                                                                                                                                      displayIndent: '0'
+                                                                                                                                                                                                                                                                                      },
+                                                                                                                                                                                                                                                                                      options:{
+                                                                                                                                                                                                                                                                                      skipHtmlTags:['script','noscript','style','textarea','pre','code']
+                                                                                                                                                                                                                                                                                      }
+                                                                                                                                                                                                                                                                                      };
+                                                                                                                                                                                                                                                                                      </script>
+
+                                                                                                                                                                                                                                                                                      <script async
+                                                                                                                                                                                                                                                                                      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+                                                                                                                                                                                                                                                                                      </script>
+
+                                                                                                                                                                                                                                                                                      <script src="{{ '/assets/js/reader-settings.js' | relative_url }}"></script>
