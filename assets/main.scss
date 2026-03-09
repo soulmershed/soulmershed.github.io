@@ -343,7 +343,7 @@ body:has(.home-hero){
 .bio-layout{
   display:grid;
   grid-template-columns:520px 1fr; /* MODIFY: left column width */
-  gap:80px;                        /* MODIFY: gap between photo and text */
+  gap:0px;                        /* MODIFY: gap between photo and text */
   align-items:start;
   width:100%;
   margin:0 !important;
@@ -367,7 +367,7 @@ body:has(.home-hero){
 
 /* Text block */
 .bio-content{
-  max-width:640px;
+  max-width:900px;
   margin:0 auto;
   padding:160px 24px 0 24px; /* MODIFY: top right bottom left */
   display:flex;
@@ -383,7 +383,7 @@ body:has(.home-hero){
 }
 
 .bio-role{
-  font-size:1.05rem;
+  font-size:1.25rem;
   letter-spacing:0.22em;
   color:#9a9a9a;
   margin-bottom:28px;
@@ -392,9 +392,66 @@ body:has(.home-hero){
 /* Keep biography paragraphs centered inside bio content only */
 .bio-content p{
   text-align:center;
-  max-width:680px;
+  max-width:900px;
   margin-left:36px;
   margin-right:36px;
+}
+
+/* BIO PAGE LAYOUT */
+
+.bio-layout{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  min-height:100vh;   /* ensures layout fills screen */
+  margin:0;
+  padding:0;
+}
+
+/* PHOTO SIDE */
+
+.bio-photo{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+.bio-photo img{
+  display:block;
+  width:75%;
+  height:100%;
+  object-fit:cover;   /* fills the column */
+}
+
+/* TEXT SIDE */
+
+.bio-content{
+  display:flex;
+  align-items:center; /* vertical centering of text */
+  padding:40px;
+}
+
+/* REMOVE EXTRA SPACE FROM PAGE WRAPPER */
+
+.page-content{
+  padding-bottom:0 !important;
+}
+
+.wrapper{
+  max-width:none;
+}
+
+@media (max-width:900px){
+
+  .bio-layout{
+    grid-template-columns:1fr;
+    min-height:100vh;
+  }
+
+  .bio-photo img{
+    height:60vh;   /* prevents long empty space below */
+    object-fit:cover;
+  }
+
 }
 
 /* ============================================================

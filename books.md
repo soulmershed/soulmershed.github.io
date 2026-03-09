@@ -4,33 +4,36 @@ title: Books
 permalink: /books/
 ---
 
-<!-- ==========================================================
-BOOK ENTRY
-To control the book title size we wrap it in a custom class.
+<style>
+  .post-header{
+    display:none;
+  }
+</style>
 
-You can change the text normally.
-The size will be controlled from main.scss using .book-title
-========================================================== -->
+<div style="height:80px;"></div>
 
-<p class="book-title">
-Society and Social Media
-</p>
+<h1 style="text-align:center; font-size:42px; letter-spacing:0.12em; font-weight:400; margin:0;">
+  Books
+</h1>
 
-<!-- ==========================================================
-BOOK DESCRIPTION
-You can modify this normally.
-Optional: use class "book-description" for styling control.
-========================================================== -->
+<div style="height:120px;"></div>
 
-<p class="book-description">
-Exploring cognition, reinforcement systems, and structural amplification.
-</p>
+<div style="max-width:900px; margin:0 auto;">
 
-<!-- ==========================================================
-PLACEHOLDER TEXT
-You can freely modify this.
-========================================================== -->
+  <div style="font-size:32px; letter-spacing:0.06em; font-weight:400;">
+    Society and Social Media
+  </div>
 
-<p class="book-note">
-More titles forthcoming.
-</p>
+  <div style="text-align:center; height:18px;"></div>
+
+  <div style="font-size:18px; line-height:1.7; letter-spacing:0.03em; color:#c8ced6;">
+    Exploring cognition, reinforcement systems, and structural amplification.
+  </div>
+
+  <div style="height:50px;"></div>
+
+  <div style="font-size:17px; opacity:0.7;">
+    More titles forthcoming.
+  </div>
+
+</div>
