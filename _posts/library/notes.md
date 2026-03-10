@@ -14,6 +14,11 @@ git push
 ```bash
 bundle exec jekyll serve
 ```
+### Prefered colors
+
+#ad8e37
+#969696
+#ffffff
 
 ## Useful Links
 - [Codespace](https://opulent-bassoon-5g65jq7x4x6xc7pq9.github.dev/)
