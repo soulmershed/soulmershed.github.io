@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-03-12T12:39:26+00:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">S B Mershed Press</title><subtitle>Essays on cognition, systems, and structural dynamics</subtitle><entry><title type="html">Change, Cognition, and Communication</title><link href="http://0.0.0.0:4000/essays/change-cognition-communication/" rel="alternate" type="text/html" title="Change, Cognition, and Communication" /><published>2026-03-12T00:00:00+00:00</published><updated>2026-03-12T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/change-cognition-communication</id><content type="html" xml:base="http://0.0.0.0:4000/essays/change-cognition-communication/"><![CDATA[<style>
+---
+layout: post
+title: "Change, Cognition, and Communication"
+date: 2026-03-12
+permalink: /essays/change-cognition-communication/
+excerpt: "Fire, writing, and social media illustrate how technological tools restructure human environments and cognition."
+essay: true
+math: true
+---
+
+
+<style>
   .post-header{
     display:none;
   }
@@ -55,63 +66,3 @@ Fire could both protect and destroy. Writing altered memory but enabled cumulati
 <p style="text-align:justify; text-indent:2em; font-size:1.3rem; line-height:1.9; letter-spacing:0.06em; font-weight:0; hyphens:auto; margin-bottom:0; color:#ffffff">
 The task, therefore, is not to determine whether these tools are <strong>“good” or “bad.”</strong> Such binary judgments rarely capture the complexity of technological transformation. A more useful approach is to examine how tools reorganize the environments in which human behavior unfolds. By studying these structural transitions, it becomes possible to better understand how societies adapt—and how they might respond more deliberately when the next transformation arrives.
 </p>
-</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Fire, writing, and social media illustrate how technological tools restructure human environments and cognition.]]></summary></entry><entry><title type="html">Essay Title Here</title><link href="http://0.0.0.0:4000/essays/essay-title-here/" rel="alternate" type="text/html" title="Essay Title Here" /><published>2026-03-07T00:00:00+00:00</published><updated>2026-03-07T00:00:00+00:00</updated><id>http://0.0.0.0:4000/essays/template-essay</id><content type="html" xml:base="http://0.0.0.0:4000/essays/essay-title-here/"><![CDATA[<p>Write your opening paragraph here. This should introduce the theme, question, or tension clearly and elegantly.</p>
-
-<p>Write your second paragraph here. It should explain why the subject matters intellectually, socially, historically, or personally.</p>
-
-<h2 id="framing-the-question">Framing the Question</h2>
-
-<p>Set up the central problem, concept, or perspective here.</p>
-
-<p>Add a paragraph that defines the terms or provides background if needed.</p>
-
-<h2 id="main-argument">Main Argument</h2>
-
-<p>Present the first major claim or line of analysis here.</p>
-
-<p>Develop the claim with explanation, example, or evidence.</p>
-
-<h2 id="extension-or-counterpoint">Extension or Counterpoint</h2>
-
-<p>Add nuance, contrast, limitation, or a second perspective.</p>
-
-<blockquote>
-  <p>Optional quotation or highlighted passage.</p>
-</blockquote>
-
-<h2 id="implications">Implications</h2>
-
-<p>Explain why the argument matters beyond the page.</p>
-
-<p>Relate it to society, culture, politics, technology, or human behavior if relevant.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Close with a distilled insight, final argument, or memorable ending.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[A short description of the essay.]]></summary></entry><entry><title type="html">First Essay Title</title><link href="http://0.0.0.0:4000/2026/03/03/first-essay.html" rel="alternate" type="text/html" title="First Essay Title" /><published>2026-03-03T00:00:00+00:00</published><updated>2026-03-03T00:00:00+00:00</updated><id>http://0.0.0.0:4000/2026/03/03/first-essay</id><content type="html" xml:base="http://0.0.0.0:4000/2026/03/03/first-essay.html"><![CDATA[<p>The concept of exponential growth is often misunderstood.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-
-<p>This miscalculation has consequences in finance, technology, and population dynamics.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
-
-<h2 id="structural-consequences">Structural Consequences</h2>
-
-<p>When reinforcement systems compound, they reshape incentives over time.<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
-
-<hr />
-
-<p>Start with a strong opening paragraph. Keep paragraphs short for web reading.</p>
-
-<h2 id="optional-section-heading">Optional section heading</h2>
-
-<p>Continue here.</p>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Arthur, W. B. (1994). Increasing returns and path dependence in the economy. University of Michigan Press. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p>Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3" role="doc-endnote">
-      <p>Meadows, D. (2008). Thinking in systems: A primer. Chelsea Green Publishing. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[The concept of exponential growth is often misunderstood.1 Arthur, W. B. (1994). Increasing returns and path dependence in the economy. University of Michigan Press. &#8617;]]></summary></entry></feed>
