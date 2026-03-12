@@ -1,0 +1,103 @@
+.post-header{
+display:none;
+}
+
+.essay-graph-page{
+background:#0f1012;
+color:#f5efe6;
+min-height:200vh;
+font-family:'EB Garamond', serif;
+}
+
+
+/* HERO PANEL */
+
+.essay-hero{
+position:sticky;
+top:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10;
+pointer-events:none;
+}
+
+.essay-hero-inner{
+text-align:center;
+transition:transform 0.2s linear, opacity 0.2s linear;
+}
+
+.essay-hero-title{
+font-size:clamp(3rem,8vw,6rem);
+margin:0 0 20px 0;
+font-weight:500;
+}
+
+.essay-hero-subtitle{
+font-size:clamp(1.2rem,2.4vw,1.6rem);
+max-width:700px;
+margin:auto;
+opacity:0.9;
+}
+
+
+/* GRAPH AREA */
+
+.essay-graph-shell{
+margin-top:-100vh;
+}
+
+#essayGraph{
+height:100vh;
+width:100%;
+}
+
+
+/* CONTROLS */
+
+.essay-graph-controls{
+position:fixed;
+top:24px;
+right:24px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:20;
+}
+
+.essay-graph-controls input,
+.essay-graph-controls select,
+.essay-graph-controls button{
+
+padding:8px 12px;
+background:#16171a;
+border:1px solid rgba(255,255,255,0.15);
+color:#f5efe6;
+border-radius:6px;
+}
+
+
+/* TOOLTIP */
+
+.graph-tooltip{
+position:fixed;
+pointer-events:none;
+background:#141519;
+border:1px solid rgba(255,255,255,0.12);
+border-radius:8px;
+padding:10px 14px;
+max-width:260px;
+opacity:0;
+transition:opacity .15s;
+}
+
+.graph-tooltip-title{
+font-size:1rem;
+margin-bottom:4px;
+}
+
+.graph-tooltip-subtitle{
+font-size:.9rem;
+opacity:.85;
+}
