@@ -9,16 +9,16 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Essays on cognition, systems, and structural dynamics" />
 <meta property="og:description" content="Essays on cognition, systems, and structural dynamics" />
-<link rel="canonical" href="http://0.0.0.0:4000/essays/" />
-<meta property="og:url" content="http://0.0.0.0:4000/essays/" />
+<link rel="canonical" href="http://localhost:4000/essays/" />
+<meta property="og:url" content="http://localhost:4000/essays/" />
 <meta property="og:site_name" content="S B Mershed Press" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Essays" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Essays on cognition, systems, and structural dynamics","headline":"Essays","url":"http://0.0.0.0:4000/essays/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Essays on cognition, systems, and structural dynamics","headline":"Essays","url":"http://localhost:4000/essays/"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="S B Mershed Press" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="S B Mershed Press" /></head>
 <body><header class="site-header">
 
 <div class="wrapper">
@@ -93,53 +93,45 @@ Links
   </header>
 
   <div class="post-content">
-    <p>A dated archive of essays and research notes.</p>
+    <link rel="stylesheet" href="/assets/css/essay-graph.css" />
 
-<ul class="post-list">
-  
-    <li>
-      <span class="post-meta">2026-03-12</span>
-      <h3>
-        <a class="post-link" href="/essays/change-cognition-communication/">Change, Cognition, and Communication</a>
-      </h3>
+<div class="essay-graph-page">
 
-      
-        <p>Fire, writing, and social media illustrate how technological tools restructure human environments and cognition.</p>
-      
-    </li>
-  
-    <li>
-      <span class="post-meta">2026-03-07</span>
-      <h3>
-        <a class="post-link" href="/essays/essay-title-here/">Essay Title Here</a>
-      </h3>
+  <section class="essay-hero" id="essayHero">
+    <div class="essay-hero-inner">
+      <h1 class="essay-hero-title">Essays</h1>
+      <p class="essay-hero-subtitle">
+        An evolving map of connected thoughts, themes, and inquiries.
+      </p>
+    </div>
+  </section>
 
-      
-        <p>A short description of the essay.</p>
-      
-    </li>
-  
-    <li>
-      <span class="post-meta">2026-03-03</span>
-      <h3>
-        <a class="post-link" href="/2026/03/03/first-essay.html">First Essay Title</a>
-      </h3>
+  <section class="essay-graph-shell">
+    <div class="essay-graph-controls">
+      <input type="text" id="graphSearch" placeholder="Search essays" />
 
-      
-        <p>The concept of exponential growth is often misunderstood.1
+      <select id="graphClusterFilter">
+        <option value="all">All themes</option>
+        <option value="neuroscience">Neuroscience</option>
+        <option value="behavioral">Behavior</option>
+        <option value="systems">Systems</option>
+        <option value="social">Social media</option>
+        <option value="history">History</option>
+      </select>
 
+      <button id="graphReset">Reset</button>
+    </div>
 
-  
-    
-      Arthur, W. B. (1994). Increasing returns and path dependence in the economy. University of Michigan Press. &#8617;
-    
-  
+    <div id="essayGraph"></div>
+    <div id="graphTooltip" class="graph-tooltip"></div>
+  </section>
 
-</p>
-      
-    </li>
-  
-</ul>
+</div>
+
+<script src="https://unpkg.com/force-graph"></script>
+
+<script src="/assets/js/essay-graph.js"></script>
+
 
   </div>
 
